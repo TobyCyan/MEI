@@ -357,6 +357,8 @@ GameObject:
   - component: {fileID: 1224882518}
   - component: {fileID: 1224882517}
   - component: {fileID: 1224882516}
+  - component: {fileID: 1224882521}
+  - component: {fileID: 1224882520}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -503,6 +505,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224882520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224882515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ad7000112cb7a459435bec2e0a889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundDistance: 0.05
+  wallDistance: 0.5
+  ceilingDistance: 0.05
+  castFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  switches: 1
+  _isGrounded: 0
+  _isOnWall: 0
+--- !u!114 &1224882521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224882515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c7842f7c34a7c40a20bd0d6f8697a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 0
+  walkSpeed: 5
+  runSpeed: 8
+  airWalkSpeed: 3
+  exit: 0
+  _isMoving: 0
+  _isRunning: 0
+  touchingDirection: {fileID: 0}
+  _isFacingRight: 1
+  jumpImpulse: 8.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
