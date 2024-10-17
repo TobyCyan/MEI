@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class Sample_PlayerController : MonoBehaviour
 {
     private Vector2 moveInput;
     private Rigidbody2D rb;
@@ -96,14 +96,12 @@ public class PlayerController : MonoBehaviour
         private set
         {
             _isRunning = value;
-            animator?.SetBool("isRunning", value)
+            animator?.SetBool("isRunning", value);
         }
     }
 
     private void Awake()
     {
-
-
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
@@ -115,7 +113,6 @@ public class PlayerController : MonoBehaviour
         float moveVelocity = moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveInput.x * moveVelocity, rb.velocity.y);
         animator.SetFloat("yVelocity", rb.velocity.y);
-
     }
 
     public void stopInput()
