@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider;
     private PlayerInput playerInput;
     public int weight = 0;
+    private Vector2 boxSize = new Vector2(0.1f, 1f);
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float airWalkSpeed = 3f;
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
         private set
         {
             _isRunning = value;
-            animator?.SetBool("isRunning", value)
+            animator?.SetBool("isRunning", value);
         }
     }
 
@@ -176,6 +177,31 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
+        }
+    }
+
+    public void OpenInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CheckInteraction();
+        }
+    }
+
+    public void CheckInteraction()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, boxSize, 0, Vector2.zero);
+
+        if (hits.Length > 0)
+        {
+            foreach (RaycastHit2D rc in hits)
+            {
+                Interactable interactable = rc.transform.GetComponent<Interactable>();
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
         }
     }
 
