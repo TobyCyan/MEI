@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe032c341742ada478843776649f9106, type: 3}
   m_Name: Calendar
   m_EditorClassIdentifier: 
+  itemName: Calendar
+  icon: {fileID: 7570606729766983220, guid: b79fb00df4a37264e96f2b188645e7b5, type: 3}
