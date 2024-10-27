@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
 
-    public GameObject InventoryMenu;
+    public GameObject inventoryMenu;
     private bool inventoryActivated = false;
+    public InventoryManager inventoryManager;   
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +21,18 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory"))
         {
-            Debug.Log("I is pressed.");
+            Debug.Log("I is pressed");
             if (!inventoryActivated)
             {
-                InventoryMenu.SetActive(true);
+                inventoryMenu.SetActive(true);
                 inventoryActivated = true;
+                inventoryManager.ListItems();
             }
             else
             {
-                InventoryMenu.SetActive(false);
+                inventoryMenu.SetActive(false);
                 inventoryActivated = false;
+                inventoryManager.DestroyItems();
             }
         }
     }

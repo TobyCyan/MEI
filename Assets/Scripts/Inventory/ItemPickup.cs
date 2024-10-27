@@ -20,8 +20,11 @@ public class ItemPickup : MonoBehaviour
 
     void Pickup()
     {
-        InventoryManager.Instance.Add(Item);
-        Destroy(gameObject); 
+        if (!InventoryManager.IsInventoryFull())
+        {
+            InventoryManager.Add(Item);
+            Destroy(gameObject);
+        }        
     }
 
     private void OnMouseDown()
