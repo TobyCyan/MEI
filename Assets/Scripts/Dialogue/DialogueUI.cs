@@ -16,7 +16,7 @@ public class DialogueUI : MonoBehaviour
     {
         _dialogueSpriteManager = GetComponent<DialogueSpriteManager>();
         _textTyping = GetComponent<TextTyping>();
-        _canvas = this.gameObject;
+        _canvas = gameObject;
         CloseDialogue(_dialogueLabel);
     }
 

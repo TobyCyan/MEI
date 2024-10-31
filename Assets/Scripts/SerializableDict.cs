@@ -4,6 +4,7 @@ using UnityEngine;
 
 /**
  * A custom serializable dictionary for storing the dialogue text and its corresponding dialogue sprite emotion as the value.
+ * IGNORE AS WE ARE GOING TO USE THE DIALOGUEINFOSTRUCT INSTEAD.
  */
 [Serializable]
 public class SerializableDialogueDict
