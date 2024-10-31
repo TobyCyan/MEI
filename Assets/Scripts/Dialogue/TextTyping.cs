@@ -4,7 +4,7 @@ using TMPro;
 
 public class TextTyping : MonoBehaviour
 {
-    [SerializeField] float typingSpeed = 0.5f;
+    [SerializeField] float typingSpeed = 12.0f;
 
     /** 
      * Starts the dialogue coroutine to type the dialogue in a type writer style.
@@ -20,7 +20,7 @@ public class TextTyping : MonoBehaviour
     private IEnumerator TypeDialogue(string dialogue, TMP_Text textLabel)
     {
         ClearTextLabel(textLabel);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         int index = 0;
         float time = 0.0f;
         int dialogueLength = dialogue.Length;
