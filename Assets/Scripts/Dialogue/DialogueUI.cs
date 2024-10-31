@@ -5,46 +5,52 @@ using UnityEngine;
 
 public class DialogueUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private TMP_Text _dialogueLabel;
+    [SerializeField] private TMP_Text _nameLabel;
 
+    private DialogueSpriteManager _dialogueSpriteManager;
     private GameObject _canvas;
     private TextTyping _textTyping;
 
-    private void Start()
+    private void Awake()
     {
+        _dialogueSpriteManager = GetComponent<DialogueSpriteManager>();
         _textTyping = GetComponent<TextTyping>();
         _canvas = this.gameObject;
-        CloseDialogue(textLabel);
-        // Testing call, delete later.
-        // RunDialogue();
+        CloseDialogue(_dialogueLabel);
     }
 
     /**
      * Starts the coroutine to run through each dialogue text in the provided text list.
+     * This should be called by an dialogue activator.
      */
-    public void RunDialogue(List<string> textList)
+    public IEnumerator RunDialogue(List<DialogueInfoStruct> textList)
     {
-        OpenDialogue(textLabel);
-        StartCoroutine(RunThroughEachDialogue(textList));
+        OpenDialogue(_dialogueLabel);
+        yield return StartCoroutine(RunThroughEachDialogue(textList));
     }
 
     /**
      * Runs each dialogue text from the list one by one,
      * and only proceeds when the player hits mouse left click or space bar.
      */
-    private IEnumerator RunThroughEachDialogue(List<string> textList)
+    private IEnumerator RunThroughEachDialogue(List<DialogueInfoStruct> textList)
     {
 
-        foreach (string text in textList)
+        foreach (DialogueInfoStruct textEmotionPair in textList)
         {
-            yield return _textTyping.StartDialogue(text, textLabel);
+            // Set the dialogue sprite according to the emotion value of the dialogue information struct.
+            _dialogueSpriteManager.ActivateDialogueSprite(textEmotionPair.emotion);
+            // Set the dialogue name label according to the character value of the dialogue information struct.
+            _nameLabel.text = textEmotionPair.character.ToString();
+            yield return _textTyping.StartDialogue(textEmotionPair.text, _dialogueLabel);
 
             // Wait for some time before taking another input to move on in case the player prompted to skip current dialogue text.
             yield return new WaitForSeconds(0.25f);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
         }
 
-        CloseDialogue(textLabel);
+        CloseDialogue(_dialogueLabel);
     }
 
     /**

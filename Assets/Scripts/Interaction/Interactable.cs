@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour
 {
     public abstract void Interact();
 
-    [SerializeField] private GameObject Interaction;
+    [SerializeField] private GameObject _interaction;
 
     private void Reset()
     {
@@ -17,9 +17,9 @@ public abstract class Interactable : MonoBehaviour
 
     private void Start()
     {
-        if (Interaction != null)
+        if (_interaction != null)
         {
-            Interaction.SetActive(false);
+            _interaction.SetActive(false);
         }
     }
 
@@ -29,7 +29,7 @@ public abstract class Interactable : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            if (Interaction != null)
+            if (_interaction != null)
             {
                 OpenInterableIcon();
             }
@@ -41,7 +41,7 @@ public abstract class Interactable : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            if (Interaction != null)
+            if (_interaction != null)
             {
                 CloseInterableIcon();
             }
@@ -50,17 +50,17 @@ public abstract class Interactable : MonoBehaviour
 
     public void OpenInterableIcon()
     {
-        if (Interaction != null)
+        if (_interaction != null)
         {
-            Interaction.SetActive(true);
+            _interaction.SetActive(true);
         }
     }
 
     public void CloseInterableIcon()
     {
-        if (Interaction != null)
+        if (_interaction != null)
         {
-            Interaction.SetActive(false);
+            _interaction.SetActive(false);
         }
     }
 }

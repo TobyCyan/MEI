@@ -4,21 +4,41 @@ using UnityEngine;
 
 /**
  * Attach this script to any interactable that has dialogue on it.
+ * The dialogue text list should be customizable to every dialogue interactables' needs.
+ * Make sure to attach the dialogue canvas object.
  */
 public class DialogueActivator : MonoBehaviour
 {
-    [SerializeField] private List<string> dialogueTextList;
-    [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private Canvas _dialogueCanvas;
+    [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
+    private PlayerController _player;
+    private DialogueUI _dialogueUI;
+    private bool isInteractCDOver = true;
+
+    private void Awake()
+    {
+        _dialogueUI = _dialogueCanvas.GetComponent<DialogueUI>();
+        _player = FindAnyObjectByType<PlayerController>();
+    }
 
     /**
      * Activates the dialogue with the given dialogue text list.
-     * TODO: Link to the interaction script to activate dialogue upon interaction.
+     * This should be called by an dialogue interactable.
      */
-    public void ActivateDialogue()
+    public IEnumerator ActivateDialogue()
     {
-        if (dialogueUI != null)
+        if (_dialogueUI != null && isInteractCDOver)
         {
-            dialogueUI.RunDialogue(dialogueTextList);
+            // Activate the dialogue cooldown and stopping the player from moving.
+            isInteractCDOver = false;
+            _player.StopPlayerMovement();
+
+            yield return _dialogueUI.RunDialogue(_dialogueTextEmotionStructList);
+
+            _player.ResumePlayerMovement();
+            // Wait for some time before can interact again.
+            yield return new WaitForSeconds(0.5f);
+            isInteractCDOver = true;
         }
     }
 }
