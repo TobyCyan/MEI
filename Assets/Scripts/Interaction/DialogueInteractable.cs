@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 /**
  * Attach this script to any interactable that has dialogue on it.
  * Make sure to attach the Dialogue Activator too.
