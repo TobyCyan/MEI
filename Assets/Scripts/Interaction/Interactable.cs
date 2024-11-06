@@ -1,9 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public abstract class Interactable : MonoBehaviour
 {
-    public abstract void Interact();
+    public abstract IEnumerator Interact();
 
     [SerializeField] private GameObject _interaction;
 

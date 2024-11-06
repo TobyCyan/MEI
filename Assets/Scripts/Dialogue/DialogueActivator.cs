@@ -14,11 +14,13 @@ public class DialogueActivator : MonoBehaviour
     private PlayerController _player;
     private DialogueUI _dialogueUI;
     private bool isInteractCDOver = true;
+    private bool _isPopUpInteractable;
 
     private void Awake()
     {
         _dialogueUI = _dialogueCanvas.GetComponent<DialogueUI>();
         _player = FindAnyObjectByType<PlayerController>();
+        _isPopUpInteractable = GetComponent<PopUpInteractable>() != null;
     }
 
     /**
@@ -35,9 +37,9 @@ public class DialogueActivator : MonoBehaviour
 
             yield return _dialogueUI.RunDialogue(_dialogueTextEmotionStructList);
 
-            _player.ResumePlayerMovement();
             // Wait for some time before can interact again.
             yield return new WaitForSeconds(0.5f);
+            _player.ResumePlayerMovement();
             isInteractCDOver = true;
         }
     }

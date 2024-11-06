@@ -20,7 +20,7 @@ public class Openable : Interactable
         CloseInterableIcon();
     }
 
-    public override void Interact()
+    public override IEnumerator Interact()
     {
         if (isOpen)
         {
@@ -32,6 +32,7 @@ public class Openable : Interactable
         }
 
         isOpen = !isOpen;
+        yield return null;
     }
     // Update is called once per frame
     void Update()
