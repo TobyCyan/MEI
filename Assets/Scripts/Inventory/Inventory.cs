@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private GameObject _inventoryMenu;
+    private bool _inventoryActivated = false;
+    private PlayerController _player;
+    private InventoryManager _inventoryManager;
 
-    public GameObject inventoryMenu;
-    private bool inventoryActivated = false;
-    public InventoryManager inventoryManager;   
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        _player = FindAnyObjectByType<PlayerController>();
+        _inventoryManager = GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -22,17 +22,17 @@ public class Inventory : MonoBehaviour
         if (Input.GetButtonDown("Inventory"))
         {
             Debug.Log("I is pressed");
-            if (!inventoryActivated)
+            if (!_inventoryActivated && _player.IsPlayerActive())
             {
-                inventoryMenu.SetActive(true);
-                inventoryActivated = true;
-                inventoryManager.ListItems();
+                _inventoryMenu.SetActive(true);
+                _inventoryActivated = true;
+                _inventoryManager.ListItems();
             }
             else
             {
-                inventoryMenu.SetActive(false);
-                inventoryActivated = false;
-                inventoryManager.DestroyItems();
+                _inventoryMenu.SetActive(false);
+                _inventoryActivated = false;
+                _inventoryManager.DestroyItems();
             }
         }
     }

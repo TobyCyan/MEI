@@ -14,13 +14,11 @@ public class DialogueActivator : MonoBehaviour
     private PlayerController _player;
     private DialogueUI _dialogueUI;
     private bool isInteractCDOver = true;
-    private bool _isPopUpInteractable;
 
     private void Awake()
     {
         _dialogueUI = _dialogueCanvas.GetComponent<DialogueUI>();
         _player = FindAnyObjectByType<PlayerController>();
-        _isPopUpInteractable = GetComponent<PopUpInteractable>() != null;
     }
 
     /**

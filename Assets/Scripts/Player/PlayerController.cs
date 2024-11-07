@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private Vector3 _target;
-    private bool _isActive = true;
+    private bool _isActive { set; get; }
     private bool _isInteracting = false;
 
     // Start is called before the first frame update
@@ -15,13 +15,14 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = ScenePlayerInfo.scenePlayerPosition;
         _target = transform.position;
+        _isActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Pause any controls when player is inactive.
-        if (!_isActive || _isInteracting)
+        if (!_isActive)
         {
             return;
         }
@@ -85,5 +86,10 @@ public class PlayerController : MonoBehaviour
     public void ResumePlayerMovement()
     {
         _isActive = true;
+    }
+
+    public bool IsPlayerActive()
+    {
+        return _isActive;
     }
 }

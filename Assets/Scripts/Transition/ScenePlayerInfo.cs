@@ -5,5 +5,5 @@ using UnityEngine;
  */
 public static class ScenePlayerInfo
 {
-    public static Vector3 scenePlayerPosition = new Vector3(5.3f, -2.58f, -1.0f);
+    public static Vector3 scenePlayerPosition = new Vector3(9.94f, -2.58f, -1.0f);
 }
