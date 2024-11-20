@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,12 +23,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Pause any controls when player is inactive.
-        if (!_isActive)
+        if (!_isActive || _isInteracting)
         {
             return;
         }
-
-        CheckForMouseInput();
+        CheckForInteractableClick();
+        CheckForMouseInput();      
+        MoveToMousePosition();
     }
 
     private void CheckForMouseInput()
@@ -40,8 +42,6 @@ public class PlayerController : MonoBehaviour
         {
             _target = new Vector3(mousePos.x, _target.y, _target.z);
         }
-
-        MoveToMousePosition();
     }
 
     private void MoveToMousePosition()
@@ -50,32 +50,41 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * speed);
     }
 
-    private IEnumerator OnTriggerStay2D(Collider2D collider)
+    private void CheckForInteractableClick()
     {
-        // Checks for interactable objects upon collision stay.
-        // This prevents the raycast from being called if it is not colliding with an interactable.
-        Interactable[] interactables = collider.gameObject.GetComponents<Interactable>();
-        if (_isInteracting || interactables.Length == 0)
-        {
-            // Use yield break to terminate the coroutine entirely.
-            yield break;
-        }
-
         // Shoot out ray from mouse position and check if there is an interactable.
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D[] hit = Physics2D.RaycastAll(mousePos, Vector2.zero, Mathf.Infinity);
-        bool isInteractableHit = hit.Length > 0 && hit.Any(obj => obj.collider.GetComponent<Interactable>() != null);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity);
 
+        if (hit.collider == null)
+        {
+            return;
+        }
+
+        // Checks for interaction manager.
+        // This prevents the raycast from being called if it is not colliding with an interactable.
+        InteractionManager interactionManager = hit.collider.gameObject.GetComponent<InteractionManager>();
+        bool isInteractableHit = interactionManager != null;
         if (isInteractableHit && Input.GetMouseButton(0))
         {
-            _isInteracting = true;
-            // Interact if there's an interactable object and player left clicks on it.
-            foreach (Interactable interactable in interactables)
-            {
-                yield return StartCoroutine(interactable.Interact());
-            }
-            _isInteracting = false;
+            _target = new Vector3(mousePos.x, _target.y, _target.z);
+            // Move towards the interactable if there's an interactable object and player left clicks on it.
+            StartCoroutine(GoToInteractableAndInteract(interactionManager));
         }
+    }
+
+    private IEnumerator GoToInteractableAndInteract(InteractionManager manager)
+    {
+        // Set player status as interacting the moment player decides to move towards the interactable.
+        _isInteracting = true;
+        while (transform.position != _target)
+        {
+            // Wait for movement to target.
+            MoveToMousePosition();
+            yield return null;
+        }
+        yield return StartCoroutine(manager.GoThroughInteractions());
+        _isInteracting = false;
     }
     
     public void StopPlayerMovement()

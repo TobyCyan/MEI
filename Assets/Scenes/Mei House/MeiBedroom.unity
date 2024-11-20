@@ -839,11 +839,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4340539383612703542, guid: ef9bab49b1e42aa4eba41b12071319e4, type: 3}
   m_PrefabInstance: {fileID: 763261583}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &763261585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4340539383612703543, guid: ef9bab49b1e42aa4eba41b12071319e4, type: 3}
+--- !u!114 &763261586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4340539383612703545, guid: ef9bab49b1e42aa4eba41b12071319e4, type: 3}
   m_PrefabInstance: {fileID: 763261583}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f07b96075a94f4c897343a8aa477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1079160364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,16 +1448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueCanvas: {fileID: 555074839}
-  _dialogueTextEmotionStructList:
-  - text: Another day of school...
-    emotion: 1
-    character: 0
-  - text: What day is it again?
-    emotion: 4
-    character: 0
-  - text: "Not like I have much to look forward to anyways\u2026"
-    emotion: 1
-    character: 0
 --- !u!114 &1447442805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1460,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9fac85a8a78844795b62ff94b3f256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueTextEmotionStructList:
+  - text: '*yawns*'
+    emotion: 1
+    character: 0
+  - text: Another day of school...
+    emotion: 1
+    character: 0
+  - text: Not like I look forward to it anyways...
+    emotion: 4
+    character: 0
 --- !u!1 &1615058177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1481,11 @@ GameObject:
   - component: {fileID: 1615058179}
   - component: {fileID: 1615058178}
   - component: {fileID: 1615058181}
+  - component: {fileID: 1615058184}
   - component: {fileID: 1615058180}
+  - component: {fileID: 1615058183}
+  - component: {fileID: 1615058182}
+  - component: {fileID: 1615058185}
   m_Layer: 0
   m_Name: Bedroom_Closet_1
   m_TagString: Untagged
@@ -1563,8 +1573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interaction: {fileID: 0}
-  _fadeEffect: {fileID: 763261585}
-  _fadeDuration: 0
+  _fadeEffect: {fileID: 763261586}
+  _fadeDuration: 2
 --- !u!61 &1615058181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1610,6 +1620,71 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 1.56}
   m_EdgeRadius: 0
+--- !u!114 &1615058182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615058177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interaction: {fileID: 0}
+  _isInteracted: 0
+  _dialogueTextEmotionStructList:
+  - text: All done! Time to go downstairs.
+    emotion: 3
+    character: 0
+--- !u!114 &1615058183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615058177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interaction: {fileID: 0}
+  _isInteracted: 0
+  _dialogueTextEmotionStructList:
+  - text: I should get changed.
+    emotion: 1
+    character: 0
+--- !u!114 &1615058184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615058177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactables:
+  - {fileID: 1615058183}
+  - {fileID: 1615058180}
+  - {fileID: 1615058182}
+--- !u!114 &1615058185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615058177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f861ac4cd46764e4e9eb007e79672dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueCanvas: {fileID: 555074839}
 --- !u!1 &1658023796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,9 +2087,10 @@ GameObject:
   - component: {fileID: 1998659175}
   - component: {fileID: 1998659174}
   - component: {fileID: 1998659173}
-  - component: {fileID: 1998659177}
+  - component: {fileID: 1998659179}
   - component: {fileID: 1998659176}
   - component: {fileID: 1998659178}
+  - component: {fileID: 1998659180}
   m_Layer: 0
   m_Name: Calendar
   m_TagString: Untagged
@@ -2148,19 +2224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interaction: {fileID: 0}
   _isInteracted: 0
---- !u!114 &1998659177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998659172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f861ac4cd46764e4e9eb007e79672dde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueCanvas: {fileID: 555074839}
   _dialogueTextEmotionStructList:
   - text: Today is...
     emotion: 1
@@ -2189,6 +2252,34 @@ MonoBehaviour:
   _interaction: {fileID: 0}
   _sprite: {fileID: 8565856260042928230, guid: b79fb00df4a37264e96f2b188645e7b5, type: 3}
   _activator: {fileID: 1087554254}
+--- !u!114 &1998659179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998659172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactables:
+  - {fileID: 1998659176}
+  - {fileID: 1998659178}
+--- !u!114 &1998659180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998659172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f861ac4cd46764e4e9eb007e79672dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueCanvas: {fileID: 555074839}
 --- !u!1 &2021596418
 GameObject:
   m_ObjectHideFlags: 0

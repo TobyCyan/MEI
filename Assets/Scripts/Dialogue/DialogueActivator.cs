@@ -10,34 +10,29 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour
 {
     [SerializeField] private Canvas _dialogueCanvas;
-    [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
-    private PlayerController _player;
     private DialogueUI _dialogueUI;
     private bool isInteractCDOver = true;
 
     private void Awake()
     {
         _dialogueUI = _dialogueCanvas.GetComponent<DialogueUI>();
-        _player = FindAnyObjectByType<PlayerController>();
     }
 
     /**
      * Activates the dialogue with the given dialogue text list.
      * This should be called by an dialogue interactable.
      */
-    public IEnumerator ActivateDialogue()
+    public IEnumerator ActivateDialogue(List<DialogueInfoStruct> dialogueInfo)
     {
         if (_dialogueUI != null && isInteractCDOver)
         {
             // Activate the dialogue cooldown and stopping the player from moving.
             isInteractCDOver = false;
-            _player.StopPlayerMovement();
 
-            yield return _dialogueUI.RunDialogue(_dialogueTextEmotionStructList);
+            yield return _dialogueUI.RunDialogue(dialogueInfo);
 
             // Wait for some time before can interact again.
             yield return new WaitForSeconds(0.5f);
-            _player.ResumePlayerMovement();
             isInteractCDOver = true;
         }
     }

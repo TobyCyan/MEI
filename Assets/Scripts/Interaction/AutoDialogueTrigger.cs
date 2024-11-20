@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class AutoDialogueTrigger : MonoBehaviour
 {
+    [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
     private DialogueActivator _activator;
     private bool _hasInteracted;
 
@@ -20,10 +21,12 @@ public class AutoDialogueTrigger : MonoBehaviour
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        bool isPlayerEnter = collision.CompareTag("Player");
-        if (!_hasInteracted && isPlayerEnter)
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (!_hasInteracted && player != null)
         {
-            yield return StartCoroutine(_activator.ActivateDialogue());
+            player.StopPlayerMovement();
+            yield return StartCoroutine(_activator.ActivateDialogue(_dialogueTextEmotionStructList));
+            player.ResumePlayerMovement();
             _hasInteracted = true;
         }
     }
