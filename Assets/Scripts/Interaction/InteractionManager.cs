@@ -26,5 +26,5 @@ public class InteractionManager : MonoBehaviour
         }
         _player.ResumePlayerMovement();
         yield break;
-    }
+    } 
 }
