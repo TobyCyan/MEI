@@ -5,19 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 public class Item : ScriptableObject
 {
-    [SerializeField] private string _itemName;
-    public Sprite icon;
-    // TODO: Fill in values needed for each item
+    new public string name = "default name";
+    public string description = "default description";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /* Sprite that is displayed in the inventory slot. */
+    public Sprite icon = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /* Sprite that is displayed when player inspects the item from the inventory. */
+    public Sprite detailedSprite = null;
+
 }
