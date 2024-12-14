@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mei House/MeiLivingRoom.unity
     guid: 36705ed0ace1a0443897458fffc74738
+  - enabled: 1
+    path: Assets/Scenes/School/OutsideMeiClassroom.unity
+    guid: 47f8c5a58af1530489728710e6ff82c5
+  - enabled: 1
+    path: Assets/Scenes/School/MeiClassroom.unity
+    guid: 08ee561f05995de45b754fc591b26e94
   m_configObjects: {}

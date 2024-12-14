@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +15,8 @@ public class SceneTransition : Interactable
 
     public override IEnumerator Interact()
     {
-        yield return TransitionScene();
+        Debug.Log("Scene");
+        yield return StartCoroutine(TransitionScene());
     }
 
     private IEnumerator TransitionScene()
