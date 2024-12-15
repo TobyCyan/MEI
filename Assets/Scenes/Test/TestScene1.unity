@@ -713,8 +713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interaction: {fileID: 0}
-  _scenePath: 
-  _newScenePlayerPosX: 0
+  _scenePath: TestScene2
+  _newScenePlayerPosX: -9
 --- !u!61 &660780570
 BoxCollider2D:
   m_ObjectHideFlags: 0
