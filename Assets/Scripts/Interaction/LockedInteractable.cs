@@ -21,7 +21,6 @@ public class LockedInteractable : Interactable
         if (m_IsLocked)
         {
             // TODO: Add logic here for unlocking the door with key, alongside the dialogue after unlocking, then discarding the key.
-            Debug.Log("Locked");
             yield return StartCoroutine(m_LockedDialogue.Interact());
         }
         else
