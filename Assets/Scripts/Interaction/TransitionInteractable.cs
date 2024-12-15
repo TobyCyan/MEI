@@ -46,6 +46,8 @@ public class TransitionInteractable : Interactable
         _fadeEffect.pingPongDelay = _fadeDuration;
         _fadeEffect.pingPong = _isPingPong;
         _fadeEffect.disableWhenFinish = _disableWhenFinish;
+        _fadeEffect.firstColor = Color.clear;
+        _fadeEffect.lastColor = Color.black;
        
         _fadeEffect.gameObject.SetActive(true);
         if (_startAudio != null )
