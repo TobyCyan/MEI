@@ -109,6 +109,10 @@ public class PlayerController : MonoBehaviour
     public void StopPlayerMovement()
     {
         _isActive = false;
+        if (_walkingAudio.isPlaying)
+        {
+            _walkingAudio.Stop();
+        }
     }
     
     public void ResumePlayerMovement()
