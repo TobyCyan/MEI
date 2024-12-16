@@ -4,7 +4,11 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public abstract class Interactable : MonoBehaviour
 {
-    public abstract IEnumerator Interact();
+    public virtual IEnumerator Interact()
+    {
+        Debug.Log("Interacting with " + gameObject.name);
+        yield return null;
+    }
 
     [SerializeField] private GameObject _interaction;
 

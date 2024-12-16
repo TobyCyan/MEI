@@ -1,40 +1,39 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject _inventoryMenu;
-    private bool _inventoryActivated = false;
-    private PlayerController _player;
-    private InventoryManager _inventoryManager;
+    #region Singleton
+    public static Inventory Instance;
 
-    private void Start()
+    private void Awake()
     {
-        _player = FindAnyObjectByType<PlayerController>();
-        _inventoryManager = GetComponent<InventoryManager>();
+        if (Instance != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory");
+            return;
+        }
+        Instance = this;
     }
+    #endregion
 
-    // Update is called once per frame
+    [SerializeField] private List<Item> _items = new List<Item>();
+
     void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
+        
+    }
+
+    public void Add(Item item)
+    {
+        if (item != null)
         {
-            Debug.Log("I is pressed");
-            if (!_inventoryActivated && _player.IsPlayerActive())
-            {
-                _inventoryMenu.SetActive(true);
-                _inventoryActivated = true;
-                _inventoryManager.ListItems();
-            }
-            else
-            {
-                _inventoryMenu.SetActive(false);
-                _inventoryActivated = false;
-                _inventoryManager.DestroyItems();
-            }
+            _items.Add(item);
         }
     }
 
+    public void Remove(Item item)
+    {
+        _items.Remove(item);
+    }
 }
