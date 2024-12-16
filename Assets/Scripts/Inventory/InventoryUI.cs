@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
@@ -5,9 +6,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsContainer;
     private Inventory inventory;
     private InventorySlot[] slots;
-
-    // Only show the inventory UI after the player first picks up an item
-    private bool isShown = false;
+    private bool _isOpen = false;
 
     void Start()
     {
@@ -19,10 +18,6 @@ public class InventoryUI : MonoBehaviour
     private void UpdateUI()
     {
         Debug.Log("Updating inventory ui");
-        if (!isShown)
-        {
-            isShown = true;
-        }
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -35,5 +30,18 @@ public class InventoryUI : MonoBehaviour
                 slots[i].RemoveItem();
             }
         }
+    }
+
+    public void HandleClick()
+    {
+        if (_isOpen)
+        {
+            itemsContainer.DOLocalMove(new Vector3(-520, 0), 0.5f).SetEase(Ease.OutQuint);
+        }
+        else
+        {
+            itemsContainer.DOLocalMove(new Vector3(0, 0), 0.5f).SetEase(Ease.OutQuint);
+        }
+        _isOpen = !_isOpen;
     }
 }

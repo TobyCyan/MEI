@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     new public string name = "default name";
-    public string description = "default description";
+    [TextArea] public string description = "default description";
 
     /* Sprite that is displayed in the inventory slot. */
     public Sprite icon = null;
