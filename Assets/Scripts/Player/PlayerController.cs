@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             _target = new Vector3(mousePos.x, _target.y, _target.z);
 
             // Play walking audio if not already walking.
-            if (!_isWalking)
+            if (!_isWalking && !_walkingAudio.isPlaying)
             {
                 _walkingAudio.Play();
             }
