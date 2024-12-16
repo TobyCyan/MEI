@@ -17,6 +17,9 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
+    public delegate void OnItemChanged();
+    public event OnItemChanged OnItemChangedCallback;
+
     [SerializeField] private List<Item> _items = new List<Item>();
 
     void Update()
@@ -30,10 +33,14 @@ public class Inventory : MonoBehaviour
         {
             _items.Add(item);
         }
+
+        OnItemChangedCallback?.Invoke();
     }
 
     public void Remove(Item item)
     {
         _items.Remove(item);
+
+        OnItemChangedCallback?.Invoke();
     }
 }
