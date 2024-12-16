@@ -1,9 +1,17 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Transform itemsContainer;
+    [SerializeField] private Transform itemsContainer;
+
+    [SerializeField] private GameObject inspectPanel;
+    [SerializeField] private TextMeshProUGUI itemNameText;
+    [SerializeField] private TextMeshProUGUI itemDescriptionText;
+    [SerializeField] private Image itemDetailedImage;
+
     private Inventory inventory;
     private InventorySlot[] slots;
     private bool _isOpen = false;
@@ -11,11 +19,14 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventory = Inventory.Instance;
-        inventory.OnItemChangedCallback += UpdateUI;
+        inventory.OnItemChangedCallback += UpdateUi;
         slots = itemsContainer.GetComponentsInChildren<InventorySlot>();
+        UpdateUi();
+
+        inspectPanel.SetActive(false);
     }
 
-    private void UpdateUI()
+    private void UpdateUi()
     {
         Debug.Log("Updating inventory ui");
 
@@ -32,7 +43,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void HandleClick()
+    public void ToggleUi()
     {
         if (_isOpen)
         {
@@ -43,5 +54,18 @@ public class InventoryUI : MonoBehaviour
             itemsContainer.DOLocalMove(new Vector3(0, 0), 0.5f).SetEase(Ease.OutQuint);
         }
         _isOpen = !_isOpen;
+    }
+
+    public void InspectItem(Item item)
+    {
+        inspectPanel.SetActive(true);
+        itemNameText.text = item.name;
+        itemDescriptionText.text = item.description;
+        itemDetailedImage.sprite = item.detailedSprite;
+    }
+
+    public void CloseInspect()
+    {
+        inspectPanel.SetActive(false);
     }
 }

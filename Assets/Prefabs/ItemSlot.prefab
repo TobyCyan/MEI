@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8569438765237033351}
+  inventoryCanvas: {fileID: 0}
