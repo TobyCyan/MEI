@@ -42,7 +42,7 @@ public class DialogueUI : MonoBehaviour
             // Set the dialogue sprite according to the emotion value of the dialogue information struct.
             _dialogueSpriteManager.ActivateDialogueSprite(textEmotionPair.emotion);
             // Set the dialogue name label according to the character value of the dialogue information struct.
-            _nameLabel.text = textEmotionPair.character.ToString();
+            _nameLabel.text = textEmotionPair.character == CharacterEnum.Character.None ? "" : textEmotionPair.character.ToString();
             yield return _textTyping.StartDialogue(textEmotionPair.text, _dialogueLabel);
 
             // Wait for some time before taking another input to move on in case the player prompted to skip current dialogue text.

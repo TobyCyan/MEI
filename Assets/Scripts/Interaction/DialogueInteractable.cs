@@ -8,6 +8,7 @@ using System.Collections.Generic;
  */
 public class DialogueInteractable : Interactable
 {
+    [SerializeField] private bool _isAllowRepeatInteraction = false;
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
     private DialogueActivator _activator;
@@ -26,7 +27,10 @@ public class DialogueInteractable : Interactable
         {
             yield return StartCoroutine(_activator.ActivateDialogue(_dialogueTextEmotionStructList));
             // Dialogue won't pop up anymore after interaction.
-            _isInteracted = true;
+            if (!_isAllowRepeatInteraction)
+            {
+                _isInteracted = true;
+            }
         }
     }
 
