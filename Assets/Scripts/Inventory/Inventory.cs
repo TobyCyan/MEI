@@ -20,26 +20,26 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public event OnItemChanged OnItemChangedCallback;
 
-    [SerializeField] private List<Item> _items = new List<Item>();
+    // The inventory has a fixed size for now. This should be changed if the player is required to have
+    // more than 8 items at any point of time.
+    public int size = 8;
+    public List<Item> items = new List<Item>();
 
-    void Update()
+    public bool Add(Item item)
     {
-        
-    }
-
-    public void Add(Item item)
-    {
-        if (item != null)
+        if (items.Count >= size || item == null)
         {
-            _items.Add(item);
+            return false;
         }
 
+        items.Add(item);
         OnItemChangedCallback?.Invoke();
+        return true;
     }
 
     public void Remove(Item item)
     {
-        _items.Remove(item);
+        items.Remove(item);
 
         OnItemChangedCallback?.Invoke();
     }
