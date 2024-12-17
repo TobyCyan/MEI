@@ -144,7 +144,7 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: Hallway_0
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -164,7 +164,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Hallway_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -184,16 +184,56 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Hallway_2
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    spriteID: 75c7331387317194aac31c36c3e7f362
+      x: 63
+      y: 93
+      width: 34
+      height: 36
+    spriteID: 0ce8aaa0d91c33343bbe0d3aad5c19c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Hallway_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 37
+      y: 4
+      width: 67
+      height: 67
+    spriteID: e02f4ac3b9cd3e64c95490aa01315368
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Hallway_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 9
+      width: 64
+      height: 120
+    spriteID: 665c07ac32a61744487b84c12c8382cc
     spriteBone: []
     spriteOutline: []
     vertices: []
