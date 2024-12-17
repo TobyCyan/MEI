@@ -10,12 +10,11 @@ using UnityEngine.UI;
 public class PopUpActivator : MonoBehaviour
 {
     private GameObject _popUpCanvas;
-    private Image _image;
+    [SerializeField] private Image _image;
 
     private void Awake()
     {
         _popUpCanvas = gameObject;
-        _image = GetComponentInChildren<Image>();
         ClosePopUp();
     }
 

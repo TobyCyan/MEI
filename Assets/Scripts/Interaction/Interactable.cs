@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(InteractionManager))]
 public abstract class Interactable : MonoBehaviour
 {
     public virtual IEnumerator Interact()

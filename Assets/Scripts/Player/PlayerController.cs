@@ -3,9 +3,13 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System.Drawing;
+using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private AudioSource _walkingAudio;
+    private bool _isWalking = false;
     public float speed;
     private Vector3 _target;
     private bool _isActive { set; get; }
@@ -37,10 +41,18 @@ public class PlayerController : MonoBehaviour
         // Get the position of the mouse cursor
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // If left clicked, update x-coord of _target to x-coord of mousePos
+        // Player left-clicked.
         if (Input.GetMouseButton(0))
         {
+            // Update x-coord of _target to x-coord of mousePos.
             _target = new Vector3(mousePos.x, _target.y, _target.z);
+
+            // Play walking audio if not already walking.
+            if (!_isWalking && !_walkingAudio.isPlaying)
+            {
+                _walkingAudio.Play();
+            }
+            _isWalking = true;
         }
     }
 
@@ -48,6 +60,13 @@ public class PlayerController : MonoBehaviour
     {
         // Move towards _target position
         transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * speed);
+
+        // Once target is reached, stop walking audio.
+        if (transform.position.x == _target.x)
+        {
+            _isWalking = false;
+            _walkingAudio.Stop();
+        }
     }
 
     private void CheckForInteractableClick()
@@ -90,6 +109,10 @@ public class PlayerController : MonoBehaviour
     public void StopPlayerMovement()
     {
         _isActive = false;
+        if (_walkingAudio.isPlaying)
+        {
+            _walkingAudio.Stop();
+        }
     }
     
     public void ResumePlayerMovement()

@@ -18,8 +18,17 @@ public class DialogueSpriteManager : MonoBehaviour
         LoadSpritesIntoSpriteDict(sprites);
     }
 
+    /**
+     * Replaces the dialogue character sprite with the one passed in.
+     */
     public void ActivateDialogueSprite(EmotionEnum.Emotion emotion)
     {
+        if (emotion == EmotionEnum.Emotion.None)
+        {
+            _image.enabled = false;
+            return;
+        }
+        _image.enabled = true;
         _image.sprite = _spriteDict[emotion.ToString()];
     }
 

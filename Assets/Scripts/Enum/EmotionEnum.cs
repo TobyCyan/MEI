@@ -9,10 +9,12 @@ public class EmotionEnum : MonoBehaviour
 {
     public enum Emotion
     {
+        None,
         Mei_Despair,
         Mei_Neutral,
         Mei_Smiling1,
         Mei_Smiling2,
         Mei_Worried,
+        
     }
 }
