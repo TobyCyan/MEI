@@ -26,6 +26,11 @@ public class InventoryUI : MonoBehaviour
         inspectPanel.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        inventory.OnItemChangedCallback -= UpdateUi;
+    }
+
     private void UpdateUi()
     {
         Debug.Log("Updating inventory ui");
