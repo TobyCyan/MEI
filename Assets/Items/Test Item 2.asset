@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe032c341742ada478843776649f9106, type: 3}
   m_Name: Test Item 2
   m_EditorClassIdentifier: 
-  _itemName: Item 2
+  name: Item 2
+  description: Curious...
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  detailedSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}

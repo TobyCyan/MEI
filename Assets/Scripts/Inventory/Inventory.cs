@@ -1,40 +1,46 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject _inventoryMenu;
-    private bool _inventoryActivated = false;
-    private PlayerController _player;
-    private InventoryManager _inventoryManager;
+    #region Singleton
+    public static Inventory Instance;
 
-    private void Start()
+    private void Awake()
     {
-        _player = FindAnyObjectByType<PlayerController>();
-        _inventoryManager = GetComponent<InventoryManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Inventory"))
+        if (Instance != null)
         {
-            Debug.Log("I is pressed");
-            if (!_inventoryActivated && _player.IsPlayerActive())
-            {
-                _inventoryMenu.SetActive(true);
-                _inventoryActivated = true;
-                _inventoryManager.ListItems();
-            }
-            else
-            {
-                _inventoryMenu.SetActive(false);
-                _inventoryActivated = false;
-                _inventoryManager.DestroyItems();
-            }
+            Debug.LogWarning("More than one instance of Inventory");
+            return;
         }
+        Instance = this;
+    }
+    #endregion
+
+    public delegate void OnItemChanged();
+    public event OnItemChanged OnItemChangedCallback;
+
+    // The inventory has a fixed size for now. This should be changed if the player is required to have
+    // more than 8 items at any point of time.
+    public int size = 8;
+    public List<Item> items = new List<Item>();
+
+    public bool Add(Item item)
+    {
+        if (items.Count >= size || item == null)
+        {
+            return false;
+        }
+
+        items.Add(item);
+        OnItemChangedCallback?.Invoke();
+        return true;
     }
 
+    public void Remove(Item item)
+    {
+        items.Remove(item);
+
+        OnItemChangedCallback?.Invoke();
+    }
 }
