@@ -9,22 +9,19 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private List<Interactable> _interactables = new List<Interactable>();
-    private PlayerController _player;
-
-    private void Awake()
-    {
-        _player = FindAnyObjectByType<PlayerController>();
-    }
 
     public IEnumerator GoThroughInteractions()
     {
-        _player.StopPlayerMovement();
+        var player = PlayerController.Instance;
+        player.StopPlayerMovement();
+
         foreach (Interactable interactable in _interactables)
         {
             yield return StartCoroutine(interactable.Interact());
             yield return new WaitForSeconds(0.3f);
         }
-        _player.ResumePlayerMovement();
+
+        player.ResumePlayerMovement();
         yield break;
     } 
 }

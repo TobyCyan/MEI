@@ -1,18 +1,30 @@
-using System.Linq;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-using System.Drawing;
-using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Singleton
+    public static PlayerController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+    #endregion
+
     [SerializeField] private AudioSource _walkingAudio;
+    [SerializeField] private float speed;
     private bool _isWalking = false;
-    public float speed;
     private Vector3 _target;
-    private bool _isActive { set; get; }
+    private bool _isActive;
     private bool _isInteracting = false;
 
     // Start is called before the first frame update
@@ -118,10 +130,5 @@ public class PlayerController : MonoBehaviour
     public void ResumePlayerMovement()
     {
         _isActive = true;
-    }
-
-    public bool IsPlayerActive()
-    {
-        return _isActive;
     }
 }
