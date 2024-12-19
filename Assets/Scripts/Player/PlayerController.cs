@@ -1,10 +1,5 @@
-using System.Linq;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-using System.Drawing;
-using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
