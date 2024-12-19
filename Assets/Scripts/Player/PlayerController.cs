@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
@@ -43,8 +44,14 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        CheckForInteractableClick();
-        CheckForMouseInput();      
+
+        // If the mouse pointer is over a UI element, don't change target
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            CheckForInteractableClick();
+            CheckForMouseInput();
+        }
+          
         MoveToMousePosition();
     }
 
