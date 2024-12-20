@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
 
     void Awake()
     {
-        _player = FindAnyObjectByType<PlayerController>();
+        _player = PlayerController.Instance;
         _cam = GetComponent<Camera>();
     }
 
