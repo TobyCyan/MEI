@@ -21,6 +21,11 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        PlayerController.Instance.ResumePlayerMovement();
+    }
+
     public IEnumerator GoThroughInteractions()
     {
         var player = PlayerController.Instance;
@@ -33,7 +38,6 @@ public class InteractionManager : MonoBehaviour
         }
 
         player.ResumePlayerMovement();
-        yield break;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

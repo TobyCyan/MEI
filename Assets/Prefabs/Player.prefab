@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6428582890113136930}
   - component: {fileID: 7621748312620523070}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WalkingSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 6829551823400016818}
   - component: {fileID: 4174639344488089571}
   - component: {fileID: 8952798729155511228}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

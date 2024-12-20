@@ -7,9 +7,8 @@ public class ItemPickup : Interactable
 
     public override IEnumerator Interact()
     {
-        base.Interact();
         Pickup();
-        yield return null;
+        yield break;
     }
 
     void Pickup()
@@ -21,10 +20,5 @@ public class ItemPickup : Interactable
         {
             Destroy(gameObject);
         }
-    }
-
-    private void OnMouseDown()
-    {
-        Pickup();
     }
 }

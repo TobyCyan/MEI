@@ -10,7 +10,7 @@ public class InventorySlot : MonoBehaviour
     private Button _button;
     private bool _hasAddedItem = false;
 
-    private void Start()
+    private void Awake()
     {
         _inventoryCanvas = FindAnyObjectByType<InventoryUI>();
         _button = GetComponent<Button>();
