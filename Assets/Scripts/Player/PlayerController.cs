@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,15 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     private bool _isWalking = false;
     private Vector3 _target;
-    private bool _isActive;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.position = ScenePlayerInfo.scenePlayerPosition;
-        _target = transform.position;
-        _isActive = true;
-    }
+    private bool _isActive = true;
 
     // Update is called once per frame
     void Update()
@@ -49,6 +42,23 @@ public class PlayerController : MonoBehaviour
         
         MoveToTarget();
         PlayWalkSound();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneLoadedCallback;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneLoadedCallback;
+    }
+
+    private void SceneLoadedCallback(Scene scene, LoadSceneMode mode)
+    {
+        transform.position = ScenePlayerInfo.scenePlayerPosition;
+        _target = transform.position;
+        ResumePlayerMovement();
     }
 
     private void UpdateTarget()
