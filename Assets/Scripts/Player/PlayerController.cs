@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    [HideInInspector] public InteractionManager FocusedInteracable {  get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
     private bool _isWalking = false;
     private Vector3 _target;
     private bool _isActive;
-    private bool _isInteracting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +41,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Pause any controls when player is inactive.
-        if (!_isActive)
-        {
-            return;
-        }
-
         // If the mouse pointer is over a UI element, don't change target
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (_isActive && !EventSystem.current.IsPointerOverGameObject())
         {
             UpdateTarget();
         }
@@ -65,24 +60,25 @@ public class PlayerController : MonoBehaviour
             // Get the position of the mouse cursor
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(mouse.position.value);
             _target = new Vector3(mousePos.x, _target.y, _target.z);
-            _isInteracting = CheckForInteractable(mousePos);
-            Debug.Log($"{_target} {_isInteracting}");
+            SetFocus(GetInteractableAtPosition(mousePos));
         }
     }
 
-    private bool CheckForInteractable(Vector2 position)
+    /** <summary>
+     * Returns the InteractionManager at the specified position,
+     * or null if there is no InteractionManager at that position.
+    </summary> */
+    private InteractionManager GetInteractableAtPosition(Vector2 position)
     {
         // Shoot out ray from mouse position and check if there is an interactable.
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, Mathf.Infinity);
 
         if (hit.collider == null)
         {
-            return false;
+            return null;
         }
 
-        // Checks for interaction manager.
-        InteractionManager interactionManager = hit.collider.gameObject.GetComponent<InteractionManager>();
-        return interactionManager != null;
+        return hit.collider.gameObject.GetComponent<InteractionManager>();
     }
 
     private void MoveToTarget()
@@ -113,43 +109,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void CheckForInteractableClick()
-    //{
-    //    // Shoot out ray from mouse position and check if there is an interactable.
-    //    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity);
-
-    //    if (hit.collider == null)
-    //    {
-    //        return;
-    //    }
-
-    //    // Checks for interaction manager.
-    //    // This prevents the raycast from being called if it is not colliding with an interactable.
-    //    InteractionManager interactionManager = hit.collider.gameObject.GetComponent<InteractionManager>();
-    //    bool isInteractableHit = interactionManager != null;
-    //    if (isInteractableHit && Input.GetMouseButton(0))
-    //    {
-    //        _target = new Vector3(mousePos.x, _target.y, _target.z);
-    //        // Move towards the interactable if there's an interactable object and player left clicks on it.
-    //        StartCoroutine(GoToInteractableAndInteract(interactionManager));
-    //    }
-    //}
-
-    //private IEnumerator GoToInteractableAndInteract(InteractionManager manager)
-    //{
-    //    // Set player status as interacting the moment player decides to move towards the interactable.
-    //    _isInteracting = true;
-    //    while (transform.position != _target)
-    //    {
-    //        // Wait for movement to target.
-    //        MoveToTarget();
-    //        yield return null;
-    //    }
-    //    yield return StartCoroutine(manager.GoThroughInteractions());
-    //    _isInteracting = false;
-    //}
-
     public void StopPlayerMovement()
     {
         _isActive = false;
@@ -159,5 +118,16 @@ public class PlayerController : MonoBehaviour
     public void ResumePlayerMovement()
     {
         _isActive = true;
+        RemoveFocus();
+    }
+
+    public void SetFocus(InteractionManager interactionManager)
+    {
+        FocusedInteracable = interactionManager;
+    }
+
+    public void RemoveFocus()
+    {
+        FocusedInteracable = null;
     }
 }

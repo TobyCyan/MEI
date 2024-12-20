@@ -1,14 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
  * Manager for managing the order of which the interactable scripts will be called.
  */
+[RequireComponent(typeof(BoxCollider2D))]
 public class InteractionManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new List<Interactable>();
+
+    private void Start()
+    {
+        if (_interactionIcon != null)
+        {
+            _interactionIcon.SetActive(false);
+        }
+    }
 
     public IEnumerator GoThroughInteractions()
     {
@@ -23,5 +34,52 @@ public class InteractionManager : MonoBehaviour
 
         player.ResumePlayerMovement();
         yield break;
-    } 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (!collision.CompareTag("Player"))
+        {
+            return;
+        }
+
+        if (PlayerController.Instance.FocusedInteracable == this)
+        {
+            PlayerController.Instance.RemoveFocus();
+            StartCoroutine(GoThroughInteractions());
+        }
+        else if (_interactionIcon != null)
+        {
+            OpenInterableIcon();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Player"))
+        {
+            if (_interactionIcon != null)
+            {
+                CloseInterableIcon();
+            }
+        }
+    }
+
+    public void OpenInterableIcon()
+    {
+        if (_interactionIcon != null)
+        {
+            _interactionIcon.SetActive(true);
+        }
+    }
+
+    public void CloseInterableIcon()
+    {
+        if (_interactionIcon != null)
+        {
+            _interactionIcon.SetActive(false);
+        }
+    }
 }
