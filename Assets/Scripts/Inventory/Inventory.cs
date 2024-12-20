@@ -43,4 +43,9 @@ public class Inventory : MonoBehaviour
 
         OnItemChangedCallback?.Invoke();
     }
+
+    public bool Contains(Item item)
+    {
+        return items.Contains(item);
+    }
 }
