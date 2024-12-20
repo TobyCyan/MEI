@@ -21,13 +21,9 @@ public class InventoryUI : MonoBehaviour
         inspectPanel.SetActive(false);
 
         inventory = Inventory.Instance;
+        inventory.OnItemChangedCallback += UpdateUi;
         slots = itemsContainer.GetComponentsInChildren<InventorySlot>();
         UpdateUi();
-    }
-
-    void OnEnable()
-    {
-        Inventory.Instance.OnItemChangedCallback += UpdateUi;
     }
 
     void OnDisable()
