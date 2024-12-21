@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public InteractionManager FocusedInteracable {  get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
+    [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new Dictionary<PlayerState.State, bool>();
     private bool _isWalking = false;
     private Vector3 _target;
     private bool _isActive = true;
@@ -69,9 +71,14 @@ public class PlayerController : MonoBehaviour
         {
             // Get the position of the mouse cursor
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(mouse.position.value);
-            _target = new Vector3(mousePos.x, _target.y, _target.z);
+            SetTarget(new Vector3(mousePos.x, _target.y, _target.z));
             SetFocus(GetInteractableAtPosition(mousePos));
         }
+    }
+
+    public void SetTarget(Vector3 target)
+    {
+        _target = target;
     }
 
     /** <summary>
@@ -139,5 +146,18 @@ public class PlayerController : MonoBehaviour
     public void RemoveFocus()
     {
         FocusedInteracable = null;
+    }
+
+    public bool IsContainState(PlayerState.State state)
+    {
+        return _playerStates.ContainsKey(state);
+    }
+
+    public void AddPlayerState(PlayerState.State state)
+    {
+        if (!IsContainState(state))
+        {
+            _playerStates.Add(state, true);
+        }
     }
 }

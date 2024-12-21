@@ -12,6 +12,7 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new List<Interactable>();
+    [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
 
     private void Start()
     {
@@ -38,6 +39,12 @@ public class InteractionManager : MonoBehaviour
         }
 
         player.ResumePlayerMovement();
+        
+        // Add the new player state after completing the interaction.
+        if (_onCompletePlayerState != PlayerState.State.None)
+        {
+            player.AddPlayerState(_onCompletePlayerState);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

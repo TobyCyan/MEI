@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /**
@@ -15,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     private PlayerController _player;
     private Camera _cam;
 
-    void Awake()
+    void Start()
     {
         _player = PlayerController.Instance;
         _cam = GetComponent<Camera>();

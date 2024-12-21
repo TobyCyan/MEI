@@ -2,15 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /**
  * Conditional blocker to check if the player has already satisfied the given conditions.
  * Conditions could involve checking for specific items in the inventory and/ or adding a new "state" to the player singleton.
+ * All conditions implement the ICondition interface.
  */
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(DialogueActivator))]
 public class ConditionBlock : MonoBehaviour
 {
-    [SerializeField] private List<string> m_Conditions;
+    [SerializeField] private ICondition[] m_Conditions;
+
+    [Header("To specify conditions to check for, just add the ICondition components to this game object.")]
     [SerializeField] private bool m_IsSatisfied = false;
     [SerializeField] private List<DialogueInfoStruct> m_DialogueTextEmotionStructList;
     [SerializeField] private DialogueActivator m_Activator;
@@ -18,10 +22,18 @@ public class ConditionBlock : MonoBehaviour
 
     private float m_HalfWidth;
 
+    private void Awake()
+    {
+        // Might remove this if there are too many condition blocks in the game.
+        // Re-Checking if all conditions are satisfied may be better for performance in this case.
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         m_Activator = GetComponent<DialogueActivator>();
         m_HalfWidth = GetComponent<BoxCollider2D>().size.x / 2;
+        m_Conditions = GetComponents<ICondition>();
     }
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
@@ -37,12 +49,16 @@ public class ConditionBlock : MonoBehaviour
             yield break;
         }
 
-        // TODO Check if item exists.
-        // If satisfied, set the field as true.
-        // If not satisfied, trigger a dialogue and move player backwards.
-        if (false)
+        /**
+         * Check if conditions are satisfied.
+         * If satisfied, set the field as true.
+         * If not satisfied, trigger a dialogue and move player backwards
+         */
+        bool areConditionsSatisfied = CheckConditions();
+        
+        if (areConditionsSatisfied)
         {
-
+            m_IsSatisfied = true;
         }
         else
         {
@@ -51,6 +67,19 @@ public class ConditionBlock : MonoBehaviour
             MovePlayerBack(player);
             player.ResumePlayerMovement();
         }
+    }
+
+    private bool CheckConditions()
+    {
+        foreach (ICondition condition in m_Conditions)
+        {
+            bool isSatisfied = condition.CheckCond();
+            if (!isSatisfied)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -70,6 +99,9 @@ public class ConditionBlock : MonoBehaviour
         {
             player.transform.position = new Vector2(playerPos.x + m_HalfWidth, playerPos.y);
         }
+
+        // Reset the target position so that player does not keep moving towards the previous target.
+        player.SetTarget(player.transform.position);
     }
 
     /**
