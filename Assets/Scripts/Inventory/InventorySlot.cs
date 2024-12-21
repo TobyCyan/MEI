@@ -11,7 +11,10 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Item _item;
     private Button _button;
     private bool _hasItem = false;
+
     private Vector2 _startPosition;
+    [SerializeField] private Color defaultIconColor;
+    [SerializeField] private Color overInteractableIconColor;
 
     private void Awake()
     {
@@ -54,12 +57,24 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        icon.transform.position = Mouse.current.position.ReadValue();
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        icon.transform.position = mousePos;
+
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        if (PlayerController.GetInteractableAtPosition(mouseWorldPos) == null)
+        {
+            icon.color = overInteractableIconColor;
+        }
+        else
+        {
+            icon.color = defaultIconColor;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         icon.transform.SetParent(transform);
         icon.transform.position = _startPosition;
+        icon.color = defaultIconColor;
     }
 }

@@ -923,6 +923,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: defaultIconColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: defaultIconColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: defaultIconColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: defaultIconColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: overInteractableIconColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: overInteractableIconColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: overInteractableIconColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: overInteractableIconColor.r
+      value: 0.7254902
+      objectReference: {fileID: 0}
     - target: {fileID: 4601923505824975740, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1091,10 +1123,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1674492895729864297, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 144445358485579624, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}

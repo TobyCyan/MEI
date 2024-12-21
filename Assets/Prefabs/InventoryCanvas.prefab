@@ -104,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 3571531132999511783}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &813904647627252334
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +870,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1846358642978986814}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &2424339902812730479
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1828155024542915183}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &3134458813383664014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 817235372258692441}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &3723948846037415722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1756,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8497480488116366385}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &6361402214344359675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7062040497642525997}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &6822902005134715838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,6 +2168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7374015719896647102}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &7069981407940344346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 5216895665762285099}
+  defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
+  overInteractableIconColor: {r: 0.7254902, g: 0, b: 0, a: 0.78431374}
 --- !u!1 &8130524528301796477
 GameObject:
   m_ObjectHideFlags: 0
