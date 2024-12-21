@@ -420,17 +420,6 @@ MonoBehaviour:
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 202127986}
---- !u!114 &427305629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1621004344612879807, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
-  m_PrefabInstance: {fileID: 5819442612057175933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &437303190
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,10 +923,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
-      propertyPath: _button
-      value: 
-      objectReference: {fileID: 427305629}
     - target: {fileID: 4601923505824975740, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1106,8 +1091,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 1674492895729864297, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 144445358485579624, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Transform itemsContainer;
-
     [SerializeField] private GameObject inspectPanel;
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;

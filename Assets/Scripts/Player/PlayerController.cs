@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
      * Returns the InteractionManager at the specified position,
      * or null if there is no InteractionManager at that position.
     </summary> */
-    private InteractionManager GetInteractableAtPosition(Vector2 position)
+    public static InteractionManager GetInteractableAtPosition(Vector2 position)
     {
         // Shoot out ray from mouse position and check if there is an interactable.
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, Mathf.Infinity);

@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
     private InventoryUI _inventoryCanvas;
     private Item _item;
     private Button _button;
-    private bool _hasAddedItem = false;
+    private bool _hasItem = false;
+    private Vector2 _startPosition;
 
     private void Awake()
     {
@@ -22,7 +25,7 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = _item.icon;
         icon.enabled = true;
         _button.onClick.AddListener(ButtonCallback);
-        _hasAddedItem = true;
+        _hasItem = true;
     }
 
     public void RemoveItem()
@@ -30,14 +33,33 @@ public class InventorySlot : MonoBehaviour
         _item = null;
         icon.sprite = null;
         icon.enabled = false;
-        if (_hasAddedItem)
+        if (_hasItem)
         {
             _button.onClick.RemoveListener(ButtonCallback);
         }
+        _hasItem = false;
     }
 
     private void ButtonCallback()
     {
         _inventoryCanvas.InspectItem(_item);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _startPosition = icon.transform.position;
+        icon.transform.SetParent(transform.root);
+        icon.transform.SetAsLastSibling();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        icon.transform.position = Mouse.current.position.ReadValue();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        icon.transform.SetParent(transform);
+        icon.transform.position = _startPosition;
     }
 }

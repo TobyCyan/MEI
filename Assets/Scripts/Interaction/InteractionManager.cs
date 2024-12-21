@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
