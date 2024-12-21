@@ -1037,7 +1037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d159a1b12bb7d847a62925920f0a908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _fadeEffect: {fileID: 763261586}
   _isPingPong: 1
   _startAudio: {fileID: 1105033334}
@@ -1101,7 +1100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _isAllowRepeatInteraction: 0
   _isInteracted: 0
   _dialogueTextEmotionStructList:
@@ -1120,7 +1118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _isAllowRepeatInteraction: 0
   _isInteracted: 0
   _dialogueTextEmotionStructList:
@@ -1139,6 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 1615058183}
   - {fileID: 1615058180}
@@ -1164,6 +1162,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4735476348381293671, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.06
@@ -1174,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1208,8 +1210,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6911364090974361123, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7621748312620523070, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1396,7 +1414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _isAllowRepeatInteraction: 0
   _isInteracted: 0
   _dialogueTextEmotionStructList:
@@ -1424,7 +1441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b9509ebfa87714aab2d60864d7bf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   _sprite: {fileID: 8565856260042928230, guid: b79fb00df4a37264e96f2b188645e7b5, type: 3}
   _activator: {fileID: 1783532452}
 --- !u!114 &1998659179
@@ -1439,6 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 1998659176}
   - {fileID: 1998659178}

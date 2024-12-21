@@ -323,7 +323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.2, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &202127986
 MonoBehaviour:
@@ -337,7 +337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137ce7c704e35b4a807b1acb3212e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   item: {fileID: 11400000, guid: c4fe44ad7872c7e41a30ffb7331bb54b, type: 2}
 --- !u!212 &202127987
 SpriteRenderer:
@@ -418,8 +417,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 202127986}
+--- !u!114 &427305629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1621004344612879807, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+  m_PrefabInstance: {fileID: 5819442612057175933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &437303190
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +494,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.16, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &437303192
 MonoBehaviour:
@@ -497,7 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137ce7c704e35b4a807b1acb3212e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   item: {fileID: 11400000, guid: 86515ebcd4261b44c823a432f09f8811, type: 2}
 --- !u!212 &437303193
 SpriteRenderer:
@@ -578,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 437303192}
 --- !u!1001 &1084494464
@@ -923,6 +934,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3920796432702804836, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: _button
+      value: 
+      objectReference: {fileID: 427305629}
     - target: {fileID: 4601923505824975740, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

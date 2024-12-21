@@ -29,4 +29,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/School/Staffroom.unity
     guid: d8e0ee55daee7834a976586623cb9aa5
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: e67523e46767ff54aa576ad799c75cf2, type: 2}

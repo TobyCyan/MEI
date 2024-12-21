@@ -21,7 +21,7 @@ public class AutoDialogueTrigger : MonoBehaviour
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController player = collision.GetComponent<PlayerController>();
+        PlayerController player = PlayerController.Instance;
         if (!_hasInteracted && player != null)
         {
             player.StopPlayerMovement();

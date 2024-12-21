@@ -17,7 +17,6 @@ public class Openable : Interactable
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = closed;
-        CloseInterableIcon();
     }
 
     public override IEnumerator Interact()
@@ -33,10 +32,5 @@ public class Openable : Interactable
 
         isOpen = !isOpen;
         yield return null;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
