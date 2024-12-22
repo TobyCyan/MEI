@@ -12,9 +12,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Button _button;
     private bool _hasItem = false;
 
-    private Vector2 _startPosition;
+    [SerializeField] private Image draggedItem;
     [SerializeField] private Color defaultIconColor;
-    [SerializeField] private Color overInteractableIconColor;
+    [SerializeField] private Color overNonInteractableColor;
 
     private void Awake()
     {
@@ -50,31 +50,35 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _startPosition = icon.transform.position;
-        icon.transform.SetParent(transform.root);
-        icon.transform.SetAsLastSibling();
+        draggedItem.sprite = icon.sprite;
+        draggedItem.gameObject.SetActive(true);
+        icon.enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        icon.transform.position = mousePos;
+        draggedItem.transform.position = mousePos;
 
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        if (PlayerController.GetInteractableAtPosition(mouseWorldPos) == null)
+        InteractionManager interactableAtMousePos = PlayerController.GetInteractableAtPosition(mouseWorldPos);
+        if (interactableAtMousePos != null && interactableAtMousePos.CanUseItem)
         {
-            icon.color = overInteractableIconColor;
+            draggedItem.color = defaultIconColor;
         }
         else
         {
-            icon.color = defaultIconColor;
+            draggedItem.color = overNonInteractableColor;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        icon.transform.SetParent(transform);
-        icon.transform.position = _startPosition;
-        icon.color = defaultIconColor;
+        draggedItem.gameObject.SetActive(false);
+        icon.enabled = true;
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        PlayerController.Instance.UseItemOn(_item, PlayerController.GetInteractableAtPosition(mouseWorldPos));
     }
 }

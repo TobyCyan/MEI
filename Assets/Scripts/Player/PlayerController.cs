@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     [HideInInspector] public InteractionManager FocusedInteracable {  get; private set; }
+    [HideInInspector] public Item UsedItem { get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
     private bool _isWalking = false;
@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
             // Get the position of the mouse cursor
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(mouse.position.value);
             _target = new Vector3(mousePos.x, _target.y, _target.z);
+            UsedItem = null;
             SetFocus(GetInteractableAtPosition(mousePos));
         }
     }
@@ -139,5 +140,26 @@ public class PlayerController : MonoBehaviour
     public void RemoveFocus()
     {
         FocusedInteracable = null;
+    }
+
+    public void UseItemOn(Item item, InteractionManager interactionManager)
+    {
+        if (interactionManager != null)
+        {
+            Vector2 interactionManagerPos = interactionManager.transform.position;
+            _target = new Vector3(interactionManagerPos.x, _target.y, _target.z);
+            UsedItem = item;
+            SetFocus(interactionManager);
+        }
+    }
+
+    public bool IsUsingItem()
+    {
+        return UsedItem != null;
+    }
+
+    public void StopUsingItem()
+    {
+        UsedItem = null;
     }
 }
