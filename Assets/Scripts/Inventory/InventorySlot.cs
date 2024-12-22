@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -51,6 +53,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         draggedItem.sprite = icon.sprite;
+        draggedItem.rectTransform.localScale = icon.rectTransform.localScale;
         draggedItem.gameObject.SetActive(true);
         icon.enabled = false;
     }
@@ -74,11 +77,21 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        draggedItem.gameObject.SetActive(false);
+        StartCoroutine(DraggedItemDisableAnim());
         icon.enabled = true;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
         PlayerController.Instance.UseItemOn(_item, PlayerController.GetInteractableAtPosition(mouseWorldPos));
+    }
+
+    private IEnumerator DraggedItemDisableAnim()
+    {
+        Vector3 initScale = draggedItem.rectTransform.localScale;
+        draggedItem.rectTransform.DOScale(initScale + new Vector3(0.25f, 0.25f), 0.25f);
+        draggedItem.DOFade(0, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+
+        draggedItem.gameObject.SetActive(false);
     }
 }

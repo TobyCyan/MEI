@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void UseItemOn(Item item, InteractionManager interactionManager)
     {
-        if (interactionManager != null)
+        if (interactionManager != null && interactionManager.CanUseItem)
         {
             Vector2 interactionManagerPos = interactionManager.transform.position;
             _target = new Vector3(interactionManagerPos.x, _target.y, _target.z);
