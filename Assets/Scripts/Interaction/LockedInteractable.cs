@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(DialogueInteractable))]
-public class LockedInteractable : Interactable
+public class LockedInteractable : ItemInteractable
 {
     [SerializeField] private bool m_IsLocked = true;
     [SerializeField] private DialogueInteractable m_LockedDialogue;

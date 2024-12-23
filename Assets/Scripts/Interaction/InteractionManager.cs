@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderKeywordFilter;
+using System.Linq;
 using UnityEngine;
 
 /**
@@ -10,12 +10,25 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class InteractionManager : MonoBehaviour
 {
+    [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new List<Interactable>();
+    private ItemInteractable _itemInteractable;
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
 
     private void Start()
     {
+        var itemInteractables = _interactables.Where(interactable => IsItemInteractable(interactable)).ToList();
+        if (itemInteractables.Count > 0)
+        {
+            _itemInteractable = itemInteractables.First() as ItemInteractable;
+            CanUseItem = _itemInteractable != null;
+        }
+        else if (itemInteractables.Count > 1)
+        {
+            Debug.LogError($"More than one ItemInteractable on {this.name}");
+        }
+
         if (_interactionIcon != null)
         {
             _interactionIcon.SetActive(false);
@@ -47,6 +60,12 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UseItem(Item item)
+    {
+        yield return _itemInteractable.UseItem(item);
+        yield return GoThroughInteractions();
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
 
@@ -55,10 +74,20 @@ public class InteractionManager : MonoBehaviour
             return;
         }
 
-        if (PlayerController.Instance.FocusedInteracable == this)
+        PlayerController player = PlayerController.Instance;
+        if (player.FocusedInteracable == this)
         {
             PlayerController.Instance.RemoveFocus();
-            StartCoroutine(GoThroughInteractions());
+            if (CanUseItem && player.IsUsingItem())
+            {
+                Item usedItem = player.UsedItem;
+                player.StopUsingItem();
+                StartCoroutine(UseItem(usedItem));
+            }
+            else
+            {
+                StartCoroutine(GoThroughInteractions());
+            }
         }
         else if (_interactionIcon != null)
         {
@@ -92,5 +121,10 @@ public class InteractionManager : MonoBehaviour
         {
             _interactionIcon.SetActive(false);
         }
+    }
+
+    private bool IsItemInteractable(Interactable interactable)
+    {
+        return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
     }
 }

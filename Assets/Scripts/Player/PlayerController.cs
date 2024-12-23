@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
@@ -25,6 +24,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     [HideInInspector] public InteractionManager FocusedInteracable {  get; private set; }
+    [HideInInspector] public Item UsedItem { get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
     [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new Dictionary<PlayerState.State, bool>();
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             // Get the position of the mouse cursor
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(mouse.position.value);
+            UsedItem = null;
             SetTarget(new Vector3(mousePos.x, _target.y, _target.z));
             SetFocus(GetInteractableAtPosition(mousePos));
         }
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
      * Returns the InteractionManager at the specified position,
      * or null if there is no InteractionManager at that position.
     </summary> */
-    private InteractionManager GetInteractableAtPosition(Vector2 position)
+    public static InteractionManager GetInteractableAtPosition(Vector2 position)
     {
         // Shoot out ray from mouse position and check if there is an interactable.
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, Mathf.Infinity);
@@ -146,6 +147,27 @@ public class PlayerController : MonoBehaviour
     public void RemoveFocus()
     {
         FocusedInteracable = null;
+    }
+
+    public void UseItemOn(Item item, InteractionManager interactionManager)
+    {
+        if (interactionManager != null && interactionManager.CanUseItem)
+        {
+            Vector2 interactionManagerPos = interactionManager.transform.position;
+            _target = new Vector3(interactionManagerPos.x, _target.y, _target.z);
+            UsedItem = item;
+            SetFocus(interactionManager);
+        }
+    }
+
+    public bool IsUsingItem()
+    {
+        return UsedItem != null;
+    }
+
+    public void StopUsingItem()
+    {
+        UsedItem = null;
     }
 
     public bool IsContainState(PlayerState.State state)
