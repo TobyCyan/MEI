@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Attach this script to any interactable that has dialogue on it.
- * The dialogue text list should be customizable to every dialogue interactables' needs.
- * Make sure to attach the dialogue canvas object.
+ * <summary>
+    Attach this script to any interactable that has dialogue on it.
+    The dialogue text list should be customizable to every dialogue interactables' needs.
+    Make sure to attach the dialogue canvas object.
+    </summary>
  */
 public class DialogueActivator : MonoBehaviour
 {

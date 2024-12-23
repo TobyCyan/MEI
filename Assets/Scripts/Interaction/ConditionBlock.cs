@@ -82,9 +82,10 @@ public class ConditionBlock : MonoBehaviour
         return true;
     }
 
-    /**
-     * Checks if the player entered the condition block from the left or right.
-     * Then moves the player accordingly.
+    /** <summary>
+        Checks if the player entered the condition block from the left or right.
+        Then moves the player accordingly.
+        </summary>
      */
     private void MovePlayerBack(PlayerController player)
     {

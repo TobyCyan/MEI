@@ -23,11 +23,11 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    [HideInInspector] public InteractionManager FocusedInteracable {  get; private set; }
+    [HideInInspector] public InteractionManager FocusedInteractable {  get; private set; }
     [HideInInspector] public Item UsedItem { get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
-    [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new Dictionary<PlayerState.State, bool>();
+    [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new();
     private bool _isWalking = false;
     private Vector3 _target;
     private bool _isActive = true;
@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
     }
 
     /** <summary>
-     * Returns the InteractionManager at the specified position,
-     * or null if there is no InteractionManager at that position.
+     Returns the InteractionManager at the specified position,
+     or null if there is no InteractionManager at that position.
     </summary> */
     public static InteractionManager GetInteractableAtPosition(Vector2 position)
     {
@@ -141,12 +141,12 @@ public class PlayerController : MonoBehaviour
 
     public void SetFocus(InteractionManager interactionManager)
     {
-        FocusedInteracable = interactionManager;
+        FocusedInteractable = interactionManager;
     }
 
     public void RemoveFocus()
     {
-        FocusedInteracable = null;
+        FocusedInteractable = null;
     }
 
     public void UseItemOn(Item item, InteractionManager interactionManager)

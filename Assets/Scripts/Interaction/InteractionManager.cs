@@ -12,12 +12,17 @@ public class InteractionManager : MonoBehaviour
 {
     [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
-    [SerializeField] private List<Interactable> _interactables = new List<Interactable>();
+    [SerializeField] private List<Interactable> _interactables = new();
     private ItemInteractable _itemInteractable;
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
+    [SerializeField] private bool _isAllowRepeatedInteractions = true;
+    [SerializeField] private bool _isInteracted = false;
 
     private void Start()
     {
+        // Gets a list of Item Interactables.
+        // Then, get the first ItemInteractable in the list and check if it exists.
+        // Assumption: There is only one ItemInteractable in _interactables.
         var itemInteractables = _interactables.Where(interactable => IsItemInteractable(interactable)).ToList();
         if (itemInteractables.Count > 0)
         {
@@ -42,6 +47,11 @@ public class InteractionManager : MonoBehaviour
 
     public IEnumerator GoThroughInteractions()
     {
+        if (_isInteracted)
+        {
+            yield break;
+        }
+
         var player = PlayerController.Instance;
         player.StopPlayerMovement();
 
@@ -57,6 +67,12 @@ public class InteractionManager : MonoBehaviour
         if (_onCompletePlayerState != PlayerState.State.None)
         {
             player.AddPlayerState(_onCompletePlayerState);
+        }
+
+        // Interactions won't happen again if not allowed to.
+        if (!_isAllowRepeatedInteractions)
+        {
+            _isInteracted = true;
         }
     }
 
@@ -75,7 +91,11 @@ public class InteractionManager : MonoBehaviour
         }
 
         PlayerController player = PlayerController.Instance;
-        if (player.FocusedInteracable == this)
+
+        // TODO Right now the player always interacts at the edge of the interactable collider 2D.
+        // Make player move towards the center first, then interact.
+
+        if (player.FocusedInteractable == this)
         {
             PlayerController.Instance.RemoveFocus();
             if (CanUseItem && player.IsUsingItem())
