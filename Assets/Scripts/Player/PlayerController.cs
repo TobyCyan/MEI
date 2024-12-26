@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,9 +29,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource _walkingAudio;
     [SerializeField] private float speed;
     [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new();
+    [SerializeField] private bool _isFacingRight = true;
     private bool _isWalking = false;
     private Vector3 _target;
     private bool _isActive = true;
+    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
+
+    private void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,10 +50,31 @@ public class PlayerController : MonoBehaviour
         if (_isActive && !EventSystem.current.IsPointerOverGameObject())
         {
             UpdateTarget();
+            UpdateIsFacingRight();
+            FlipSprite();
         }
         
         MoveToTarget();
         PlayWalkSound();
+        ActivateWalkAnimation();
+    }
+
+    /**
+     * Activate walk animation in the animator by tweaking the isMoving boolean.
+     */
+    private void ActivateWalkAnimation()
+    {
+        _animator.SetBool("isMoving", _isWalking);
+    }
+
+    public void ActivateInteractingAnimation()
+    {
+        _animator.SetBool("isInteracting", true);
+    }
+
+    public void DeactivateInteractingAnimation()
+    {
+        _animator.SetBool("isInteracting", false);
     }
 
     private void OnEnable()
@@ -75,6 +106,25 @@ public class PlayerController : MonoBehaviour
             SetTarget(new Vector3(mousePos.x, _target.y, _target.z));
             SetFocus(GetInteractableAtPosition(mousePos));
         }
+    }
+
+    /**
+     * Checks whether the target position is to the right or left of the player.
+     * Updates the property accordingly.
+     */
+    private void UpdateIsFacingRight()
+    {
+        float xPosDifference = _target.x - transform.position.x;
+        if (xPosDifference == 0)
+        {
+            return;
+        }
+        _isFacingRight = xPosDifference > 0;
+    }
+
+    private void FlipSprite()
+    {
+        _spriteRenderer.flipX = _isFacingRight;
     }
 
     public void SetTarget(Vector3 target)

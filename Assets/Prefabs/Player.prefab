@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 6829551823400016818}
   - component: {fileID: 4174639344488089571}
   - component: {fileID: 8952798729155511228}
+  - component: {fileID: 3720326631940197885}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -157,9 +158,9 @@ Transform:
   m_GameObject: {fileID: 6911364090974361123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.58, y: -2.59, z: -1}
-  m_LocalScale: {x: 10.73819, y: 10.73819, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -4.58, y: 0, z: -1}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6428582890113136930}
   m_Father: {fileID: 0}
@@ -205,7 +206,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c01578d6e65e82d4380f859a7e547bac, type: 3}
+  m_Sprite: {fileID: -1638880926, guid: 75b9beb4e6024a64e8ecab4e60379dbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkingAudio: {fileID: 7621748312620523070}
   speed: 3
+  _isFacingRight: 1
 --- !u!61 &4174639344488089571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,18 +264,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0023026466, y: 0.002232626}
+  m_Offset: {x: -0.0023026764, y: -0.009299889}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.52, y: 0.94}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17009956, y: 0.35075805}
+  m_Size: {x: 0.3223288, y: 0.8074461}
   m_EdgeRadius: 0
 --- !u!50 &8952798729155511228
 Rigidbody2D:
@@ -302,3 +304,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3720326631940197885
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911364090974361123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cfd23a3d541037d47a1b1f605c730e0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

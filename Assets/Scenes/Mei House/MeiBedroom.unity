@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.z
@@ -371,11 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7010423914437830365, guid: 93ce398967dbfd4458e693f8013de205, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.61
+      value: -9.65
       objectReference: {fileID: 0}
     - target: {fileID: 7010423914437830365, guid: 93ce398967dbfd4458e693f8013de205, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.93
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 7010423914437830365, guid: 93ce398967dbfd4458e693f8013de205, type: 3}
       propertyPath: m_LocalPosition.z
@@ -823,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 1615058177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.16, z: 10}
+  m_LocalPosition: {x: -3.55, y: 0.14, z: 10}
   m_LocalScale: {x: 2.2958, y: 2.2958, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -891,7 +891,7 @@ Transform:
   m_GameObject: {fileID: 1197258651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.02, y: -2.58, z: 10}
+  m_LocalPosition: {x: 9.09, y: -0.21, z: 10}
   m_LocalScale: {x: 4.158255, y: 4.158255, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,7 +1075,7 @@ Transform:
   m_GameObject: {fileID: 1447442800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.25, y: -3.33, z: -9.923701}
+  m_LocalPosition: {x: 9.31, y: -0.85, z: -9.923701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1266,8 +1266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAllowRepeatInteraction: 0
-  _isInteracted: 0
   _dialogueTextEmotionStructList:
   - text: All done! Time to go downstairs.
     emotion: 3
@@ -1284,8 +1282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAllowRepeatInteraction: 0
-  _isInteracted: 0
   _dialogueTextEmotionStructList:
   - text: I should get changed.
     emotion: 1
@@ -1308,6 +1304,8 @@ MonoBehaviour:
   - {fileID: 1615058180}
   - {fileID: 1615058182}
   _onCompletePlayerState: 1
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
 --- !u!114 &1615058185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,21 +1327,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4735476348381293671, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.06
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1376,26 +1370,6 @@ PrefabInstance:
     - target: {fileID: 6911364090974361123, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6911364090974361123, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621748312620523070, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8427542664268365333, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1541,7 +1515,7 @@ Transform:
   m_GameObject: {fileID: 1998659172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.519, y: -1.255, z: 1}
+  m_LocalPosition: {x: 2.55, y: 1.19, z: 1}
   m_LocalScale: {x: 3.5455, y: 3.5455, z: 3.5455}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1559,8 +1533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAllowRepeatInteraction: 0
-  _isInteracted: 0
   _dialogueTextEmotionStructList:
   - text: Today is...
     emotion: 1
@@ -1605,6 +1577,8 @@ MonoBehaviour:
   - {fileID: 1998659176}
   - {fileID: 1998659178}
   _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
 --- !u!114 &1998659180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,7 +1727,7 @@ Transform:
   m_GameObject: {fileID: 2021596418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.17, y: -3.06, z: 10}
+  m_LocalPosition: {x: 1.35, y: -0.77, z: 10}
   m_LocalScale: {x: 2.5243382, y: 2.5243382, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1769,11 +1743,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6194658707271077295, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6501002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6194658707271077295, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24360004
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6194658707271077295, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1812,8 +1786,16 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 9189771400005099139, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
+      propertyPath: _camYPos
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189771400005099139, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: _leftBorderX
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189771400005099139, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
+      propertyPath: _rightBorderX
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2035,6 +2017,7 @@ SceneRoots:
   - {fileID: 2021596420}
   - {fileID: 1197258653}
   - {fileID: 1998659175}
+  - {fileID: 1197258659}
   - {fileID: 194997607}
   - {fileID: 1447442803}
   - {fileID: 1195091628}
@@ -2044,6 +2027,5 @@ SceneRoots:
   - {fileID: 1641562346}
   - {fileID: 67021939}
   - {fileID: 7022754531777399590}
-  - {fileID: 1197258659}
   - {fileID: 371706045}
   - {fileID: 482384267}

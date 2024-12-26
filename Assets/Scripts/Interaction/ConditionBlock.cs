@@ -89,16 +89,18 @@ public class ConditionBlock : MonoBehaviour
      */
     private void MovePlayerBack(PlayerController player)
     {
-        bool isPlayerLeft = (player.transform.position.x - gameObject.transform.position.x) <= 0;
-        Vector2 playerPos = player.transform.position;
+        Vector3 playerPos = player.transform.position;
+        bool isPlayerLeft = (playerPos.x - gameObject.transform.position.x) <= 0;
+
         PerformTransition();
+
         if (isPlayerLeft)
         {
-            player.transform.position = new Vector2(playerPos.x - m_HalfWidth, playerPos.y);
+            player.transform.position = new Vector3(playerPos.x - m_HalfWidth, playerPos.y, playerPos.z);
         }
         else
         {
-            player.transform.position = new Vector2(playerPos.x + m_HalfWidth, playerPos.y);
+            player.transform.position = new Vector3(playerPos.x + m_HalfWidth, playerPos.y, playerPos.z);
         }
 
         // Reset the target position so that player does not keep moving towards the previous target.
