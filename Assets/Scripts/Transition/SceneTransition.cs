@@ -11,7 +11,7 @@ public class SceneTransition : Interactable
 {
     [Header("Ensure that the Scene is Added to Build Settings")]
     [SerializeField] private string _scenePath;
-    [Header("Y and Z Values are (-2.6f, -1.0f)")]
+    [Header("Y and Z Values are (0.0f, -1.0f)")]
     [SerializeField] private float _newScenePlayerPosX;
 
     private TransitionInteractable _transition;
@@ -37,7 +37,7 @@ public class SceneTransition : Interactable
         if (_scenePath != "")
         {
             // Update the player position in the next scene.
-            ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, -2.6f, -1.0f);
+            ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, 0.0f, -1.0f);
             SceneManager.LoadScene(_scenePath);
         }
         yield break;

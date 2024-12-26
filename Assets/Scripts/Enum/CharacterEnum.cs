@@ -11,6 +11,9 @@ public class CharacterEnum : MonoBehaviour
         None,
         Mei,
         Students,
+        Unknown,
+        Chihaya,
+        Haru,
     }
 }
 
