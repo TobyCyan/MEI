@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4330237894778273314, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
+      propertyPath: _dialogueCanvas
+      value: 
+      objectReference: {fileID: 1586741437}
     - target: {fileID: 9111147339028805999, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
       propertyPath: m_Name
       value: DoorToOutside

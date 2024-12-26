@@ -52,15 +52,18 @@ public class InteractionManager : MonoBehaviour
             yield break;
         }
 
+        // Makes player idle and transition into interacting animation.
         var player = PlayerController.Instance;
         player.StopPlayerMovement();
-
+        player.ActivateInteractingAnimation();
         foreach (Interactable interactable in _interactables)
         {
             yield return StartCoroutine(interactable.Interact());
             yield return new WaitForSeconds(0.3f);
         }
 
+        // Go back to idle.
+        player.DeactivateInteractingAnimation();
         player.ResumePlayerMovement();
         
         // Add the new player state after completing the interaction.

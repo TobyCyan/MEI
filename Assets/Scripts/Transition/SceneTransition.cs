@@ -13,12 +13,13 @@ public class SceneTransition : Interactable
     [SerializeField] private string _scenePath;
     [Header("Y and Z Values are (0.0f, -1.0f)")]
     [SerializeField] private float _newScenePlayerPosX;
-
+    private PlayerController _player;
     private TransitionInteractable _transition;
 
     private void Start()
     {
         _transition = GetComponent<TransitionInteractable>();
+        _player = PlayerController.Instance;
     }
 
     public override IEnumerator Interact()
@@ -36,6 +37,9 @@ public class SceneTransition : Interactable
         yield return StartCoroutine(_transition.Interact());
         if (_scenePath != "")
         {
+            // Explicitly deactivate interacting animation due to abandonment of the rest of execution in Interaction Manager upon scene transition.
+            _player.DeactivateInteractingAnimation();
+
             // Update the player position in the next scene.
             ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, 0.0f, -1.0f);
             SceneManager.LoadScene(_scenePath);
