@@ -59,7 +59,7 @@ public class InteractionManager : MonoBehaviour
         foreach (Interactable interactable in _interactables)
         {
             yield return StartCoroutine(interactable.Interact());
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         // Go back to idle.
