@@ -59,13 +59,13 @@ public class InteractionManager : MonoBehaviour
         foreach (Interactable interactable in _interactables)
         {
             yield return StartCoroutine(interactable.Interact());
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f);
         }
 
         // Go back to idle.
         player.DeactivateInteractingAnimation();
         player.ResumePlayerMovement();
-        
+        Debug.Log("Interaction done");
         // Add the new player state after completing the interaction.
         if (_onCompletePlayerState != PlayerState.State.None)
         {

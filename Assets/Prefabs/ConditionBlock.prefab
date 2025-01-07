@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f861ac4cd46764e4e9eb007e79672dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueCanvas: {fileID: 0}
+  _dialogueCanvas: {fileID: 5505819867913686657, guid: 9aed514b1bbe66c4e82149d4ddfc3fd6, type: 3}
 --- !u!114 &3358152281572130598
 MonoBehaviour:
   m_ObjectHideFlags: 0

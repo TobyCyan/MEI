@@ -263,8 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 358180648}
+  _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 0
+  _isInteracted: 0
 --- !u!61 &358180647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -322,8 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137ce7c704e35b4a807b1acb3212e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interaction: {fileID: 0}
   item: {fileID: 11400000, guid: c4fe44ad7872c7e41a30ffb7331bb54b, type: 2}
+  m_IsDestroyAfterPickUp: 1
 --- !u!212 &358180649
 SpriteRenderer:
   m_ObjectHideFlags: 0
