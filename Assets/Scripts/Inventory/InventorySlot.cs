@@ -63,7 +63,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Vector2 mousePos = Mouse.current.position.ReadValue();
         draggedItem.transform.position = mousePos;
 
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector2 mouseWorldPos = GetWorldPositionOnPlane(mousePos, 0f);
         InteractionManager interactableAtMousePos = PlayerController.GetInteractableAtPosition(mouseWorldPos);
         if (interactableAtMousePos != null && interactableAtMousePos.CanUseItem)
         {
@@ -81,7 +81,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         icon.enabled = true;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector2 mouseWorldPos = GetWorldPositionOnPlane(mousePos, 0f);
         PlayerController.Instance.UseItemOn(_item, PlayerController.GetInteractableAtPosition(mouseWorldPos));
     }
 
@@ -93,5 +93,19 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         yield return new WaitForSeconds(0.25f);
 
         draggedItem.gameObject.SetActive(false);
+    }
+
+    /**
+     * Get World Position using Perspective Projection by Tomer-Barkan.
+     * https://discussions.unity.com/t/camera-screentoworldpoint-in-perspective/85521
+     */
+    Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+    {
+        // Cast ray from clicked position to the z plane and obtain the point of intersection.
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 }
