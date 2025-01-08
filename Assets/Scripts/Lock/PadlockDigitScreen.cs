@@ -1,41 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class PadlockDigitScreen : MonoBehaviour
 {
-    [SerializeField] private TMP_Text keypadDisplayText;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip lockSpinnedSfx;
-    private int currentInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private TMP_Text _keypadDisplayText;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _lockSpinnedSfx;
+    private int _currentInput;
 
     public void AddInput()
     {
-        audioSource.PlayOneShot(lockSpinnedSfx);
-        currentInput++;
-        if (currentInput > 9)
+        _audioSource.PlayOneShot(_lockSpinnedSfx);
+        _currentInput++;
+        if (_currentInput > 9)
         {
-            currentInput = 0;
+            _currentInput = 0;
         }
-        keypadDisplayText.text = currentInput.ToString();
+        _keypadDisplayText.text = _currentInput.ToString();
     }
 
-    public Boolean CheckCombo(int result)
+    public bool CheckCombo(int result)
     {
-        return currentInput == result;
+        return _currentInput == result;
     }
 }

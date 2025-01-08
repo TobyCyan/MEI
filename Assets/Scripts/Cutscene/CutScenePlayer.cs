@@ -4,17 +4,17 @@ using UnityEngine.Playables;
 
 public class CutScenePlayer : MonoBehaviour
 {
-    [SerializeField] float m_FreezePlayerPosX = 0.0f;
-    [SerializeField] GDTFadeEffect m_FadeEffect;
-    PlayableDirector m_PlayableDirector;
-    PlayerController m_Player;
-    double m_PlayTime = 0.0;
+    [SerializeField] private float _freezePlayerPosX = 0.0f;
+    [SerializeField] private GDTFadeEffect _fadeEffect;
+    private PlayableDirector _playableDirector;
+    private PlayerController _player;
+    private double _playTime = 0.0;
 
     void Start()
     {
-        m_PlayableDirector = GetComponent<PlayableDirector>();
-        m_PlayTime = m_PlayableDirector.playableAsset.duration;
-        m_Player = PlayerController.Instance;
+        _playableDirector = GetComponent<PlayableDirector>();
+        _playTime = _playableDirector.playableAsset.duration;
+        _player = PlayerController.Instance;
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
@@ -26,19 +26,19 @@ public class CutScenePlayer : MonoBehaviour
 
     void FreezePlayer()
     {
-        Vector3 playerPos = m_Player.transform.position;
-        m_Player.transform.position = new Vector3(m_FreezePlayerPosX, playerPos.y, playerPos.z);
-        m_Player.StopPlayerMovement();
+        Vector3 playerPos = _player.transform.position;
+        _player.transform.position = new Vector3(_freezePlayerPosX, playerPos.y, playerPos.z);
+        _player.StopPlayerMovement();
     }
 
     void ActivateFadeEffect()
     {
-        m_FadeEffect.firstColor = Color.clear;
-        m_FadeEffect.lastColor = Color.black;
-        m_FadeEffect.timeEffect = 1.0f;
-        m_FadeEffect.pingPong = true;
-        m_FadeEffect.disableWhenFinish = true;
-        m_FadeEffect.gameObject.SetActive(true);
+        _fadeEffect.firstColor = Color.clear;
+        _fadeEffect.lastColor = Color.black;
+        _fadeEffect.timeEffect = 1.0f;
+        _fadeEffect.pingPong = true;
+        _fadeEffect.disableWhenFinish = true;
+        _fadeEffect.gameObject.SetActive(true);
     }
 
     IEnumerator ActivateCutSceneFlow()
@@ -48,13 +48,13 @@ public class CutScenePlayer : MonoBehaviour
 
         // Fade into the cutscene.
         ActivateFadeEffect();
-        m_PlayableDirector.Play();
+        _playableDirector.Play();
 
         // Wait for the cutscene to play out.
-        yield return new WaitForSeconds((float)m_PlayTime);
+        yield return new WaitForSeconds((float) _playTime);
 
         // Fade out of the cutscene.
         ActivateFadeEffect();
-        m_Player.ResumePlayerMovement();
+        _player.ResumePlayerMovement();
     }
 }

@@ -732,9 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3409b393801f51f489d56c3f17999768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovedObject: {fileID: 1411074195}
-  m_SelectedMoveToPosition: 0
-  m_CustomPosition: {x: 0, y: 0, z: 0}
+  _movedObject: {fileID: 1411074195}
+  _selectedMoveToPosition: 0
+  _customPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &616463298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,8 +961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a20cf19b1ea954e8c436b0a0714973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FreezePlayerPosX: -15
-  m_FadeEffect: {fileID: 278153693}
+  _freezePlayerPosX: -16
+  _fadeEffect: {fileID: 278153693}
 --- !u!61 &1411074199
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -820,7 +820,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -918,9 +918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a9528b3efeabc40a15bac1bfd28764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadDisplayText: {fileID: 1732862221}
-  audioSource: {fileID: 1146349079}
-  lockSpinnedSfx: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  _keypadDisplayText: {fileID: 1732862221}
+  _audioSource: {fileID: 1146349079}
+  _lockSpinnedSfx: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
 --- !u!212 &1146349081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1043,10 +1043,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1682631641}
   - component: {fileID: 1682631640}
+  - component: {fileID: 1682631645}
   - component: {fileID: 1682631643}
   - component: {fileID: 1682631642}
   - component: {fileID: 1682631644}
-  - component: {fileID: 1682631645}
   - component: {fileID: 1682631646}
   m_Layer: 0
   m_Name: Padlock
@@ -1150,16 +1150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3525465ad71205644955cf0403e75555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockValue:
-  - {fileID: 1765555823}
-  - {fileID: 1690433493}
-  - {fileID: 1146349080}
-  - {fileID: 2109563057}
-  audioSource: {fileID: 1682631644}
-  audioSource2: {fileID: 1682631646}
-  accessGrantedSfx: {fileID: 8300000, guid: 54ccf978c7886364c980d9f84ff32bd3, type: 3}
-  accessDeniedSfx: {fileID: 8300000, guid: 6badc82930e38c34891f46e1f01f63d3, type: 3}
-  correctCombination: 03000000020000000400000001000000
+  _lockValue: []
+  _audioSource: {fileID: 1682631644}
+  _audioSource2: {fileID: 1682631646}
+  _accessGrantedSfx: {fileID: 8300000, guid: 3fad502eb95683c4da67a1583e86541d, type: 3}
+  _accessDeniedSfx: {fileID: 8300000, guid: 7930520f18e5bb347bee0eda6ea077dc, type: 3}
+  _correctCombination: 00000000000000000000000000000000
 --- !u!82 &1682631644
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1170,7 +1166,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 54ccf978c7886364c980d9f84ff32bd3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3fad502eb95683c4da67a1583e86541d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -1311,7 +1307,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6badc82930e38c34891f46e1f01f63d3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7930520f18e5bb347bee0eda6ea077dc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1494,7 +1490,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1592,9 +1588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a9528b3efeabc40a15bac1bfd28764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadDisplayText: {fileID: 295858601}
-  audioSource: {fileID: 1690433492}
-  lockSpinnedSfx: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  _keypadDisplayText: {fileID: 295858601}
+  _audioSource: {fileID: 1690433492}
+  _lockSpinnedSfx: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
 --- !u!61 &1690433494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1804,7 +1800,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1902,9 +1898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a9528b3efeabc40a15bac1bfd28764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadDisplayText: {fileID: 682346874}
-  audioSource: {fileID: 1765555822}
-  lockSpinnedSfx: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  _keypadDisplayText: {fileID: 682346874}
+  _audioSource: {fileID: 1765555822}
+  _lockSpinnedSfx: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
 --- !u!212 &1765555824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2047,7 +2043,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2145,9 +2141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a9528b3efeabc40a15bac1bfd28764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypadDisplayText: {fileID: 264523182}
-  audioSource: {fileID: 2109563056}
-  lockSpinnedSfx: {fileID: 8300000, guid: 89d62380470be9e47ba7cf3f97105142, type: 3}
+  _keypadDisplayText: {fileID: 264523182}
+  _audioSource: {fileID: 2109563056}
+  _lockSpinnedSfx: {fileID: 8300000, guid: 535d3815a511e524d9d92a8a95eb4423, type: 3}
 --- !u!212 &2109563058
 SpriteRenderer:
   m_ObjectHideFlags: 0

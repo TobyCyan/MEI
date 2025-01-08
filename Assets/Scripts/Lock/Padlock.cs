@@ -1,38 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Padlock : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] PadlockDigitScreen[] lockValue;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource audioSource2;
-    [SerializeField] private AudioClip accessGrantedSfx;
-    [SerializeField] private AudioClip accessDeniedSfx;
-    [SerializeField] int[] correctCombination = new int[] { 0, 0, 0, 0 };
+    [SerializeField] private PadlockDigitScreen[] _lockValue;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource2;
+    [SerializeField] private AudioClip _accessGrantedSfx;
+    [SerializeField] private AudioClip _accessDeniedSfx;
+    [SerializeField] private int[] _correctCombination = new int[] { 0, 0, 0, 0 };
 
-    void Start()
+    public void CheckResult()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void checkResult()
-    {
-        if (lockValue[0].CheckCombo(correctCombination[0]) && lockValue[1].CheckCombo(correctCombination[1])
-            && lockValue[2].CheckCombo(correctCombination[2]) && lockValue[3].CheckCombo(correctCombination[3]))
+        if (_lockValue[0].CheckCombo(_correctCombination[0]) && _lockValue[1].CheckCombo(_correctCombination[1])
+            && _lockValue[2].CheckCombo(_correctCombination[2]) && _lockValue[3].CheckCombo(_correctCombination[3]))
         {
-            audioSource.PlayOneShot(accessGrantedSfx);
+            _audioSource.PlayOneShot(_accessGrantedSfx);
         } else
         {
-            audioSource2.PlayOneShot(accessDeniedSfx);  
+            _audioSource2.PlayOneShot(_accessDeniedSfx);  
         }
-
     }
 }

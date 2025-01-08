@@ -1,22 +1,15 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PadlockInteraction : MonoBehaviour
 {
-    private Camera cam;
-    private void Awake() => cam = Camera.main;
-    
-    void Start()
-    {
-        
-    }
+    private Camera _cam;
+
+    private void Awake() => _cam = Camera.main;
 
     // Update is called once per frame
     private void Update()
     {
-        var mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
         var hits = Physics2D.RaycastAll(mousePosition, Vector2.zero);
 
         foreach (var hit in hits)
@@ -35,7 +28,7 @@ public class PadlockInteraction : MonoBehaviour
                 if (hit.collider.TryGetComponent(out Padlock padlock))
                 {
                     Debug.Log("correct");
-                    padlock.checkResult();
+                    padlock.CheckResult();
                     return; // Stop processing after finding a valid hit
                 }
             }
