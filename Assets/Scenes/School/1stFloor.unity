@@ -1372,6 +1372,9 @@ MonoBehaviour:
   - text: Found it!
     emotion: 4
     character: 1
+  - text: I remember the password being my birthday, month followed by the day.
+    emotion: 4
+    character: 1
 --- !u!114 &1064894013
 MonoBehaviour:
   m_ObjectHideFlags: 0

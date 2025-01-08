@@ -35,11 +35,13 @@ public class PlayerController : MonoBehaviour
     private bool _isActive = true;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+    private Camera _camera;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -100,12 +102,31 @@ public class PlayerController : MonoBehaviour
 
         if (mouse.leftButton.wasPressedThisFrame)
         {
-            // Get the position of the mouse cursor
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(mouse.position.value);
+            // Vector2 mousePos = _camera.ScreenToWorldPoint(mouse.position.value);
+
+            Vector3 playerPos = transform.position;
+            Vector2 mouseScreenPos = mouse.position.value;
+            // Get position in world space in perspective projection.
+            Vector3 worldPosOnPlane = GetWorldPositionOnPlane(mouseScreenPos, playerPos.z);
+            Vector3 targetPos = new Vector3(worldPosOnPlane.x, playerPos.y, playerPos.z);
             UsedItem = null;
-            SetTarget(new Vector3(mousePos.x, _target.y, _target.z));
-            SetFocus(GetInteractableAtPosition(mousePos));
+            SetTarget(targetPos);
+            SetFocus(GetInteractableAtPosition(targetPos));
         }
+    }
+
+    /**
+     * Get World Position using Perspective Projection by Tomer-Barkan.
+     * https://discussions.unity.com/t/camera-screentoworldpoint-in-perspective/85521
+     */
+    Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+    {
+        // Cast ray from clicked position to the z plane and obtain the point of intersection.
+        Ray ray = _camera.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
     /**
@@ -181,6 +202,7 @@ public class PlayerController : MonoBehaviour
     {
         _isActive = false;
         _target = transform.position;
+        Debug.Log("Player stopped");
     }
     
     public void ResumePlayerMovement()
