@@ -1,5 +1,6 @@
 // STYLE SHEET EXAMPLE
-
+// STYLE SHEET EXAMPLE FORMAT PROVIDED BY THOMAS JACOBSON.
+// https://github.com/thomasjacobsen-unity/Unity-Code-Style-Guide/blob/master/StyleExample.cs
 // GENERAL:
 // - This is an example Style Guide for use with your Unity project.
 // - Omit or add to these rules to fit your team's preferences.
