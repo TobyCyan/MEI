@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 1464643239}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.8
+      value: -8.75
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.z
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: c4fe44ad7872c7e41a30ffb7331bb54b, type: 2}
+  m_IsDestroyAfterPickUp: 1
 --- !u!212 &202127987
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -420,6 +421,9 @@ MonoBehaviour:
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 202127986}
+  _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
 --- !u!1 &437303190
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 86515ebcd4261b44c823a432f09f8811, type: 2}
+  m_IsDestroyAfterPickUp: 1
 --- !u!212 &437303193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -580,6 +585,9 @@ MonoBehaviour:
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 437303192}
+  _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
 --- !u!1 &961774714
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +602,7 @@ GameObject:
   - component: {fileID: 961774717}
   - component: {fileID: 961774721}
   m_Layer: 0
-  m_Name: Item Interactable
+  m_Name: Test Item Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,6 +623,9 @@ MonoBehaviour:
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 961774721}
+  _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
 --- !u!61 &961774718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -721,7 +732,7 @@ Transform:
   m_GameObject: {fileID: 961774714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -3, z: 0}
+  m_LocalPosition: {x: 1.5, y: -1.62, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -736,7 +747,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 961774714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddfcd925895d234fba0539739ce040e, type: 3}
+  m_Script: {fileID: 11500000, guid: faa78e74514389a4ca880d3d91173465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1084494464

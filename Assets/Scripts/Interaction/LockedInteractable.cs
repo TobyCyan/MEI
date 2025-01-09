@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(DialogueInteractable))]
 public class LockedInteractable : ItemInteractable
 {
-    [SerializeField] private bool m_IsLocked = true;
+    private bool m_IsLocked = true;
     [SerializeField] private DialogueInteractable m_LockedDialogue;
     [SerializeField] private DialogueInteractable m_UnlockedDialogue;
-    [SerializeField] private DialogueInteractable m_LockedWithKeyDialogue;
+    [SerializeField] private Item m_UnlockItem;
 
     private SceneTransition m_SceneTransition;
 
@@ -20,7 +20,6 @@ public class LockedInteractable : ItemInteractable
     {
         if (m_IsLocked)
         {
-            // TODO: Add logic here for unlocking the door with key, alongside the dialogue after unlocking, then discarding the key.
             yield return StartCoroutine(m_LockedDialogue.Interact());
         }
         else
@@ -32,5 +31,13 @@ public class LockedInteractable : ItemInteractable
         yield break;
     }
 
-
+    public override IEnumerator UseItem(Item item)
+    {
+        if (m_IsLocked && item.Equals(m_UnlockItem))
+        {
+            m_IsLocked = false;
+            Inventory.Instance.Remove(item);
+        }
+        yield break;
+    }
 }

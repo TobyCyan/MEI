@@ -64,7 +64,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockedDoor Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6260079446000624734, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+    - {fileID: -8413154311659379712, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -80,9 +82,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8853489217937947427, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5346618235951953525}
-    - targetCorrespondingSourceObject: {fileID: 8853489217937947427, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 835103460986336054}
     - targetCorrespondingSourceObject: {fileID: 8853489217937947427, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4736109498703158258}
@@ -120,10 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77068a33ba0a24a40a4a32189ffa4641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsLocked: 0
   m_LockedDialogue: {fileID: 2860457924114254121}
   m_UnlockedDialogue: {fileID: 0}
-  m_LockedWithKeyDialogue: {fileID: 0}
+  m_UnlockItem: {fileID: 0}
 --- !u!114 &2860457924114254121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,19 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueTextEmotionStructList: []
 --- !u!114 &5346618235951953525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9111147339028805999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueTextEmotionStructList: []
---- !u!114 &835103460986336054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
