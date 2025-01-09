@@ -16,9 +16,9 @@ public class PadlockInteraction : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.TryGetComponent(out PadlockDigitScreen padlockDigitScreen))
+                if (hit.collider.TryGetComponent(out PadlockScreen padlockScreen))
                 {
-                    padlockDigitScreen.AddInput();
+                    padlockScreen.AddInput();
                     return; // Stop processing after finding a valid hit
                 }
             }
@@ -27,7 +27,6 @@ public class PadlockInteraction : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out Padlock padlock))
                 {
-                    Debug.Log("correct");
                     padlock.CheckResult();
                     return; // Stop processing after finding a valid hit
                 }

@@ -1,14 +1,14 @@
 using TMPro;
 using UnityEngine;
 
-public class PadlockDigitScreen : MonoBehaviour
+public class PadlockDigitScreen : PadlockScreen
 {
     [SerializeField] private TMP_Text _keypadDisplayText;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _lockSpinnedSfx;
-    private int _currentInput;
+    private int _currentInput = 0;
 
-    public void AddInput()
+    public override void AddInput()
     {
         _audioSource.PlayOneShot(_lockSpinnedSfx);
         _currentInput++;
@@ -19,8 +19,13 @@ public class PadlockDigitScreen : MonoBehaviour
         _keypadDisplayText.text = _currentInput.ToString();
     }
 
-    public bool CheckCombo(int result)
+    public override bool CheckCombo(int result)
     {
         return _currentInput == result;
+    }
+
+    public override bool CheckCombo(string result)
+    {
+        return false;
     }
 }
