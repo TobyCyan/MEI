@@ -4,21 +4,27 @@ using UnityEngine;
 public class ItemPickup : Interactable
 {
     public Item item;
-    [SerializeField] private bool m_IsDestroyAfterPickUp = true;
-    private bool m_IsPickedUp = false;
-    private BoxCollider2D m_Collider;
-    private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private bool _isDestroyAfterPickUp = true;
+    private bool _isPickedUp = false;
+    private BoxCollider2D _collider;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
-        m_Collider = GetComponent<BoxCollider2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<BoxCollider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Disable the game object if already in inventory or picked up before.
+        if (Inventory.Instance.Contains(item))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public override IEnumerator Interact()
     {
         // Stop interaction after item has been picked up, in case forgot to disable repeated interactions.
-        if (m_IsPickedUp)
+        if (_isPickedUp)
         {
             yield break;
         }
@@ -30,16 +36,16 @@ public class ItemPickup : Interactable
     void Pickup()
     {
         Debug.Log("Picking up " +  item.name);
-        m_IsPickedUp = Inventory.Instance.Add(item);
+        _isPickedUp = Inventory.Instance.Add(item);
 
         // Some objects may not need to be destroyed upon picking up.
-        if (m_IsPickedUp && m_IsDestroyAfterPickUp)
+        if (_isPickedUp && _isDestroyAfterPickUp)
         {
             // Instead of destroying, disable the collider and sprite renderer so that the interaction manager still runs.
-            if (m_Collider != null && m_SpriteRenderer != null)
+            if (_collider != null && _spriteRenderer != null)
             {
-                m_Collider.enabled = false;
-                m_SpriteRenderer.enabled = false;
+                _collider.enabled = false;
+                _spriteRenderer.enabled = false;
             }
         }
     }

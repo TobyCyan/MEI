@@ -56,6 +56,8 @@ public class InteractionManager : MonoBehaviour
         var player = PlayerController.Instance;
         player.StopPlayerMovement();
         player.ActivateInteractingAnimation();
+
+        // Go through the interactables.
         foreach (Interactable interactable in _interactables)
         {
             yield return StartCoroutine(interactable.Interact());

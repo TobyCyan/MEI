@@ -3,39 +3,63 @@ using UnityEngine;
 
 [RequireComponent(typeof(DialogueInteractable))]
 public class LockedInteractable : ItemInteractable
-{
-    private bool m_IsLocked = true;
-    [SerializeField] private DialogueInteractable m_LockedDialogue;
-    [SerializeField] private DialogueInteractable m_UnlockedDialogue;
-    [SerializeField] private Item m_UnlockItem;
+{ 
+    private bool _isLocked = true;
+    private bool _isFirstTimeEnter = true;
+    [SerializeField] private DialogueInteractable _lockedDialogue;
+    [SerializeField] private DialogueInteractable _unlockedDialogue;
+    [SerializeField] private Item _unlockItem;
 
-    private SceneTransition m_SceneTransition;
+    private SceneTransition _sceneTransition;
 
     private void Start()
     {
-        m_SceneTransition = GetComponent<SceneTransition>();
+        _sceneTransition = GetComponent<SceneTransition>();
+
+        // Check with the game manager to see if this door has been unlocked before.
+        // Only locked interactables are expected to be locked and have this behavior.
+        if (GameManager.Instance.isDoorUnlocked(this))
+        {
+            _isLocked = false;
+        }
     }
 
     public override IEnumerator Interact()
     {
-        if (m_IsLocked)
+        // Door is locked.
+        if (_isLocked)
         {
-            yield return StartCoroutine(m_LockedDialogue.Interact());
+            yield return StartCoroutine(_lockedDialogue.Interact());
+            yield break;
+        }
+
+        // Door is unlocked.
+        if (_isFirstTimeEnter)
+        {
+            // If unlocked, play dialogue and enter the first time.
+            yield return StartCoroutine(EnterFirstTime());
         }
         else
         {
-            // If unlocked, play dialogue and enter.
-            yield return StartCoroutine(m_UnlockedDialogue.Interact());
-            yield return StartCoroutine(m_SceneTransition.Interact());
+            // If entered before, just transition.
+            yield return StartCoroutine(_sceneTransition.Interact());
         }
+
         yield break;
+    }
+
+    private IEnumerator EnterFirstTime()
+    {
+        yield return StartCoroutine(_unlockedDialogue.Interact());
+        yield return StartCoroutine(_sceneTransition.Interact());
+        _isFirstTimeEnter = false;
     }
 
     public override IEnumerator UseItem(Item item)
     {
-        if (m_IsLocked && item.Equals(m_UnlockItem))
+        if (_isLocked && item.Equals(_unlockItem))
         {
-            m_IsLocked = false;
+            _isLocked = false;
             Inventory.Instance.Remove(item);
         }
         yield break;

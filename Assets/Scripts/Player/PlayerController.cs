@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void SceneLoadedCallback(Scene scene, LoadSceneMode mode)
     {
         transform.position = ScenePlayerInfo.scenePlayerPosition;
+        SetCamera(Camera.main);
         _target = transform.position;
         ResumePlayerMovement();
     }
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
             Vector3 targetPos = new Vector3(worldPosOnPlane.x, playerPos.y, playerPos.z);
             UsedItem = null;
             SetTarget(targetPos);
-            SetFocus(GetInteractableAtPosition(targetPos));
+            SetFocus(GetInteractableAtPosition(worldPosOnPlane));
         }
     }
 
@@ -253,5 +254,14 @@ public class PlayerController : MonoBehaviour
         {
             _playerStates.Add(state, true);
         }
+    }
+
+    /** <summary>
+        Used to set the player camera every scene load.
+        </summary>
+    */
+    public void SetCamera(Camera camera)
+    {
+        _camera = camera;
     }
 }

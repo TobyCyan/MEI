@@ -748,9 +748,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 493758594451622693, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
+      propertyPath: _unlockItem
+      value: 
+      objectReference: {fileID: 11400000, guid: dae6d82e37462b843866d2d32b62ccc6, type: 2}
+    - target: {fileID: 493758594451622693, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
       propertyPath: m_UnlockItem
       value: 
       objectReference: {fileID: 11400000, guid: dae6d82e37462b843866d2d32b62ccc6, type: 2}
+    - target: {fileID: 493758594451622693, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
+      propertyPath: _lockedDialogue
+      value: 
+      objectReference: {fileID: 1951650127}
+    - target: {fileID: 493758594451622693, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
+      propertyPath: _unlockedDialogue
+      value: 
+      objectReference: {fileID: 1951650122}
     - target: {fileID: 493758594451622693, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
       propertyPath: m_UnlockedDialogue
       value: 
@@ -1129,6 +1141,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: -4736109498703158258, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
   m_PrefabInstance: {fileID: 1142609659}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1951650127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2860457924114254121, guid: 1e1e7f577ea813043a9ab90df3e72ab8, type: 3}
+  m_PrefabInstance: {fileID: 1142609659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
