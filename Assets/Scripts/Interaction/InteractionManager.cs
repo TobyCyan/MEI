@@ -17,6 +17,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
     [SerializeField] private bool _isInteracted = false;
+    [SerializeField] private bool _shouldPlayerLookUp = true;
 
     private void Start()
     {
@@ -55,7 +56,10 @@ public class InteractionManager : MonoBehaviour
         // Makes player idle and transition into interacting animation.
         var player = PlayerController.Instance;
         player.StopPlayerMovement();
-        player.ActivateInteractingAnimation();
+        if (_shouldPlayerLookUp)
+        {
+            player.ActivateInteractingAnimation();
+        }
 
         // Go through the interactables.
         foreach (Interactable interactable in _interactables)

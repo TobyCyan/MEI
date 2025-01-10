@@ -203,7 +203,6 @@ public class PlayerController : MonoBehaviour
     {
         _isActive = false;
         _target = transform.position;
-        Debug.Log("Player stopped");
     }
     
     public void ResumePlayerMovement()
