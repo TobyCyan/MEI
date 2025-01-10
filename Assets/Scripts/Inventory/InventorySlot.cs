@@ -28,6 +28,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         _item = item;
         icon.sprite = _item.icon;
+        icon.preserveAspect = true;
         icon.enabled = true;
         _button.onClick.AddListener(ButtonCallback);
         _hasItem = true;

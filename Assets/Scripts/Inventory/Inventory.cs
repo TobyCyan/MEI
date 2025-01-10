@@ -10,9 +10,9 @@ public class Inventory : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogWarning("More than one instance of Inventory");
             return;
         }
+
         Instance = this;
     }
     #endregion
