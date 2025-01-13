@@ -12,8 +12,9 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private float _leftBorderX;
     [SerializeField] private float _rightBorderX;
-    [SerializeField] private float _camYPos = 1.6f;
-
+    
+    private readonly float _camYPos = 0.65f;
+    private readonly float _camFOV = 50.0f;
     private PlayerController _player;
     private Camera _cam;
 
@@ -22,9 +23,9 @@ public class CameraFollow : MonoBehaviour
         _player = PlayerController.Instance;
         _cam = GetComponent<Camera>();
         _cam.transform.position = new Vector3(_cam.transform.position.x, _camYPos, _cam.transform.position.z);
+        _cam.fieldOfView = _camFOV;
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateCamPos();

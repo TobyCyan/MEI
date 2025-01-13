@@ -41,7 +41,8 @@ public class SceneTransition : Interactable
             _player.DeactivateInteractingAnimation();
 
             // Update the player position in the next scene.
-            ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, 0.0f, -1.0f);
+            Vector3 scenePlayerPos = ScenePlayerInfo.scenePlayerPosition;
+            ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, scenePlayerPos.y, scenePlayerPos.z);
             SceneManager.LoadScene(_scenePath);
         }
         yield break;
