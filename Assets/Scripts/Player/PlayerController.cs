@@ -66,6 +66,13 @@ public class PlayerController : MonoBehaviour
      */
     private void ActivateWalkAnimation()
     {
+        string currentAnimationName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        if (_isWalking && currentAnimationName == "Mei Up")
+        {
+            Debug.Log("Stop playback");
+            _animator.StopPlayback();
+        }
+
         _animator.SetBool("isMoving", _isWalking);
     }
 
@@ -89,6 +96,10 @@ public class PlayerController : MonoBehaviour
         SceneManager.sceneLoaded -= SceneLoadedCallback;
     }
 
+    /** The callback for whenever the player loads into a new scene.
+     * This callback will update the player's position in the new scene.
+     * This callback also resets the camera to prevent expensive calls to Camera.main every frame.
+     */
     private void SceneLoadedCallback(Scene scene, LoadSceneMode mode)
     {
         transform.position = ScenePlayerInfo.scenePlayerPosition;

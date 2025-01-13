@@ -740,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5418710508640559403, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5443482603071332964, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -823,7 +827,7 @@ Transform:
   m_GameObject: {fileID: 1615058177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.55, y: 0.14, z: 10}
+  m_LocalPosition: {x: -3.55, y: 0.14, z: 0}
   m_LocalScale: {x: 2.2958, y: 2.2958, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -891,7 +895,7 @@ Transform:
   m_GameObject: {fileID: 1197258651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.09, y: -0.21, z: 10}
+  m_LocalPosition: {x: 9.09, y: -0.21, z: 0}
   m_LocalScale: {x: 4.158255, y: 4.158255, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -996,6 +1000,10 @@ PrefabInstance:
     - target: {fileID: 6940700542367692241, guid: a436cb32778687441bddbff1e12a5bb9, type: 3}
       propertyPath: m_Name
       value: PopUpCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940700542367692241, guid: a436cb32778687441bddbff1e12a5bb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1306,6 +1314,7 @@ MonoBehaviour:
   _onCompletePlayerState: 1
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
+  _shouldPlayerLookUp: 1
 --- !u!114 &1615058185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1515,7 +1524,7 @@ Transform:
   m_GameObject: {fileID: 1998659172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.55, y: 1.19, z: 1}
+  m_LocalPosition: {x: 2.55, y: 1.19, z: 0}
   m_LocalScale: {x: 3.5455, y: 3.5455, z: 3.5455}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1579,6 +1588,7 @@ MonoBehaviour:
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
+  _shouldPlayerLookUp: 1
 --- !u!114 &1998659180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1727,7 +1737,7 @@ Transform:
   m_GameObject: {fileID: 2021596418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.35, y: -0.77, z: 10}
+  m_LocalPosition: {x: 1.35, y: -0.77, z: 0}
   m_LocalScale: {x: 2.5243382, y: 2.5243382, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1998,6 +2008,10 @@ PrefabInstance:
     - target: {fileID: 7224041870916930097, guid: 9aed514b1bbe66c4e82149d4ddfc3fd6, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224041870916930097, guid: 9aed514b1bbe66c4e82149d4ddfc3fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

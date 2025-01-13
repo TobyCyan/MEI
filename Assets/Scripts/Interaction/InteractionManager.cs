@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
@@ -13,14 +14,23 @@ public class InteractionManager : MonoBehaviour
     [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new();
-    private ItemInteractable _itemInteractable;
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
+    /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
+    private string _uniqueID;
+
+    private ItemInteractable _itemInteractable;
 
     private void Start()
     {
+        // GameObject names in the same scene are unique.
+        _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
+
+        // Check if this manager has been interacted before, which will prevent the interaction from happening.
+        _isInteracted = GameManager.Instance.IsManagerInteracted(_uniqueID);
+
         // Gets a list of Item Interactables.
         // Then, get the first ItemInteractable in the list and check if it exists.
         // Assumption: There is only one ItemInteractable in _interactables.
@@ -70,8 +80,12 @@ public class InteractionManager : MonoBehaviour
 
         // Go back to idle.
         player.DeactivateInteractingAnimation();
+
+        // Wait a little more to ensure the interaction to ensure the interacting animation is fully deactivated.
+        yield return new WaitForSeconds(0.3f);
+
         player.ResumePlayerMovement();
-        Debug.Log("Interaction done");
+
         // Add the new player state after completing the interaction.
         if (_onCompletePlayerState != PlayerState.State.None)
         {
@@ -82,6 +96,7 @@ public class InteractionManager : MonoBehaviour
         if (!_isAllowRepeatedInteractions)
         {
             _isInteracted = true;
+            GameManager.Instance.AddInteractedManager(_uniqueID);
         }
     }
 
@@ -93,7 +108,6 @@ public class InteractionManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (!collision.CompareTag("Player"))
         {
             return;

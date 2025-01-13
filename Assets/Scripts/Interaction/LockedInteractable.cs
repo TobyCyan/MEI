@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Xml;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(DialogueInteractable))]
 public class LockedInteractable : ItemInteractable
@@ -9,18 +11,21 @@ public class LockedInteractable : ItemInteractable
     [SerializeField] private DialogueInteractable _lockedDialogue;
     [SerializeField] private DialogueInteractable _unlockedDialogue;
     [SerializeField] private Item _unlockItem;
+    /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
+    private string _uniqueID;
 
     private SceneTransition _sceneTransition;
 
     private void Start()
     {
-        _sceneTransition = GetComponent<SceneTransition>();
+        // GameObject names in the same scene are unique.
+        _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
 
         // Check with the game manager to see if this door has been unlocked before.
         // Only locked interactables are expected to be locked and have this behavior.
-        if (GameManager.Instance.isDoorUnlocked(this))
+        if (GameManager.Instance.IsDoorUnlocked(_uniqueID))
         {
-            _isLocked = false;
+            _isLocked = _isFirstTimeEnter = false;
         }
     }
 
@@ -60,6 +65,7 @@ public class LockedInteractable : ItemInteractable
         if (_isLocked && item.Equals(_unlockItem))
         {
             _isLocked = false;
+            GameManager.Instance.AddUnlockedDoor(_uniqueID);
             Inventory.Instance.Remove(item);
         }
         yield break;

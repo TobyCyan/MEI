@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,21 +20,38 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-    /** Maintain a list of locked interactables to check whether a door has been unlocked when going between scenes. **/
-    private List<LockedInteractable> _openedLockedInteractables = new List<LockedInteractable>();
+    /** Maintain a set of locked interactables IDs to check whether a door has been unlocked when going between scenes. **/
+    private HashSet<string> _openedLockedInteractables = new HashSet<string>();
 
-    public void AddUnlockedDoor(LockedInteractable door)
+    private HashSet<string> _interactedManagers = new HashSet<string>();
+
+    public void AddUnlockedDoor(string doorID)
     {
-        _openedLockedInteractables.Add(door);
+        _openedLockedInteractables.Add(doorID);
     }
 
-    public void RemoveUnlockedDoor(LockedInteractable unlockedDoor)
+    public void RemoveUnlockedDoor(string unlockedDoorID)
     {
-        _openedLockedInteractables.Remove(unlockedDoor);
+        _openedLockedInteractables.Remove(unlockedDoorID);
     }
 
-    public bool isDoorUnlocked(LockedInteractable door)
+    public bool IsDoorUnlocked(string doorID)
     {
-        return _openedLockedInteractables.Contains(door);
+        return _openedLockedInteractables.Contains(doorID);
+    }
+
+    public void AddInteractedManager(string interactedManagerID)
+    {
+        _interactedManagers.Add(interactedManagerID);
+    }
+
+    public void RemoveInteractedManager(string interactedManagerID)
+    {
+        _interactedManagers.Remove(interactedManagerID);
+    }
+
+    public bool IsManagerInteracted(string interactedManagerID)
+    {
+        return _interactedManagers.Contains(interactedManagerID);
     }
 }

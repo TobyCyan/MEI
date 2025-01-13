@@ -14,11 +14,21 @@ public class ItemPickup : Interactable
         _collider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Disable the game object if already in inventory or picked up before, and is set to be destroyed after picking up.
-        if (Inventory.Instance.Contains(item) && _isDestroyAfterPickUp)
+        _isPickedUp = Inventory.Instance.Contains(item);
+        if (!_isPickedUp)
+        {
+            return;
+        }
+
+        // Disable the script if already in inventory or picked up before.
+        enabled = false;
+
+        // Disable game object if it is set to be destroyed after picking up.
+        if (_isDestroyAfterPickUp)
         {
             gameObject.SetActive(false);
         }
+        
     }
 
     public override IEnumerator Interact()

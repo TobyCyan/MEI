@@ -276,6 +276,8 @@ MonoBehaviour:
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
+  _shouldPlayerLookUp: 1
+  _givenUniqueID: PhotoL
 --- !u!61 &59311294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -342,6 +344,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+      propertyPath: _givenUniqueID
+      value: Entrance
+      objectReference: {fileID: 0}
     - target: {fileID: 1571073580387533919, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _fadeEffect
       value: 
@@ -536,6 +542,8 @@ MonoBehaviour:
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
+  _shouldPlayerLookUp: 1
+  _givenUniqueID: PhotoR
 --- !u!61 &159674814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -684,6 +692,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 763480590841691190, guid: 700901afb6a13374e93be25327ee6bf6, type: 3}
+      propertyPath: _givenUniqueID
+      value: Stairs
+      objectReference: {fileID: 0}
     - target: {fileID: 1491299485935819320, guid: 700901afb6a13374e93be25327ee6bf6, type: 3}
       propertyPath: m_Name
       value: Stairs
@@ -1273,7 +1285,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7604263512625817871, guid: 1afeed6645a807440893ed0804f86fec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1294,7 +1306,7 @@ Transform:
   m_GameObject: {fileID: 1378817779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.26, y: -1.6399996, z: -2}
+  m_LocalPosition: {x: -10.26, y: -1.6399996, z: -1}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
