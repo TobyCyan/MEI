@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkingAudio: {fileID: 7621748312620523070}
-  speed: 3
+  speed: 4
   _isFacingRight: 1
 --- !u!61 &4174639344488089571
 BoxCollider2D:
