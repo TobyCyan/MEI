@@ -13,8 +13,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float _leftBorderX;
     [SerializeField] private float _rightBorderX;
     
-    private readonly float _camYPos = 0.65f;
-    private readonly float _camFOV = 50.0f;
+    private readonly float _camYPos = 1.5f;
+    private readonly float _camFOV = 60.0f;
     private PlayerController _player;
     private Camera _cam;
 

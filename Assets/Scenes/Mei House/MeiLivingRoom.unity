@@ -802,6 +802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5418710508640559403, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5443482603071332964, guid: 60c4ea189d0993a4d881316e28f4a99f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1525,6 +1529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUpCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6940700542367692241, guid: a436cb32778687441bddbff1e12a5bb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1768,7 +1776,6 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 0
   _isInteracted: 0
   _shouldPlayerLookUp: 1
-  _givenUniqueID: Fridge
 --- !u!61 &1826547652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2082,6 +2089,10 @@ PrefabInstance:
       value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+      propertyPath: _shouldPlayerLookUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2107,11 +2118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.8310246
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.2201595
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalScale.z
@@ -2131,31 +2142,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.90046597
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.06753773
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.42837086
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.033138793
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -51.2
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 6.78
       objectReference: {fileID: 0}
     - target: {fileID: 4400697820535113613, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _scenePath
