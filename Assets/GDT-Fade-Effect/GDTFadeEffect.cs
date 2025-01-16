@@ -163,8 +163,8 @@ public class GDTFadeEffect : MonoBehaviour
 
     private void Disable()
     {
+        Debug.Log("Fade Disabled");
         gameObject.SetActive(false);
-
     }
 
     private void HalfCycleDelay()
@@ -189,5 +189,23 @@ public class GDTFadeEffect : MonoBehaviour
         finished = false;
     }
 
+    /** <summary>
+        Calculates the total duration of the current fade effect.
+        This takes into account whether there is a pingpong or not.
+        <summary>
+    */
+    public float CalculateFadeDuration()
+    {
+        /** To calculate the total duration, we only care about:
+          * Whether it pingpongs,
+          * the initial delay, the time effect, and the pingpong delay duration.
+          */
+        float totalDuration = initialDelay + timeEffect;
+        if (pingPong)
+        {
+            totalDuration += pingPongDelay + timeEffect;
+        }
+        return totalDuration;
+    }
 
 }

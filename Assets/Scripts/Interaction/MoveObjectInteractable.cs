@@ -9,37 +9,17 @@ using UnityEngine;
 */
 public class MoveObjectInteractable : Interactable
 {
-    private enum MovePositionSelection
-    {
-        PlayerPosition,
-        CustomPosition,
-    }
-
     [SerializeField] private GameObject _movedObject;
-    [SerializeField] private MovePositionSelection _selectedMoveToPosition;
+    [SerializeField] private MovePosition.Position _selectedMoveToPosition;
 
     [Header("Fill This If Custom Position is Selected.")]
     [SerializeField] private Vector3 _customPosition;
 
     public override IEnumerator Interact()
     {
-        Vector3 moveToPos = GetMoveToPosition();
+        Vector3 moveToPos = MovePosition.GetMovePosX(_selectedMoveToPosition, _customPosition);
         _movedObject.transform.position = moveToPos;
         yield break;
     }
 
-    Vector3 GetMoveToPosition()
-    {
-        switch (_selectedMoveToPosition)
-        {
-            case MovePositionSelection.PlayerPosition:
-                return PlayerController.Instance.transform.position;
-
-            case MovePositionSelection.CustomPosition:
-                return _customPosition;
-
-            default:
-                return Vector3.zero;
-        }
-    }
 }
