@@ -13,13 +13,21 @@ public class TransitionInteractable : Interactable
     [SerializeField] private AudioSource _endAudio;
     [SerializeField] private float _pauseDuration = 0.75f;
     [SerializeField] private bool _disableWhenFinish = true;
+    [SerializeField] private bool _isInvisibleTransitionObject = false;
 
     private float _fadeDuration = 0.0f;
     private float _startAudioDuration = 0.0f;
     private float _endAudioDuration = 0.0f;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_isInvisibleTransitionObject)
+        {
+            _spriteRenderer.enabled = false;
+        }
+
         if (_startAudio != null)
         {
             _startAudioDuration = _startAudio.clip.length;

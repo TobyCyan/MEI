@@ -316,16 +316,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 374787466}
+      objectReference: {fileID: 374787467}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 374787467}
+      objectReference: {fileID: 374787466}
     - target: {fileID: 1571073580387533919, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _fadeEffect
       value: 
@@ -427,16 +427,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 795828088}
+      objectReference: {fileID: 795828089}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 795828089}
+      objectReference: {fileID: 795828088}
     - target: {fileID: 1571073580387533919, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _fadeEffect
       value: 
@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400697820535113613, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _newScenePlayerPosX
-      value: 6
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 8853489217937947427, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_Name
@@ -15922,16 +15922,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 919529339}
+      objectReference: {fileID: 919529335}
     - target: {fileID: 1365757492825355020, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 919529335}
+      objectReference: {fileID: 919529339}
     - target: {fileID: 1571073580387533919, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: _fadeEffect
       value: 
@@ -18519,7 +18519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6194658707271077295, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.66
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 6194658707271077295, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18567,7 +18567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9189771400005099139, guid: 764c6511a951c92418b907e3d9416efb, type: 3}
       propertyPath: _rightBorderX
-      value: 52
+      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
