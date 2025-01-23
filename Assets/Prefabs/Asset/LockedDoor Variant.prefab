@@ -17,12 +17,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4736109498703158258}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.49
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.36
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2182284313919940025, guid: 796b01fc989d35b408497cde32ac2837, type: 3}
       propertyPath: m_LocalPosition.z
@@ -119,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77068a33ba0a24a40a4a32189ffa4641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LockedDialogue: {fileID: 2860457924114254121}
-  m_UnlockedDialogue: {fileID: 0}
-  m_UnlockItem: {fileID: 0}
+  _lockedDialogue: {fileID: 0}
+  _unlockedDialogue: {fileID: 0}
+  _unlockItem: {fileID: 0}
 --- !u!114 &2860457924114254121
 MonoBehaviour:
   m_ObjectHideFlags: 0

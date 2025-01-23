@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: dae6d82e37462b843866d2d32b62ccc6, type: 2}
-  m_IsDestroyAfterPickUp: 1
+  _isDestroyAfterPickUp: 1
 --- !u!114 &1476809816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +935,7 @@ MonoBehaviour:
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
   _isInteracted: 0
+  _shouldPlayerLookUp: 1
 --- !u!61 &1476809817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1000,7 +1001,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     private HashSet<string> _interactedManagers = new HashSet<string>();
 
+    [SerializeField] private bool _hasTransitionedToDarkScene = false;
+
     public void AddUnlockedDoor(string doorID)
     {
         _openedLockedInteractables.Add(doorID);
@@ -54,4 +56,15 @@ public class GameManager : MonoBehaviour
     {
         return _interactedManagers.Contains(interactedManagerID);
     }
+
+    public void TransitionToDarkScene()
+    {
+        _hasTransitionedToDarkScene = true;
+    }
+
+    public bool HasTransitionedToDarkScene()
+    {
+        return _hasTransitionedToDarkScene;
+    }
+
 }
