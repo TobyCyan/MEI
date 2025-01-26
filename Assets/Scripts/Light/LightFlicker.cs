@@ -3,14 +3,16 @@ using UnityEngine.Rendering.Universal;
 
 public class LightFlicker : MonoBehaviour
 {
-    [SerializeField] private Light2D _light;
     [SerializeField] private float _flickerInterval = 1.5f;
-    [SerializeField] private float _maxIntensity = 1.0f;
     [SerializeField] private bool _isFlickerDuringDark = false;
+    private Light2D _light;
+    private float _maxIntensity = 1.0f;
     private float _timer = 0.0f;
 
     private void Start()
     {
+        _light = GetComponent<Light2D>();
+        _maxIntensity = GetComponent<ToggleSceneLighting>().GetDarkSceneIntensity();
         _light.intensity = _maxIntensity;
 
         bool isSceneDark = GameManager.Instance.HasTransitionedToDarkScene();

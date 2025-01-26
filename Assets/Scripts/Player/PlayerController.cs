@@ -81,9 +81,15 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("isInteracting", true);
     }
 
+    /**
+     * Deactivates the current interaction animation.
+     * Then, forces the animator to go back to the idle state.
+     * This fixes the problem where the interaction animation is still playing even when the player is able to move again.
+     */
     public void DeactivateInteractingAnimation()
     {
         _animator.SetBool("isInteracting", false);
+        _animator.Play("Mei Idle");
     }
 
     private void OnEnable()

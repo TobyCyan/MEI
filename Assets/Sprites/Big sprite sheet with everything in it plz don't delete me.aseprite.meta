@@ -144,13 +144,13 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: Big sprite sheet with everything in it plz don't delete me_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 399
+      y: 354
       width: 83
       height: 42
     spriteID: f75354ea8de056c4fa9382cb56d65308
@@ -164,13 +164,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 100
-      y: 391
+      y: 346
       width: 48
       height: 54
     spriteID: c43e7ff1f453a4f41bd314de5ae8b1e2
@@ -184,13 +184,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 234
-      y: 390
+      y: 345
       width: 27
       height: 48
     spriteID: 40dd1f7356eb00643a92194e0e60af0d
@@ -204,13 +204,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 384
-      y: 427
+      y: 382
       width: 17
       height: 16
     spriteID: 8944b59630ad64d47952c003460065e0
@@ -224,13 +224,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 404
-      y: 430
+      y: 385
       width: 14
       height: 19
     spriteID: c619c551c7f28e74890cf320615303d9
@@ -244,13 +244,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 465
-      y: 394
+      y: 349
       width: 38
       height: 45
     spriteID: 5ac7754c883ad634083aab45016c2c5a
@@ -264,13 +264,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 339
-      y: 417
+      y: 372
       width: 14
       height: 13
     spriteID: b8175f4180d4fb0469ddddfc6789e6a0
@@ -284,13 +284,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 353
-      y: 418
+      y: 373
       width: 7
       height: 9
     spriteID: 322eba3ae216a864a894994e293f6c3e
@@ -304,13 +304,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 362
-      y: 418
+      y: 373
       width: 18
       height: 12
     spriteID: cb155b8504df8fe4bb3ccea347cc25aa
@@ -324,13 +324,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 385
-      y: 418
+      y: 373
       width: 27
       height: 7
     spriteID: d99f6f7aa818e7943b9a95f97e61e938
@@ -344,13 +344,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 413
-      y: 420
+      y: 375
       width: 6
       height: 6
     spriteID: 1ff4c55c7f5f57547bbe74fcdf09671c
@@ -364,13 +364,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 543
-      y: 416
+      y: 371
       width: 18
       height: 11
     spriteID: ac60f8a8836370d4091302810b621bc9
@@ -384,13 +384,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 578
-      y: 417
+      y: 372
       width: 21
       height: 4
     spriteID: 1674ed0ab6561a94d90c52128d0a41b5
@@ -404,13 +404,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 163
-      y: 390
+      y: 345
       width: 56
       height: 23
     spriteID: e6c7315f24a376045bfe10b76a8b78f9
@@ -424,13 +424,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 277
-      y: 389
+      y: 344
       width: 55
       height: 28
     spriteID: bf4344c37bf3c5142b7c50cbc1e9d373
@@ -444,13 +444,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_15
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 337
-      y: 389
+      y: 344
       width: 48
       height: 27
     spriteID: 6b174aa86761fd34ba507a0582596878
@@ -464,13 +464,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_16
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 392
-      y: 396
+      y: 351
       width: 56
       height: 20
     spriteID: 12acfb5aca2096c4c8887545e2425bad
@@ -484,13 +484,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_17
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 511
-      y: 407
+      y: 362
       width: 15
       height: 10
     spriteID: 6e13e296019f99e4b8290b10ef1a99ac
@@ -504,13 +504,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_18
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 533
-      y: 390
+      y: 345
       width: 72
       height: 19
     spriteID: e3c597f3f358a1641bd8531b955a4a87
@@ -524,13 +524,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_19
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 509
-      y: 395
+      y: 350
       width: 19
       height: 9
     spriteID: d8c826334bbc6c74eb02bbf2985a5e6e
@@ -544,13 +544,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_20
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 19
-      y: 339
+      y: 294
       width: 32
       height: 52
     spriteID: 4cc7abf2fd9e2a748bc1580ccc056b2b
@@ -564,13 +564,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_21
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 62
-      y: 334
+      y: 289
       width: 45
       height: 57
     spriteID: 04e6247d49568c747b45bf67d9730e0b
@@ -584,13 +584,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_22
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 509
-      y: 387
+      y: 342
       width: 16
       height: 6
     spriteID: 864241dba3e37174fa5cd858d3b5603d
@@ -604,13 +604,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_23
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 120
-      y: 346
+      y: 301
       width: 21
       height: 30
     spriteID: 91246d3339172bb49bc2899b85339551
@@ -624,13 +624,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_24
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 144
-      y: 346
+      y: 301
       width: 21
       height: 30
     spriteID: 109e85dc97175c048beca466f0148ed0
@@ -644,13 +644,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_25
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 167
-      y: 346
+      y: 301
       width: 27
       height: 30
     spriteID: 2ad5624d79a32554aa733c341b905f55
@@ -664,13 +664,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_26
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 220
-      y: 339
+      y: 294
       width: 32
       height: 30
     spriteID: 9a487b0c6e80b2041aa3999deecbaf97
@@ -684,13 +684,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_27
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 275
-      y: 356
+      y: 311
       width: 46
       height: 27
     spriteID: f3db4c216ebc8a9408d6c00d4443dab0
@@ -704,13 +704,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_28
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 329
-      y: 356
+      y: 311
       width: 19
       height: 27
     spriteID: d46bbebca667a1c478475f3be8732604
@@ -724,15 +724,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_29
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 15
+      x: 412
       y: 297
-      width: 39
-      height: 24
+      width: 35
+      height: 27
     spriteID: 9e25854e92c80ba469198ec6c35889b8
     spriteBone: []
     spriteOutline: []
@@ -744,15 +744,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_30
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 294
-      width: 29
-      height: 40
+      x: 453
+      y: 298
+      width: 24
+      height: 26
     spriteID: 4ec2d7932b2e9174d8571c4888fc235f
     spriteBone: []
     spriteOutline: []
@@ -764,15 +764,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_31
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 196
-      y: 318
-      width: 22
-      height: 9
+      x: 490
+      y: 307
+      width: 34
+      height: 5
     spriteID: 1a7c82181a6c7c64aa33f14a552db8d3
     spriteBone: []
     spriteOutline: []
@@ -784,15 +784,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_32
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 240
-      y: 294
-      width: 24
-      height: 33
+      x: 492
+      y: 300
+      width: 30
+      height: 4
     spriteID: 4d07cf137f609304b851b446ccb53bd8
     spriteBone: []
     spriteOutline: []
@@ -804,15 +804,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_33
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 269
-      y: 294
-      width: 32
-      height: 27
+      x: 15
+      y: 252
+      width: 39
+      height: 24
     spriteID: 2bdfb361080a2544f97948492eead89b
     spriteBone: []
     spriteOutline: []
@@ -824,15 +824,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_34
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 308
-      y: 294
-      width: 26
-      height: 46
+      x: 148
+      y: 249
+      width: 29
+      height: 40
     spriteID: b4ca1f4bf2d7f774d96998872081b12e
     spriteBone: []
     spriteOutline: []
@@ -844,15 +844,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_35
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 338
-      y: 295
-      width: 26
-      height: 45
+      x: 196
+      y: 273
+      width: 22
+      height: 9
     spriteID: cfdccf08227c1de49975fafe3c163128
     spriteBone: []
     spriteOutline: []
@@ -864,15 +864,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_36
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 367
-      y: 295
-      width: 26
-      height: 45
+      x: 240
+      y: 249
+      width: 24
+      height: 33
     spriteID: b6548eb3373d61047bfe038c6d6b5953
     spriteBone: []
     spriteOutline: []
@@ -884,15 +884,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_37
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 62
-      y: 295
-      width: 70
-      height: 22
+      x: 269
+      y: 249
+      width: 32
+      height: 27
     spriteID: eb2aee3f813e1da4fb349683c26a5704
     spriteBone: []
     spriteOutline: []
@@ -904,15 +904,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_38
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 196
-      y: 295
-      width: 32
-      height: 16
+      x: 308
+      y: 249
+      width: 26
+      height: 46
     spriteID: a60da2a44cc07f6408cf135048881d3e
     spriteBone: []
     spriteOutline: []
@@ -924,15 +924,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_39
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 402
-      y: 273
-      width: 23
-      height: 31
+      x: 338
+      y: 250
+      width: 26
+      height: 45
     spriteID: 2ac640b556e87924184cc58a774460f9
     spriteBone: []
     spriteOutline: []
@@ -944,15 +944,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_40
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 197
-      y: 280
-      width: 14
-      height: 5
+      x: 367
+      y: 250
+      width: 26
+      height: 45
     spriteID: 1453d49cb1601104ebac1e0926925d63
     spriteBone: []
     spriteOutline: []
@@ -964,15 +964,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_41
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 269
-      y: 262
-      width: 31
-      height: 27
+      x: 62
+      y: 250
+      width: 70
+      height: 22
     spriteID: b33dec27872dff045bb6cd2c0a9c6c70
     spriteBone: []
     spriteOutline: []
@@ -984,15 +984,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_42
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 341
-      y: 241
-      width: 43
-      height: 50
+      x: 196
+      y: 250
+      width: 32
+      height: 16
     spriteID: 4fb74981edc246749821ee38f35b2b59
     spriteBone: []
     spriteOutline: []
@@ -1004,15 +1004,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_43
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 180
-      y: 256
-      width: 49
-      height: 18
+      x: 402
+      y: 228
+      width: 23
+      height: 31
     spriteID: 8db71a6774f253c4e9c2a262209ea56b
     spriteBone: []
     spriteOutline: []
@@ -1024,15 +1024,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_44
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 400
-      y: 243
-      width: 28
-      height: 26
+      x: 197
+      y: 235
+      width: 14
+      height: 5
     spriteID: 102d89981faca9344a688f383218affd
     spriteBone: []
     spriteOutline: []
@@ -1044,15 +1044,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_45
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 143
-      width: 211
-      height: 88
+      x: 269
+      y: 217
+      width: 31
+      height: 27
     spriteID: c14836da93f7edf4295a4ef3d9b0cfa6
     spriteBone: []
     spriteOutline: []
@@ -1064,15 +1064,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_46
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 341
-      y: 192
-      width: 30
-      height: 48
+      y: 196
+      width: 43
+      height: 50
     spriteID: dc6b0035ccf93dd4a9c193be47057ae5
     spriteBone: []
     spriteOutline: []
@@ -1084,15 +1084,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_47
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 373
-      y: 192
-      width: 11
-      height: 48
+      x: 180
+      y: 211
+      width: 49
+      height: 18
     spriteID: 9311b08754cae0c48b98d15871eff6d3
     spriteBone: []
     spriteOutline: []
@@ -1104,15 +1104,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_48
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 15
-      y: 66
-      width: 32
-      height: 27
+      x: 400
+      y: 198
+      width: 28
+      height: 26
     spriteID: b015d27fa3064cd4796acf226f207516
     spriteBone: []
     spriteOutline: []
@@ -1124,16 +1124,176 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Big sprite sheet with everything in it plz don't delete me_49
     originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 98
+      width: 176
+      height: 88
+    spriteID: 07db41476bdbd9841ab3cbf5d155cfb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_50
+    originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 56
-      y: 4
-      width: 80
+      x: 269
+      y: 184
+      width: 32
+      height: 27
+    spriteID: 8733a7706ed62bd4197b11e62ced6513
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_51
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 341
+      y: 147
+      width: 30
       height: 48
-    spriteID: 07db41476bdbd9841ab3cbf5d155cfb7
+    spriteID: 0aa0d607f50534f4f8e30557153c0c72
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_52
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 373
+      y: 147
+      width: 11
+      height: 48
+    spriteID: e4d4be43e7321594ba4f2a9f2be849a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_53
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 136
+      width: 13
+      height: 23
+    spriteID: c909fd7ee80835d42929ef34feec72d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_54
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 261
+      y: 137
+      width: 13
+      height: 22
+    spriteID: feefa94f9cd77514da698cc7edf9c4e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_55
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 109
+      width: 62
+      height: 23
+    spriteID: 383d556ce34b5e44e9bacb100df4bccc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_56
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 15
+      y: 21
+      width: 32
+      height: 27
+    spriteID: 25f09286b97edaa448b8ce2eeeb1e333
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Big sprite sheet with everything in it plz don't delete me_57
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 4
+      width: 88
+      height: 46
+    spriteID: 578b7a3347d34b1489a0b88753f5df58
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1154,9 +1314,9 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 19
-        y: 549
+        y: 594
         width: 601
-        height: 445
+        height: 400
       spriteId: aa880d1a1e3f81f4e8d87d02285d4254
     linkedCells: []
     parentIndex: -1

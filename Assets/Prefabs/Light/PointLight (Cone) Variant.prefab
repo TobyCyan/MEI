@@ -10,11 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_Color.b
-      value: 0.5990566
+      value: 0.2691349
+      objectReference: {fileID: 0}
+    - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9056604
       objectReference: {fileID: 0}
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_Color.r
-      value: 0.9563241
+      value: 0.7657807
+      objectReference: {fileID: 0}
+    - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_FalloffIntensity
@@ -22,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 91.75488
+      value: 106.79667
       objectReference: {fileID: 0}
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 106.79666
+      value: 152.95052
       objectReference: {fileID: 0}
     - target: {fileID: 782134099735673079, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_PointLightOuterRadius
@@ -45,16 +53,28 @@ PrefabInstance:
       value: PointLight (Cone) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6342721
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6342721
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6342721
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.16
+      value: -9.76
       objectReference: {fileID: 0}
     - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.73
+      value: 7.21
       objectReference: {fileID: 0}
     - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2219142180148176998, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84,6 +104,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.61
       objectReference: {fileID: 0}
+    - target: {fileID: 3395130357079965387, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395130357079965387, guid: 6d55fabb93e8c3c4bb7ad59a48820487, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6699367252420501375, guid: 3542001be9826b34aad2ca42cb9960e1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
