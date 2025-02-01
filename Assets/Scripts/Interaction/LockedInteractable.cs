@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,10 @@ public class LockedInteractable : ItemInteractable
     [SerializeField] private DialogueInteractable _lockedDialogue;
     [SerializeField] private DialogueInteractable _unlockedDialogue;
     [SerializeField] private Item _unlockItem;
+
+    [Header("Dependent door can be nothing.")]
+    [SerializeField] private LockedInteractable _dependentLockedInteractable;
+
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
 
@@ -20,9 +25,11 @@ public class LockedInteractable : ItemInteractable
         // GameObject names in the same scene are unique.
         _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
 
-        // Check with the game manager to see if this door has been unlocked before.
+        // Check with the game manager to see if this door or its dependent door have been unlocked before.
+        // E.g. if the front door is unlocked, then the back door should be unlocked since the front and back door are dependent on each other.
         // Only locked interactables are expected to be locked and have this behavior.
-        if (GameManager.Instance.IsDoorUnlocked(_uniqueID))
+        bool isDependentDoorUnlocked = _dependentLockedInteractable ? _dependentLockedInteractable.IsUnlocked() : false;
+        if (IsUnlocked() || isDependentDoorUnlocked)
         {
             _isLocked = _isFirstTimeEnter = false;
         }
@@ -68,5 +75,10 @@ public class LockedInteractable : ItemInteractable
             Inventory.Instance.Remove(item);
         }
         yield break;
+    }
+
+    public bool IsUnlocked()
+    {
+        return GameManager.Instance.IsDoorUnlocked(_uniqueID);
     }
 }
