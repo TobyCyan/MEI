@@ -552,8 +552,8 @@ Tilemap:
   - first: {x: -9, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 45
-      m_TileSpriteIndex: 45
+      m_TileIndex: 44
+      m_TileSpriteIndex: 44
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5359,9 +5359,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: afb77f69e79681844aefcdd67e966ada, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 0baef69eb720f5b40a5f2ff62967cdd2, type: 2}
-  - m_RefCount: 4
-    m_Data: {fileID: 11400000, guid: d7e74721f2a515649bc763741bacf601, type: 2}
   - m_RefCount: 5
+    m_Data: {fileID: 11400000, guid: d7e74721f2a515649bc763741bacf601, type: 2}
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 70cb6936973b68c45b73adab0c6e674f, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 53af0a93cb2df76478a3fd91e8bf2b09, type: 2}
@@ -5456,9 +5456,9 @@ Tilemap:
     m_Data: {fileID: 1467852873, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1902485157, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: -1178528083, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
   - m_RefCount: 5
+    m_Data: {fileID: -1178528083, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
+  - m_RefCount: 4
     m_Data: {fileID: 1089128494, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -52364451, guid: f62be343cdf51c8448a621f5a258eadc, type: 3}
@@ -7474,7 +7474,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2145591191}
+  - {fileID: 1641562346}
   - {fileID: 2009293005}
+  - {fileID: 194997607}
   - {fileID: 67021939}
   - {fileID: 1341133942}
   - {fileID: 1195091628}
@@ -7484,9 +7486,7 @@ SceneRoots:
   - {fileID: 1197258653}
   - {fileID: 1998659175}
   - {fileID: 1197258659}
-  - {fileID: 194997607}
   - {fileID: 1447442803}
-  - {fileID: 1641562346}
   - {fileID: 371706045}
   - {fileID: 482384267}
   - {fileID: 290854648}
