@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 825839a4a6948c947979e2bcb07cf027
+guid: 594e2713a27f191438ad1e3ec59178f3
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638744361845900928
+  platformSettingsDirtyTick: 638744356449708934
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Scene 2 SPRITES
+  - name: Scene 5 sprites
     originalName: 
-    pivot: {x: 0.46944448, y: -0.907767}
+    pivot: {x: 0.6385965, y: -2.375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 360
-      height: 206
-    spriteID: b96c9dc48eaa1974991789c6343b9be1
+      width: 285
+      height: 112
+    spriteID: fa86888307ed94a4b85b47db33b45a3a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,18 +142,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: MeiClassroom_Sprites_0
+  - name: Scene 5 sprites_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 160
-      width: 29
-      height: 40
-    spriteID: 70934e9afbd41e14cbbce4d6aa88ccef
+      x: 15
+      y: 67
+      width: 38
+      height: 48
+    spriteID: 126469ed2153e674bb6f5a0771741cca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,18 +162,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_1
+  - name: Scene 5 sprites_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 47
-      y: 194
-      width: 22
-      height: 9
-    spriteID: 32600393430d09444a1d2751ef8cbd10
+      x: 57
+      y: 67
+      width: 38
+      height: 45
+    spriteID: 7ab964b63ec6d8748b1c56c27e5558eb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,7 +182,127 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_2
+  - name: Scene 5 sprites_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 135
+      y: 89
+      width: 18
+      height: 11
+    spriteID: 9cb9b9c9678837c459771f507dab5221
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 90
+      width: 21
+      height: 4
+    spriteID: f665f045f5500204fa7851178c2eeaa4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 209
+      y: 69
+      width: 37
+      height: 47
+    spriteID: ce9065d38c38d9d479f90dbf7e286f9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 252
+      y: 70
+      width: 37
+      height: 44
+    spriteID: 7f2aa3af809da904eaa607460e4b0172
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 80
+      width: 15
+      height: 10
+    spriteID: b37e55641be2368429e89bae26cac125
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 125
+      y: 63
+      width: 72
+      height: 19
+    spriteID: 375a3c101240d3b4398fab9f18d3ccb3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -190,10 +310,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 101
-      y: 122
-      width: 176
-      height: 88
-    spriteID: 0a4eb08e633c65e4cbe22e782d3c6c79
+      y: 68
+      width: 19
+      height: 9
+    spriteID: af92133ac38ec3449b9c9352f1da3b18
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -202,18 +322,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_3
+  - name: Scene 5 sprites_9
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 290
-      y: 161
-      width: 29
-      height: 43
-    spriteID: 22c2d5f07c5895249a9e239e6f237771
+      x: 101
+      y: 60
+      width: 16
+      height: 6
+    spriteID: 96442ccf06f626943a716d613754bd3d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -222,18 +342,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_4
+  - name: Scene 5 sprites_10
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 334
-      y: 160
-      width: 29
-      height: 44
-    spriteID: acb790ca4ca75274f9509c00ffbab337
+      x: 4
+      y: 15
+      width: 35
+      height: 27
+    spriteID: efc8376393b7ebe46bb3d52bed01f650
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -242,38 +362,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_5
+  - name: Scene 5 sprites_11
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 47
-      y: 171
-      width: 32
-      height: 16
-    spriteID: df99959eccc3db44782519b56699645a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 7
-      y: 110
+      x: 45
+      y: 16
       width: 24
-      height: 33
-    spriteID: 7cd07fbf612035744ba32076fda0cca8
+      height: 26
+    spriteID: 584fe272b3ed33f4f86fab4c510ad8fa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -282,18 +382,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_7
+  - name: Scene 5 sprites_12
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 110
-      width: 32
-      height: 27
-    spriteID: 585a9c337bd5c8c41a392b305913e974
+      x: 135
+      y: 31
+      width: 13
+      height: 23
+    spriteID: b85d93fdf789ed84b852ecdb54c4a3c2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -302,18 +402,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_8
+  - name: Scene 5 sprites_13
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 288
-      y: 110
-      width: 33
-      height: 41
-    spriteID: fddde7375fc6ec14c80e59a2a54f013e
+      x: 194
+      y: 32
+      width: 13
+      height: 22
+    spriteID: 0933d3e44745c8d4abab9b6279ba2bf4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -322,18 +422,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_9
+  - name: Scene 5 sprites_14
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 335
-      y: 110
-      width: 29
-      height: 41
-    spriteID: 2d8784329fd9f2a42b67027bf4bc169e
+      x: 82
+      y: 25
+      width: 34
+      height: 5
+    spriteID: 8c5e36d26d7ed6b469b1344306a32380
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -342,98 +442,38 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_10
+  - name: Scene 5 sprites_15
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 78
-      width: 31
-      height: 27
-    spriteID: d3427c3a14f20384aa7cc6ee20fc0daf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_11
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 88
-      y: 91
-      width: 28
-      height: 11
-    spriteID: bf4f945fc16b2714aa362152e4f4feca
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_12
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 40
-      width: 32
-      height: 27
-    spriteID: 6cd2ee2614a737f45aec4d88eef82229
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_13
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 87
-      y: 23
-      width: 88
-      height: 46
-    spriteID: 8212b01f1ff47a14897761626c2abf46
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: MeiClassroom_Sprites_14
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 29
+      x: 150
       y: 4
-      width: 32
-      height: 27
-    spriteID: 03a0e85a91c20de42945c86c6d8ee8ae
+      width: 62
+      height: 23
+    spriteID: 021e0e810fd01b646a8ff98dbe2d8699
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Scene 5 sprites_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 18
+      width: 30
+      height: 4
+    spriteID: c35177cea26840a45a68ca373f6626f2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -444,20 +484,20 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -929296555
-    name: MeiClassroom_Sprites
+    guid: -210319691
+    name: Scene 5 sprites
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MeiClassroom_Sprites
+    - name: Scene 5 sprites
       frameIndex: 0
       cellRect:
-        x: 31
-        y: 187
-        width: 360
-        height: 206
-      spriteId: 722ee7b8be577dc4f8f0da1c608e4b89
+        x: 18
+        y: 266
+        width: 285
+        height: 112
+      spriteId: fa86888307ed94a4b85b47db33b45a3a
     linkedCells: []
     parentIndex: -1
   platformSettings:

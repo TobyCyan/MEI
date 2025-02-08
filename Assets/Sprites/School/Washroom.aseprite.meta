@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c791e6063080b04f924e096cd7118c0
+guid: 0e808c704e4857744b1f3dde2652dc44
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 8
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638734830117371026
+  platformSettingsDirtyTick: 638744355769348298
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Washroom_Sprites
+  - name: Scene 4 Sprites
     originalName: 
-    pivot: {x: 1.2166667, y: -1.5135136}
+    pivot: {x: 0.6212766, y: -1.2545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 120
-      height: 148
-    spriteID: 1dc9d48feb36cc44ea285cd40a68e04b
+      width: 235
+      height: 165
+    spriteID: 57210a49722971340bcdc1d976a1abab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,7 +142,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: Washroom_Sprites_0
+  - name: Washroom_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -150,10 +150,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 106
+      y: 123
       width: 26
       height: 46
-    spriteID: 05d566a1731fa43419f3f385f96eb859
+    spriteID: ae560b54143bc4f4280608c7aaadb133
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,7 +162,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_1
+  - name: Washroom_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -170,10 +170,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 34
-      y: 107
+      y: 124
       width: 26
       height: 45
-    spriteID: e4c2f9f2f564ce14591cff8257db4093
+    spriteID: e8dba106e676d5744b14d8e7da255ea4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,7 +182,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_2
+  - name: Washroom_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -190,10 +190,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 63
-      y: 107
+      y: 124
       width: 26
       height: 45
-    spriteID: 3dd32051d034ca1428874b9f57f15e6a
+    spriteID: 920f77f1dac17c047a46d52db505663a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -202,7 +202,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_3
+  - name: Washroom_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -210,10 +210,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 98
-      y: 85
+      y: 102
       width: 23
       height: 31
-    spriteID: 6b967b004157b30439a0a546f1fff46f
+    spriteID: 8265932e3642baa4586b6679c8585bf3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -222,18 +222,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_4
+  - name: Washroom_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 37
-      y: 53
+      x: 137
+      y: 69
       width: 43
-      height: 50
-    spriteID: 5e311cc0dd7d42b4b9c2e31a5decb333
+      height: 51
+    spriteID: 770fdeac135bb954e9daa94dfe203d10
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -242,7 +242,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_5
+  - name: Washroom_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -250,10 +250,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 96
-      y: 55
+      y: 72
       width: 28
       height: 26
-    spriteID: 9cccbdfddc83de1499923cc09179bc61
+    spriteID: 37ef01d272424af4499cf8382c873c73
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -262,18 +262,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_6
+  - name: Washroom_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 37
-      y: 4
-      width: 30
+      x: 137
+      y: 5
+      width: 15
       height: 48
-    spriteID: 53f1410a3815f5249befaf468c588512
+    spriteID: d4f439f0f24f1484b9582a9a95605932
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -282,18 +282,118 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Washroom_Sprites_7
+  - name: Washroom_7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 69
-      y: 4
+      x: 169
+      y: 5
       width: 11
-      height: 48
-    spriteID: 47e24036b8b5a564c80f7d31d1452383
+      height: 50
+    spriteID: 303b5d4f45444e6478de5c68a640261d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Washroom_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 191
+      y: 5
+      width: 11
+      height: 50
+    spriteID: 4f12b1569c2fd8e409854590d6c640c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Washroom_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 4
+      width: 28
+      height: 51
+    spriteID: 42d1a0dc38b3f7341b9d0f37293cc448
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Washroom_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 129
+      width: 41
+      height: 1
+    spriteID: 4f54b26256fc57b4fa0f309dc697c66c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Washroom_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 152
+      y: 12
+      width: 15
+      height: 7
+    spriteID: 2355adfd2922df5428fb6fb5f747dd86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Washroom_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 137
+      y: 53
+      width: 4
+      height: 3
+    spriteID: c8089c84c50eeb44682cfc89f4cd2cfc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -304,20 +404,20 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -432908293
-    name: Washroom_Sprites
+    guid: -1083635590
+    name: Washroom
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Washroom_Sprites
+    - name: Washroom
       frameIndex: 0
       cellRect:
         x: 54
-        y: 224
-        width: 120
-        height: 148
-      spriteId: 1dc9d48feb36cc44ea285cd40a68e04b
+        y: 207
+        width: 235
+        height: 165
+      spriteId: 1acbd4888866c83498e453b2f3997cf2
     linkedCells: []
     parentIndex: -1
   platformSettings:
