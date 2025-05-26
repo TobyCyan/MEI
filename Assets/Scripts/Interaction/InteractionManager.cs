@@ -18,6 +18,8 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
+    [SerializeField] private List<IObserver> _observers = new();
+
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
 
@@ -97,6 +99,16 @@ public class InteractionManager : MonoBehaviour
         {
             _isInteracted = true;
             GameManager.Instance.AddInteractedManager(_uniqueID);
+        }
+
+        NotifyObservers();
+    }
+
+    private void NotifyObservers()
+    {
+        foreach (var observer in _observers)
+        {
+            observer.UpdateSelf();
         }
     }
 
