@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class MeiClassroomCutScene : MonoBehaviour
+public class MeiClassroomCutScene : CutScenePlayer
 {
-    private CutScenePlayer _cutScenePlayer;
     [SerializeField] private List<GameObject> _actors = new List<GameObject>();
     [SerializeField] private MovePosition.Position _freezePlayerPosition;
     [Header("Only Fill This When Player is Frozen at a Custom Position.")]
@@ -13,19 +12,28 @@ public class MeiClassroomCutScene : MonoBehaviour
     [SerializeField] private PlayableAsset _asset;
     [SerializeField] private AudioSource _clappingLaughingAudioSource;
     private float _sfxDuration = 0.0f;
+    private PlayableDirector _playableDirector;
 
     private void Start()
     {
-        _cutScenePlayer = CutScenePlayer.Instance;
+        _playableDirector = GetComponent<PlayableDirector>();
         GetComponent<BoxCollider2D>().isTrigger = true;
         ToggleActors(false);
         _sfxDuration = _clappingLaughingAudioSource.clip.length;
     }
 
+    public override IEnumerator Interact()
+    {
+        yield return StartCoroutine(ActivateCutScene());
+    }
+
     IEnumerator ActivateCutScene()
     {
+        GetComponent<Collider2D>().enabled = false;
+
         // Initial Zoom In CutScene.
-        yield return _cutScenePlayer.ActivateCutSceneFlow(_asset, _freezePlayerPosition, _customFreezePlayerPosX, false);
+        yield return ActivateCutSceneFlow(_playableDirector, _asset, _freezePlayerPosition, _customFreezePlayerPosX, false);
+        PlayerController.Instance.ResetCamera();
 
         // Add actors.
         ToggleActors(true);
@@ -37,6 +45,7 @@ public class MeiClassroomCutScene : MonoBehaviour
         // Remove actors.
         ToggleActors(false);
 
+        ResetToPlayer();
         yield break;
     }
 
@@ -46,12 +55,6 @@ public class MeiClassroomCutScene : MonoBehaviour
         {
             actor.SetActive(toggle);
         }
-    }
-
-    private IEnumerator OnTriggerEnter2D(Collider2D collision)
-    {
-        yield return StartCoroutine(ActivateCutScene());
-        GetComponent<BoxCollider2D>().enabled = false;
     }
 
 }

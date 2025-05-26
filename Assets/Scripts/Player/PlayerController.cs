@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             UpdateIsFacingRight();
             FlipSprite();
         }
-        
+
         MoveToTarget();
         PlayWalkSound();
         ActivateWalkAnimation();
@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
     public void DeactivateInteractingAnimation()
     {
         _animator.SetBool("isInteracting", false);
+        GoIdleAnimation();
+    }
+
+    public void GoIdleAnimation()
+    {
         _animator.Play("Mei Idle");
     }
 
@@ -220,6 +225,7 @@ public class PlayerController : MonoBehaviour
     {
         _isActive = false;
         _target = transform.position;
+        RemoveFocus();
     }
     
     public void ResumePlayerMovement()
@@ -280,4 +286,10 @@ public class PlayerController : MonoBehaviour
     {
         _camera = camera;
     }
+
+    public void ResetCamera()
+    {
+        _camera.GetComponent<CameraFollow>().ResetCamera();
+    }
+
 }
