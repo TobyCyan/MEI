@@ -59,9 +59,10 @@ public class CutScenePlayer : Interactable
 
         yield return new WaitForSeconds(fadeDuration);
 
+        float cutsceneDurationOffset = 1.0f;
         director.Play(asset);
         // Wait for the cutscene to play out.
-        yield return new WaitForSeconds((float) asset.duration);
+        yield return new WaitForSeconds((float) asset.duration - cutsceneDurationOffset);
 
         // Fade out of the cutscene.
         SetFadeParametersWithoutPingPong();
