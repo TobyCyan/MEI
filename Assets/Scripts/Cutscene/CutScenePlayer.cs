@@ -43,10 +43,12 @@ public class CutScenePlayer : Interactable
     public IEnumerator ActivateCutSceneFlow(PlayableDirector director, PlayableAsset asset, MovePosition.Position freezePos, float customFreezePosX, bool canPlayerMove)
     {
         float fadeDuration = _fadeEffect.CalculateFadeDuration();
+        float cutsceneDurationOffset = 1.0f;
 
         // Fade into the cutscene.
         SetFadeParametersWithPingPong();
         ActivateFadeEffect();
+        yield return new WaitForSeconds(fadeDuration);
 
         if (!canPlayerMove)
         {
@@ -55,9 +57,9 @@ public class CutScenePlayer : Interactable
             FreezePlayer(PlayerController.Instance, freezePosition.x);
         }
 
-        yield return new WaitForSeconds(fadeDuration);
+        
 
-        float cutsceneDurationOffset = 1.0f;
+        
         director.Play(asset);
         // Wait for the cutscene to play out.
         yield return new WaitForSeconds((float) asset.duration - cutsceneDurationOffset);
