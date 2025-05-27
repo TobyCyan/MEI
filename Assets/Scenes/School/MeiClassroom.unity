@@ -1615,8 +1615,8 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 0
-  _observerObjects:
-  - {fileID: 1472992354}
+  _observers:
+  - {fileID: 1472992356}
 --- !u!61 &572207560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2006,7 +2006,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueTextEmotionStructList:
-  - text: Thieving cat..  crazy woman!
+  - text: Thieving cat.. slut...  crazy woman!
+    emotion: 0
+    character: 4
+  - text: This will do you for good, hahaha!!
+    emotion: 0
+    character: 4
+  - text: You should add one more-"Cursed"!
+    emotion: 0
+    character: 2
+  - text: That's how her mother died, right?
+    emotion: 0
+    character: 2
+  - text: Oh you're absolutely right!
+    emotion: 0
+    character: 4
+  - text: That'll teach you to not steal from me, Mei!
     emotion: 0
     character: 4
 --- !u!114 &771203593
@@ -2028,7 +2043,7 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 0
-  _observerObjects: []
+  _observers: []
 --- !u!114 &771203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7185,7 +7200,7 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 1
-  _observerObjects: []
+  _observers: []
 --- !u!320 &1411074204
 PlayableDirector:
   m_ObjectHideFlags: 0

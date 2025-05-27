@@ -1,8 +1,6 @@
-using UnityEngine;
-
-public class ObjectEnableObserver : MonoBehaviour, IObserver
+public class ObjectEnableObserver : Observer
 {
-    public void UpdateSelf()
+    public override void UpdateSelf()
     {
         gameObject.SetActive(true);
     }

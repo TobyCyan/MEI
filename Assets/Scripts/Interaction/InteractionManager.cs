@@ -18,14 +18,12 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
-    [Header("Make Sure That These Objects Implement IObserver Interface.")]
-    [SerializeField] private List<GameObject> _observerObjects = new();
+    [SerializeField] private List<Observer> _observers = new();
 
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
 
     private ItemInteractable _itemInteractable;
-    private readonly List<IObserver> _observers = new();
 
     private void Start()
     {
@@ -53,8 +51,6 @@ public class InteractionManager : MonoBehaviour
         {
             _interactionIcon.SetActive(false);
         }
-
-        AddObservers();
     }
 
     private void OnDestroy()
@@ -113,14 +109,6 @@ public class InteractionManager : MonoBehaviour
         foreach (var observer in _observers)
         {
             observer.UpdateSelf();
-        }
-    }
-
-    private void AddObservers()
-    {
-        foreach (var observer in _observerObjects)
-        {
-            _observers.Add(observer.GetComponent<IObserver>());
         }
     }
 
