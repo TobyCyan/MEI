@@ -8,7 +8,6 @@ public class CutScenePlayer : Interactable
 
     protected void FreezePlayer(PlayerController player, float positionX)
     {
-        Debug.Log("Freezing player");
         Vector3 playerPos = player.transform.position;
         player.transform.position = new Vector3(positionX, playerPos.y, playerPos.z);
         player.StopPlayerMovement();
@@ -37,7 +36,6 @@ public class CutScenePlayer : Interactable
 
     protected void ResetToPlayer()
     {
-        Debug.Log("Reset to player");
         PlayerController.Instance.ResetCamera();
         PlayerController.Instance.ResumePlayerMovement();
     }
