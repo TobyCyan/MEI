@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public InteractionManager FocusedInteractable {  get; private set; }
     [HideInInspector] public Item UsedItem { get; private set; }
     [SerializeField] private AudioSource _walkingAudio;
-    [SerializeField] private float speed;
+    [SerializeField] private float _speed = 4.0f;
     [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new();
     [SerializeField] private bool _isFacingRight = true;
     private bool _isWalking = false;
@@ -36,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Camera _camera;
+    private float _epsilon = 0.01f;
 
     private void Start()
     {
@@ -67,18 +67,16 @@ public class PlayerController : MonoBehaviour
     private void ActivateWalkAnimation()
     {
         string currentAnimationName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-        if (_isWalking && currentAnimationName == "Mei Up")
+        if (_isWalking && currentAnimationName == GameConstants.CLIP_MEI_UP)
         {
-            Debug.Log("Stop playback");
             _animator.StopPlayback();
         }
-
-        _animator.SetBool("isMoving", _isWalking);
+        _animator.SetBool(GameConstants.STATEBOOL_MOVE, _isWalking);
     }
 
     public void ActivateInteractingAnimation()
     {
-        _animator.SetBool("isInteracting", true);
+        _animator.SetBool(GameConstants.STATEBOOL_INTERACT, true);
     }
 
     /**
@@ -88,13 +86,13 @@ public class PlayerController : MonoBehaviour
      */
     public void DeactivateInteractingAnimation()
     {
-        _animator.SetBool("isInteracting", false);
+        _animator.SetBool(GameConstants.STATEBOOL_INTERACT, false);
         GoIdleAnimation();
     }
 
     public void GoIdleAnimation()
     {
-        _animator.Play("Mei Idle");
+        _animator.Play(GameConstants.CLIP_MEI_IDLE);
     }
 
     private void OnEnable()
@@ -115,7 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = ScenePlayerInfo.scenePlayerPosition;
         SetCamera(Camera.main);
-        _target = transform.position;
+        ResetTarget();
         ResumePlayerMovement();
     }
 
@@ -196,10 +194,10 @@ public class PlayerController : MonoBehaviour
     private void MoveToTarget()
     {
         // Move towards _target position
-        transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * _speed);
 
         // Once target is reached, stop walking audio.
-        if (transform.position.x == _target.x)
+        if (Mathf.Abs(transform.position.x - _target.x) < _epsilon)
         {
             _isWalking = false;
         } 
@@ -224,7 +222,7 @@ public class PlayerController : MonoBehaviour
     public void StopPlayerMovement()
     {
         _isActive = false;
-        _target = transform.position;
+        ResetTarget();
         RemoveFocus();
     }
     
@@ -292,4 +290,8 @@ public class PlayerController : MonoBehaviour
         _camera.GetComponent<CameraFollow>().ResetCamera();
     }
 
+    public void ResetTarget()
+    {
+        SetTarget(transform.position);
+    }
 }

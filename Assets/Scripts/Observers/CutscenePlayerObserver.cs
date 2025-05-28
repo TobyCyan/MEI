@@ -29,6 +29,11 @@ public abstract class CutscenePlayerObserver : Observer
         PlayerController.Instance.ResumePlayerMovement();
     }
 
+    protected void ResetPlayerTarget()
+    {
+        PlayerController.Instance.ResetTarget();
+    }
+
     protected IEnumerator PlayAssetAndWait()
     {
         _director.Play(_asset);
