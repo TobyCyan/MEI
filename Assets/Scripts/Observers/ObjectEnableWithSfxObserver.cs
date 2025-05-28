@@ -1,8 +1,17 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class ObjectEnableWithSfxObserver : Observer
+/**
+ * Enables the game object this is attached to, with SFX played.
+ * This component assumes that the game object starts off disabled.
+ */
+public class ObjectEnableWithSfxObserver : ObjectEnableObserver
 {
+    private void Start()
+    {
+        DisableObject();
+    }
+
     public override void UpdateSelf()
     {
         gameObject.SetActive(true);

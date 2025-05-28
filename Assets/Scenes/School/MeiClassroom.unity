@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 94205588}
   - component: {fileID: 94205587}
   - component: {fileID: 94205589}
+  - component: {fileID: 94205590}
   m_Layer: 0
   m_Name: MoveBackCutscene
   m_TagString: Untagged
@@ -466,6 +467,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _asset: {fileID: 11400000, guid: 65c0566b0d48b994b94c1d6967030b7b, type: 2}
+--- !u!114 &94205590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94205585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!1 &115749576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1117,6 @@ GameObject:
   - component: {fileID: 413125880}
   - component: {fileID: 413125879}
   - component: {fileID: 413125878}
-  - component: {fileID: 413125877}
   m_Layer: 0
   m_Name: PointLight (1)
   m_TagString: Untagged
@@ -1111,21 +1124,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &413125877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413125876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 324f09332716cf049b02183172b66639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 413125881}
-  - {fileID: 413125880}
 --- !u!212 &413125878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1800,6 +1798,7 @@ GameObject:
   - component: {fileID: 572207559}
   - component: {fileID: 572207558}
   - component: {fileID: 572207562}
+  - component: {fileID: 572207563}
   m_Layer: 6
   m_Name: Mirror
   m_TagString: Untagged
@@ -1917,14 +1916,6 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 0
-  _observers:
-  - {fileID: 1625056730}
-  - {fileID: 1472992356}
-  - {fileID: 572207562}
-  - {fileID: 771203596}
-  - {fileID: 94205589}
-  - {fileID: 1992726940}
-  - {fileID: 4074058673112751626}
 --- !u!61 &572207560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1995,6 +1986,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabfd6a5a695cd74e8d81fc6649abe19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &572207563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572207555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!1 &607977048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,6 +2098,8 @@ GameObject:
   - component: {fileID: 771203593}
   - component: {fileID: 771203592}
   - component: {fileID: 771203596}
+  - component: {fileID: 771203597}
+  - component: {fileID: 771203598}
   m_Layer: 0
   m_Name: MeiDesk
   m_TagString: Untagged
@@ -2142,7 +2148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -5949021727758410833, guid: 4d5a8cba4e792424793f418043a1b1a3, type: 3}
+  m_Sprite: {fileID: -6705505517478547916, guid: 4d5a8cba4e792424793f418043a1b1a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2220,7 +2226,6 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
-  _observers: []
 --- !u!114 &771203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,6 +2296,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adeb06bcce66fcb41bef415d3e7548dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &771203597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771203589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
+--- !u!114 &771203598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771203589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594c05757cacaac4daa10e537912fd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _newSprite: {fileID: 5710265908325907151, guid: 825839a4a6948c947979e2bcb07cf027, type: 3}
 --- !u!1 &776677948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,7 +7337,6 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
-  _observers: []
 --- !u!320 &1411074204
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -7484,13 +7514,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1472992357}
   - component: {fileID: 1472992356}
+  - component: {fileID: 1472992358}
   m_Layer: 0
   m_Name: InteractableStudents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1472992356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7521,6 +7552,19 @@ Transform:
   - {fileID: 1797366674}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472992358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472992354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!1 &1495128850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7727,13 +7771,14 @@ GameObject:
   - component: {fileID: 1625056725}
   - component: {fileID: 1625056730}
   - component: {fileID: 1625056729}
+  - component: {fileID: 1625056731}
   m_Layer: 0
   m_Name: Broken Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1625056722
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7840,7 +7885,6 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
-  _observers: []
 --- !u!61 &1625056727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8007,6 +8051,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac191d9b576e3a4dbef1a25d7e7b1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1625056731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625056721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!1 &1627655276
 GameObject:
   m_ObjectHideFlags: 0
@@ -8174,6 +8231,64 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1724811280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724811281}
+  - component: {fileID: 1724811283}
+  - component: {fileID: 1724811282}
+  m_Layer: 0
+  m_Name: DarkSceneTransitionObserver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724811281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724811280}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.321967, y: 0.8986316, z: -0.06837466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1724811282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724811280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baedb1c96f2e0fb43baf12df83e0dd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1724811283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724811280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 771203593}
 --- !u!1001 &1728714849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9340,13 +9455,14 @@ GameObject:
   - component: {fileID: 1992726939}
   - component: {fileID: 1992726938}
   - component: {fileID: 1992726940}
+  - component: {fileID: 1992726941}
   m_Layer: 0
   m_Name: PostMirrorCutsceneVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1992726938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9391,6 +9507,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee9b540f86f54f4e901bc940475a2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1992726941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992726937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!1 &2067358445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9662,6 +9791,7 @@ GameObject:
   - component: {fileID: 4074058673112751625}
   - component: {fileID: 3395130356438067944}
   - component: {fileID: 4074058673112751626}
+  - component: {fileID: 4074058673112751627}
   m_Layer: 0
   m_Name: PointLight
   m_TagString: Untagged
@@ -9882,6 +10012,19 @@ MonoBehaviour:
   _components:
   - {fileID: 782134098758036692}
   - {fileID: 2030123826630311749}
+--- !u!114 &4074058673112751627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204415238092807422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 572207559}
 --- !u!61 &4174639345085152289
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10280,3 +10423,4 @@ SceneRoots:
   - {fileID: 1992726939}
   - {fileID: 2219142180916100165}
   - {fileID: 413125882}
+  - {fileID: 1724811281}

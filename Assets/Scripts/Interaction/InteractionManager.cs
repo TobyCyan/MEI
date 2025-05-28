@@ -19,7 +19,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
-    [SerializeField] private List<Observer> _observers = new();
+    private readonly List<Observer> _observers = new();
 
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
@@ -187,4 +187,8 @@ public class InteractionManager : MonoBehaviour
         return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
     }
 
+    public void AddObserver(Observer observer)
+    {
+        _observers.Add(observer);
+    }
 }
