@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
+[RequireComponent(typeof(PlayableDirector))]
 public abstract class CutscenePlayerObserver : Observer
 {
     [SerializeField] protected PlayableAsset _asset;
@@ -27,11 +28,6 @@ public abstract class CutscenePlayerObserver : Observer
     protected void UnfreezePlayer()
     {
         PlayerController.Instance.ResumePlayerMovement();
-    }
-
-    protected void ResetPlayerTarget()
-    {
-        PlayerController.Instance.ResetTarget();
     }
 
     protected IEnumerator PlayAssetAndWait()

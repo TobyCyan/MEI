@@ -12,9 +12,7 @@ public class MeiMoveBackCutscene : CutscenePlayerObserver
     public override IEnumerator PlayCutscene()
     {
         FreezePlayer();
-        //_animator.SetTrigger(GameConstants.TRIGGER_MOVE_BACK);
         yield return PlayAssetAndWait();
-        ResetPlayerTarget();
         UnfreezePlayer();
     }
 }

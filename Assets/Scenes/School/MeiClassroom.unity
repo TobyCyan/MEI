@@ -1734,6 +1734,7 @@ MonoBehaviour:
   - {fileID: 572207562}
   - {fileID: 771203596}
   - {fileID: 94205589}
+  _shouldPlayerBeActiveAfter: 0
 --- !u!61 &572207560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2029,6 +2030,7 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 0
   _observers: []
+  _shouldPlayerBeActiveAfter: 1
 --- !u!114 &771203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7114,6 +7116,7 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _observers: []
+  _shouldPlayerBeActiveAfter: 1
 --- !u!320 &1411074204
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -7647,6 +7650,7 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _observers: []
+  _shouldPlayerBeActiveAfter: 1
 --- !u!61 &1625056727
 BoxCollider2D:
   m_ObjectHideFlags: 0

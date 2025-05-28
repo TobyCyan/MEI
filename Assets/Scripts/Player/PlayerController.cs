@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Camera _camera;
-    private float _epsilon = 0.01f;
+    private readonly float _epsilon = 0.01f;
 
     private void Start()
     {
@@ -156,13 +156,30 @@ public class PlayerController : MonoBehaviour
      */
     private void UpdateIsFacingRight()
     {
+        if (!_isWalking)
+        {
+            return;
+        }
+
         float xPosDifference = _target.x - transform.position.x;
-        if (xPosDifference == 0)
+        if (Mathf.Abs(xPosDifference) < _epsilon)
         {
             return;
         }
         _isFacingRight = xPosDifference > 0;
     }
+
+    public void SetFacingDirectionToRight()
+    {
+        SetFacingDirection(true);
+    }
+
+    private void SetFacingDirection(bool isRight)
+    {
+        _isFacingRight = isRight;
+        FlipSprite();
+    }
+
 
     private void FlipSprite()
     {
