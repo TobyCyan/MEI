@@ -1728,13 +1728,14 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 0
+  _shouldPlayerBeActiveAfter: 0
   _observers:
   - {fileID: 1625056730}
   - {fileID: 1472992356}
   - {fileID: 572207562}
   - {fileID: 771203596}
   - {fileID: 94205589}
-  _shouldPlayerBeActiveAfter: 0
+  - {fileID: 1992726940}
 --- !u!61 &572207560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2029,8 +2030,8 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 0
-  _observers: []
   _shouldPlayerBeActiveAfter: 1
+  _observers: []
 --- !u!114 &771203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7115,8 +7116,8 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 1
-  _observers: []
   _shouldPlayerBeActiveAfter: 1
+  _observers: []
 --- !u!320 &1411074204
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -7649,8 +7650,8 @@ MonoBehaviour:
   _isAllowRepeatedInteractions: 1
   _isInteracted: 0
   _shouldPlayerLookUp: 1
-  _observers: []
   _shouldPlayerBeActiveAfter: 1
+  _observers: []
 --- !u!61 &1625056727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9139,6 +9140,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1992726937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992726939}
+  - component: {fileID: 1992726938}
+  - component: {fileID: 1992726940}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1992726938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992726937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: c1bd1ca8d3e2af842909c8729e06e125, type: 2}
+--- !u!4 &1992726939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992726937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.72479, y: 0.68676996, z: -0.28360176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992726940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992726937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee9b540f86f54f4e901bc940475a2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067358445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9353,7 +9416,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -9841,3 +9904,4 @@ SceneRoots:
   - {fileID: 489946798}
   - {fileID: 1472992357}
   - {fileID: 94205588}
+  - {fileID: 1992726939}
