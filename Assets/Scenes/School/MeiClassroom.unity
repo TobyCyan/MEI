@@ -491,6 +491,8 @@ GameObject:
   - component: {fileID: 115749577}
   - component: {fileID: 115749579}
   - component: {fileID: 115749578}
+  - component: {fileID: 115749581}
+  - component: {fileID: 115749580}
   m_Layer: 0
   m_Name: StudentA (1)
   m_TagString: CutSceneStudent
@@ -586,6 +588,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &115749580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115749576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeOutSpeed: 1.5
+--- !u!114 &115749581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115749576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 771203593}
 --- !u!1 &117407089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,7 +2250,7 @@ MonoBehaviour:
   _interactables:
   - {fileID: 771203592}
   _onCompletePlayerState: 0
-  _isAllowRepeatedInteractions: 1
+  _isAllowRepeatedInteractions: 0
   _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
@@ -7576,6 +7604,8 @@ GameObject:
   - component: {fileID: 1495128851}
   - component: {fileID: 1495128852}
   - component: {fileID: 1495128853}
+  - component: {fileID: 1495128855}
+  - component: {fileID: 1495128854}
   m_Layer: 0
   m_Name: Chihaya (1)
   m_TagString: CutSceneStudent
@@ -7671,6 +7701,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1495128854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495128850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeOutSpeed: 1.5
+--- !u!114 &1495128855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495128850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 771203593}
 --- !u!1 &1601613152
 GameObject:
   m_ObjectHideFlags: 0
@@ -9053,6 +9109,8 @@ GameObject:
   - component: {fileID: 1797366674}
   - component: {fileID: 1797366676}
   - component: {fileID: 1797366675}
+  - component: {fileID: 1797366678}
+  - component: {fileID: 1797366677}
   m_Layer: 0
   m_Name: StudentB (1)
   m_TagString: CutSceneStudent
@@ -9148,6 +9206,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1797366677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797366673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeOutSpeed: 1.5
+--- !u!114 &1797366678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797366673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionManager: {fileID: 771203593}
 --- !u!1001 &1804371835
 PrefabInstance:
   m_ObjectHideFlags: 0
