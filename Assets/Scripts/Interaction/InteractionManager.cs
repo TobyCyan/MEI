@@ -18,6 +18,9 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
+    [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
+    private readonly List<Observer> _observers = new();
+
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
 
@@ -84,7 +87,10 @@ public class InteractionManager : MonoBehaviour
         // Wait a little more to ensure the interaction to ensure the interacting animation is fully deactivated.
         yield return new WaitForSeconds(0.1f);
 
-        player.ResumePlayerMovement();
+        if (_shouldPlayerBeActiveAfter)
+        {
+            player.ResumePlayerMovement();
+        }
 
         // Add the new player state after completing the interaction.
         if (_onCompletePlayerState != PlayerState.State.None)
@@ -97,6 +103,16 @@ public class InteractionManager : MonoBehaviour
         {
             _isInteracted = true;
             GameManager.Instance.AddInteractedManager(_uniqueID);
+        }
+
+        NotifyObservers();
+    }
+
+    private void NotifyObservers()
+    {
+        foreach (var observer in _observers)
+        {
+            observer.UpdateSelf();
         }
     }
 
@@ -169,5 +185,10 @@ public class InteractionManager : MonoBehaviour
     private bool IsItemInteractable(Interactable interactable)
     {
         return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
+    }
+
+    public void AddObserver(Observer observer)
+    {
+        _observers.Add(observer);
     }
 }

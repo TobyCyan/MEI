@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+[RequireComponent(typeof(Light2D))]
 public class ToggleSceneLighting : MonoBehaviour
 {
     [Header("The Color Specified in Light2D Component Will Be the Normal Lighting.")]

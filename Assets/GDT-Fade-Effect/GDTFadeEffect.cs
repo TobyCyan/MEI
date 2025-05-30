@@ -163,7 +163,6 @@ public class GDTFadeEffect : MonoBehaviour
 
     private void Disable()
     {
-        Debug.Log("Fade Disabled");
         gameObject.SetActive(false);
     }
 
