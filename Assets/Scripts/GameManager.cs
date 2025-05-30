@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -27,34 +26,34 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private bool _hasTransitionedToDarkScene = false;
 
-    public void AddUnlockedDoor(string doorID)
+    public void AddUnlockedDoor(string doorId)
     {
-        _openedLockedInteractables.Add(doorID);
+        _openedLockedInteractables.Add(doorId);
     }
 
-    public void RemoveUnlockedDoor(string unlockedDoorID)
+    public void RemoveUnlockedDoor(string unlockedDoorId)
     {
-        _openedLockedInteractables.Remove(unlockedDoorID);
+        _openedLockedInteractables.Remove(unlockedDoorId);
     }
 
-    public bool IsDoorUnlocked(string doorID)
+    public bool IsDoorUnlocked(string doorId)
     {
-        return _openedLockedInteractables.Contains(doorID);
+        return _openedLockedInteractables.Contains(doorId);
     }
 
-    public void AddInteractedManager(string interactedManagerID)
+    public void AddInteractedManager(string interactedManagerId)
     {
-        _interactedManagers.Add(interactedManagerID);
+        _interactedManagers.Add(interactedManagerId);
     }
 
-    public void RemoveInteractedManager(string interactedManagerID)
+    public void RemoveInteractedManager(string interactedManagerId)
     {
-        _interactedManagers.Remove(interactedManagerID);
+        _interactedManagers.Remove(interactedManagerId);
     }
 
-    public bool IsManagerInteracted(string interactedManagerID)
+    public bool IsManagerInteracted(string interactedManagerId)
     {
-        return _interactedManagers.Contains(interactedManagerID);
+        return _interactedManagers.Contains(interactedManagerId);
     }
 
     public void TransitionToDarkScene()

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /**
@@ -15,7 +12,8 @@ public class CameraFollow : MonoBehaviour
     
     private readonly float _camYPos = 1.5f;
     private readonly float _camFOV = 60.0f;
-    private Vector3 _camSize;
+    private readonly float _camSize = 5.0f;
+    private Vector3 _camScale;
     private PlayerController _player;
     private Camera _cam;
 
@@ -24,7 +22,7 @@ public class CameraFollow : MonoBehaviour
         _player = PlayerController.Instance;
         _cam = GetComponent<Camera>();
         // Cache the camera's original scale to use for resetting later.
-        _camSize = transform.localScale;
+        _camScale = transform.localScale;
         ResetCamera();
     }
 
@@ -40,9 +38,10 @@ public class CameraFollow : MonoBehaviour
     */
     public void ResetCamera()
     {
-        transform.localScale = _camSize;
+        transform.localScale = _camScale;
         _cam.transform.position = new Vector3(_cam.transform.position.x, _camYPos, _cam.transform.position.z);
         _cam.fieldOfView = _camFOV;
+        _cam.orthographicSize = _camSize;
     }
 
     private void UpdateCamPos()
