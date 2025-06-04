@@ -27,7 +27,7 @@ public class MeiClassroomCutScene : CutScenePlayer
         yield return StartCoroutine(ActivateCutScene());
     }
 
-    IEnumerator ActivateCutScene()
+    public override IEnumerator ActivateCutScene()
     {
         GetComponent<Collider2D>().enabled = false;
 

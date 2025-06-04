@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CutScenePlayer : Interactable
+public abstract class CutScenePlayer : Interactable
 {
     [SerializeField] private GDTFadeEffect _fadeEffect;
 
@@ -73,4 +73,5 @@ public class CutScenePlayer : Interactable
         director.Stop();
     }
 
+    public abstract IEnumerator ActivateCutScene();
 }
