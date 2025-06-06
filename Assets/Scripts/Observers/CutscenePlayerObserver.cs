@@ -30,9 +30,16 @@ public abstract class CutscenePlayerObserver : Observer
         PlayerController.Instance.ResumePlayerMovement();
     }
 
+    protected void ResetToPlayer()
+    {
+        PlayerController.Instance.ResetCamera();
+        UnfreezePlayer();
+    }
+
     protected IEnumerator PlayAssetAndWait()
     {
         _director.Play(_asset);
         yield return new WaitForSeconds((float) _asset.duration);
+        _director.Stop();
     }
 }

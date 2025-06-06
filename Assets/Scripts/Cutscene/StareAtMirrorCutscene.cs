@@ -4,13 +4,13 @@ public class StareAtMirrorCutsceneObserver : CutscenePlayerObserver
 {
     private void Start()
     {
-        StartCoroutine(PlayCutscene());
+        GetDirectorComponent();
     }
 
     public override IEnumerator PlayCutscene()
     {
         FreezePlayer();
         yield return PlayAssetAndWait();
-        UnfreezePlayer();
+        ResetToPlayer();
     }
 }
