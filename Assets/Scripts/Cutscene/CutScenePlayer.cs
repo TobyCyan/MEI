@@ -5,6 +5,13 @@ using UnityEngine.Playables;
 public abstract class CutScenePlayer : Interactable
 {
     [SerializeField] private GDTFadeEffect _fadeEffect;
+    [SerializeField] protected PlayableAsset _asset;
+    private PlayableDirector _director;
+
+    protected void GetDirectorComponent()
+    {
+        _director = GetComponent<PlayableDirector>();
+    }
 
     protected void FreezePlayer(PlayerController player, float positionX)
     {
@@ -40,7 +47,7 @@ public abstract class CutScenePlayer : Interactable
         PlayerController.Instance.ResumePlayerMovement();
     }
 
-    public IEnumerator ActivateCutSceneFlow(PlayableDirector director, PlayableAsset asset, MovePosition.Position freezePos, float customFreezePosX, bool canPlayerMove)
+    protected IEnumerator ActivateCutSceneFlow(MovePosition.Position freezePos, float customFreezePosX, bool canPlayerMove)
     {
         float fadeDuration = _fadeEffect.CalculateFadeDuration();
         float cutsceneDurationOffset = 1.0f;
@@ -56,13 +63,10 @@ public abstract class CutScenePlayer : Interactable
             Vector3 freezePosition = MovePosition.GetMovePosX(freezePos, new Vector3(customFreezePosX, 0.0f, 0.0f));
             FreezePlayer(PlayerController.Instance, freezePosition.x);
         }
-
         
-
-        
-        director.Play(asset);
+        _director.Play(_asset);
         // Wait for the cutscene to play out.
-        yield return new WaitForSeconds((float) asset.duration - cutsceneDurationOffset);
+        yield return new WaitForSeconds((float) _asset.duration - cutsceneDurationOffset);
 
         // Fade out of the cutscene.
         SetFadeParametersWithoutPingPong();
@@ -70,7 +74,7 @@ public abstract class CutScenePlayer : Interactable
         fadeDuration = _fadeEffect.CalculateFadeDuration();
         yield return new WaitForSeconds(fadeDuration);
 
-        director.Stop();
+        _director.Stop();
     }
 
     public abstract IEnumerator ActivateCutScene();

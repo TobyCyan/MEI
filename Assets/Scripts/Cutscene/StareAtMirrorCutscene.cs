@@ -1,16 +1,24 @@
 using System.Collections;
+using UnityEngine;
 
-public class StareAtMirrorCutsceneObserver : CutscenePlayerObserver
+public class StareAtMirrorCutscene : CutScenePlayer
 {
+    [SerializeField] private Vector3 _finalCamPos;
+    [SerializeField] private CameraFollow _camera;
+
     private void Start()
     {
         GetDirectorComponent();
     }
 
-    public override IEnumerator PlayCutscene()
+    public override IEnumerator Interact()
     {
-        FreezePlayer();
-        yield return PlayAssetAndWait();
-        ResetToPlayer();
+        yield return StartCoroutine(ActivateCutScene());
+    }
+
+    public override IEnumerator ActivateCutScene()
+    {
+        yield return ActivateCutSceneFlow(MovePosition.Position.PLAYER_POSITION, 0.0f, false);
+        _camera.FreezeCameraToPos(_finalCamPos);
     }
 }

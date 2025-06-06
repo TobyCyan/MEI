@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 118233050}
   - component: {fileID: 118233054}
   - component: {fileID: 118233053}
+  - component: {fileID: 118233056}
+  - component: {fileID: 118233055}
   m_Layer: 0
   m_Name: MirrorCutscene
   m_TagString: Untagged
@@ -188,8 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de9f8d8098eeeb4c9fc2bda9baaa841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _observerNotifier: {fileID: 1913857604}
+  _fadeEffect: {fileID: 1665999826}
   _asset: {fileID: 11400000, guid: cd5d7724083eab0458489edb8bb1ebf5, type: 2}
+  _finalCamPos: {x: 0, y: 0, z: 0}
+  _camera: {fileID: 0}
 --- !u!61 &118233054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,6 +239,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &118233055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118233049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionIcon: {fileID: 0}
+  _interactables: []
+  _onCompletePlayerState: 0
+  _isAllowRepeatedInteractions: 1
+  _isInteracted: 0
+  _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+--- !u!114 &118233056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118233049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &171642561
 GameObject:
   m_ObjectHideFlags: 0
@@ -7619,6 +7654,8 @@ GameObject:
   - component: {fileID: 1913857603}
   - component: {fileID: 1913857602}
   - component: {fileID: 1913857604}
+  - component: {fileID: 1913857606}
+  - component: {fileID: 1913857605}
   m_Layer: 0
   m_Name: StareAtMirrorScene
   m_TagString: Untagged
@@ -7656,6 +7693,7 @@ MonoBehaviour:
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 1913857602}
+  - {fileID: 1913857606}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
   _isInteracted: 0
@@ -7762,6 +7800,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!320 &1913857605
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913857597}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: cd5d7724083eab0458489edb8bb1ebf5, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 0
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -28874444760864890, guid: cd5d7724083eab0458489edb8bb1ebf5, type: 2}
+    value: {fileID: 9189771399878121663}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1913857606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913857597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de9f8d8098eeeb4c9fc2bda9baaa841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeEffect: {fileID: 1665999826}
+  _asset: {fileID: 11400000, guid: cd5d7724083eab0458489edb8bb1ebf5, type: 2}
+  _finalCamPos: {x: -0.84, y: 3.91, z: -10}
+  _camera: {fileID: 9189771399878121662}
 --- !u!1001 &2049820734
 PrefabInstance:
   m_ObjectHideFlags: 0
