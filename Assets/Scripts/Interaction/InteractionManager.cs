@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
  * Manager for managing the order of which the interactable scripts will be called.
  */
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(ObserverNotifier))]
 public class InteractionManager : MonoBehaviour
 {
     [HideInInspector] public bool CanUseItem { get; private set; }
@@ -19,7 +20,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
-    private readonly List<Observer> _observers = new();
+    private ObserverNotifier _observerNotifier;
 
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
@@ -52,6 +53,8 @@ public class InteractionManager : MonoBehaviour
         {
             _interactionIcon.SetActive(false);
         }
+
+        _observerNotifier = GetComponent<ObserverNotifier>();
     }
 
     private void OnDestroy()
@@ -110,10 +113,7 @@ public class InteractionManager : MonoBehaviour
 
     private void NotifyObservers()
     {
-        foreach (var observer in _observers)
-        {
-            observer.UpdateSelf();
-        }
+        _observerNotifier.NotifyObservers();
     }
 
     private IEnumerator UseItem(Item item)
@@ -185,10 +185,5 @@ public class InteractionManager : MonoBehaviour
     private bool IsItemInteractable(Interactable interactable)
     {
         return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
-    }
-
-    public void AddObserver(Observer observer)
-    {
-        _observers.Add(observer);
     }
 }

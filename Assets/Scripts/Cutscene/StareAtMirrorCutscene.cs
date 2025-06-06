@@ -1,21 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class StareAtMirrorCutscene : CutScenePlayer
+public class StareAtMirrorCutsceneObserver : CutscenePlayerObserver
 {
     private void Start()
     {
-        StartCoroutine(Interact());
+        StartCoroutine(PlayCutscene());
     }
 
-    public override IEnumerator Interact()
+    public override IEnumerator PlayCutscene()
     {
-        yield return StartCoroutine(ActivateCutScene());
-    }
-
-    public override IEnumerator ActivateCutScene()
-    {
-        yield break;
+        FreezePlayer();
+        yield return PlayAssetAndWait();
+        UnfreezePlayer();
     }
 }
