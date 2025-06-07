@@ -20,6 +20,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
+    [SerializeField] private bool _shouldCameraReset = true;
     private ObserverNotifier _observerNotifier;
 
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
@@ -93,6 +94,11 @@ public class InteractionManager : MonoBehaviour
         if (_shouldPlayerBeActiveAfter)
         {
             player.ResumePlayerMovement();
+        }
+
+        if (_shouldCameraReset)
+        {
+            player.ResetCamera();
         }
 
         // Add the new player state after completing the interaction.

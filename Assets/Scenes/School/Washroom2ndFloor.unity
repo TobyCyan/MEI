@@ -258,6 +258,7 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!114 &118233056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7656,6 +7657,7 @@ GameObject:
   - component: {fileID: 1913857604}
   - component: {fileID: 1913857606}
   - component: {fileID: 1913857605}
+  - component: {fileID: 1913857607}
   m_Layer: 0
   m_Name: StareAtMirrorScene
   m_TagString: Untagged
@@ -7694,11 +7696,13 @@ MonoBehaviour:
   _interactables:
   - {fileID: 1913857602}
   - {fileID: 1913857606}
+  - {fileID: 1913857607}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
   _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 0
+  _shouldCameraReset: 1
 --- !u!61 &1913857601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7835,6 +7839,43 @@ MonoBehaviour:
   _asset: {fileID: 11400000, guid: cd5d7724083eab0458489edb8bb1ebf5, type: 2}
   _finalCamPos: {x: -0.84, y: 3.91, z: -10}
   _camera: {fileID: 9189771399878121662}
+--- !u!114 &1913857607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913857597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueTextEmotionStructList:
+  - text: W-.. Who are you?
+    emotion: 5
+    character: 1
+  - text: Still the plain old Mei. I'm the voice in your head.
+    emotion: 0
+    character: 6
+  - text: I don't understand...
+    emotion: 5
+    character: 1
+  - text: Say...
+    emotion: 0
+    character: 6
+  - text: Don't you want revenge?
+    emotion: 0
+    character: 6
+  - text: Revenge..? On who?
+    emotion: 5
+    character: 1
+  - text: You know exactly who I'm talking about.
+    emotion: 0
+    character: 6
+  - text: I can help you... I just need you to find me some items.
+    emotion: 0
+    character: 6
 --- !u!1001 &2049820734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8388,6 +8429,7 @@ MonoBehaviour:
   _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!114 &1571073579367784545
 MonoBehaviour:
   m_ObjectHideFlags: 0
