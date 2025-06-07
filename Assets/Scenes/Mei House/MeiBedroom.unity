@@ -6512,6 +6512,7 @@ GameObject:
   - component: {fileID: 1615058183}
   - component: {fileID: 1615058182}
   - component: {fileID: 1615058185}
+  - component: {fileID: 1615058186}
   m_Layer: 0
   m_Name: Bedroom_Closet_1
   m_TagString: Untagged
@@ -6686,8 +6687,9 @@ MonoBehaviour:
   - {fileID: 1615058182}
   _onCompletePlayerState: 1
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!114 &1615058185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6701,6 +6703,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueCanvas: {fileID: 7022754531777399591}
+--- !u!114 &1615058186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615058177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1641562346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6709,6 +6723,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6829551823400016818, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: _speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.06
@@ -6784,6 +6802,7 @@ GameObject:
   - component: {fileID: 1998659176}
   - component: {fileID: 1998659178}
   - component: {fileID: 1998659180}
+  - component: {fileID: 1998659181}
   m_Layer: 0
   m_Name: Calendar
   m_TagString: Untagged
@@ -6960,8 +6979,9 @@ MonoBehaviour:
   - {fileID: 1998659178}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!114 &1998659180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6975,6 +6995,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueCanvas: {fileID: 7022754531777399591}
+--- !u!114 &1998659181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998659172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2009293005
 PrefabInstance:
   m_ObjectHideFlags: 0

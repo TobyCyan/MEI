@@ -255,7 +255,6 @@ MonoBehaviour:
   _interactables: []
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
@@ -7699,7 +7698,6 @@ MonoBehaviour:
   - {fileID: 1913857607}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 0
   _shouldCameraReset: 1
@@ -7775,7 +7773,7 @@ MonoBehaviour:
     character: 1
   - text: Was she?
     emotion: 0
-    character: 6
+    character: 3
   - text: Huh...?
     emotion: 2
     character: 1
@@ -8426,7 +8424,6 @@ MonoBehaviour:
   - {fileID: 4400697821559464883}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1

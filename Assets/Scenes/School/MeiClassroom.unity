@@ -1916,9 +1916,9 @@ MonoBehaviour:
   - {fileID: 1411074200}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 0
+  _shouldCameraReset: 1
 --- !u!61 &572207560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2226,9 +2226,9 @@ MonoBehaviour:
   - {fileID: 771203592}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
-  _isInteracted: 0
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!114 &771203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7174,13 +7174,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 278153693}
+  _asset: {fileID: 11400000, guid: 4065914785ef77647a177726f391431b, type: 2}
   _actors:
   - {fileID: 2067358445}
   - {fileID: 117407089}
   - {fileID: 1227650124}
   _freezePlayerPosition: 1
   _customFreezePlayerPosX: -13.2
-  _asset: {fileID: 11400000, guid: 4065914785ef77647a177726f391431b, type: 2}
   _clappingLaughingAudioSource: {fileID: 1411074201}
 --- !u!82 &1411074201
 AudioSource:
@@ -7339,9 +7339,9 @@ MonoBehaviour:
   _interactables: []
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!320 &1411074204
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -7902,9 +7902,9 @@ MonoBehaviour:
   - {fileID: 1625056725}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!61 &1625056727
 BoxCollider2D:
   m_ObjectHideFlags: 0
