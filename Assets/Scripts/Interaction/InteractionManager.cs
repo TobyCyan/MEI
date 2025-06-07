@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
@@ -10,31 +9,23 @@ using UnityEngine.SceneManagement;
  */
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(ObserverNotifier))]
-public class InteractionManager : MonoBehaviour
+public class InteractionManager : InteractionStateReporter
 {
     [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new();
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
-    [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
     [SerializeField] private bool _shouldCameraReset = true;
     private ObserverNotifier _observerNotifier;
 
-    /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
-    private string _uniqueID;
-
     private ItemInteractable _itemInteractable;
 
     private void Start()
     {
-        // GameObject names in the same scene are unique.
-        _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
-
-        // Check if this manager has been interacted before, which will prevent the interaction from happening.
-        _isInteracted = GameManager.Instance.IsManagerInteracted(_uniqueID);
+        Initialize();
 
         // Gets a list of Item Interactables.
         // Then, get the first ItemInteractable in the list and check if it exists.
@@ -111,7 +102,7 @@ public class InteractionManager : MonoBehaviour
         if (!_isAllowRepeatedInteractions)
         {
             _isInteracted = true;
-            GameManager.Instance.AddInteractedManager(_uniqueID);
+            MarkReporter();
         }
 
         NotifyObservers();
