@@ -22,38 +22,38 @@ public class GameManager : MonoBehaviour
     /** Maintain a set of locked interactables IDs to check whether a door has been unlocked when going between scenes. **/
     private HashSet<string> _openedLockedInteractables = new HashSet<string>();
 
-    private HashSet<string> _interactedManagers = new HashSet<string>();
+    private HashSet<string> _interactedStateReporters = new HashSet<string>();
 
     [SerializeField] private bool _hasTransitionedToDarkScene = false;
 
-    public void AddUnlockedDoor(string doorId)
+    public void AddUnlockedDoor(string id)
     {
-        _openedLockedInteractables.Add(doorId);
+        _openedLockedInteractables.Add(id);
     }
 
-    public void RemoveUnlockedDoor(string unlockedDoorId)
+    public void RemoveUnlockedDoor(string id)
     {
-        _openedLockedInteractables.Remove(unlockedDoorId);
+        _openedLockedInteractables.Remove(id);
     }
 
-    public bool IsDoorUnlocked(string doorId)
+    public bool IsDoorUnlocked(string id)
     {
-        return _openedLockedInteractables.Contains(doorId);
+        return _openedLockedInteractables.Contains(id);
     }
 
-    public void AddInteractedManager(string interactedManagerId)
+    public void AddInteractedReporter(string id)
     {
-        _interactedManagers.Add(interactedManagerId);
+        _interactedStateReporters.Add(id);
     }
 
-    public void RemoveInteractedManager(string interactedManagerId)
+    public void RemoveInteractedReporter(string id)
     {
-        _interactedManagers.Remove(interactedManagerId);
+        _interactedStateReporters.Remove(id);
     }
 
-    public bool IsManagerInteracted(string interactedManagerId)
+    public bool IsReporterInteracted(string id)
     {
-        return _interactedManagers.Contains(interactedManagerId);
+        return _interactedStateReporters.Contains(id);
     }
 
     public void TransitionToDarkScene()

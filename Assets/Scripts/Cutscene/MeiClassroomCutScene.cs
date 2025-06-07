@@ -9,14 +9,12 @@ public class MeiClassroomCutScene : CutScenePlayer
     [SerializeField] private MovePosition.Position _freezePlayerPosition;
     [Header("Only Fill This When Player is Frozen at a Custom Position.")]
     [SerializeField] private float _customFreezePlayerPosX = 0.0f;
-    [SerializeField] private PlayableAsset _asset;
     [SerializeField] private AudioSource _clappingLaughingAudioSource;
     private float _sfxDuration = 0.0f;
-    private PlayableDirector _playableDirector;
 
     private void Start()
     {
-        _playableDirector = GetComponent<PlayableDirector>();
+        GetDirectorComponent();
         GetComponent<BoxCollider2D>().isTrigger = true;
         ToggleActors(false);
         _sfxDuration = _clappingLaughingAudioSource.clip.length;
@@ -27,12 +25,12 @@ public class MeiClassroomCutScene : CutScenePlayer
         yield return StartCoroutine(ActivateCutScene());
     }
 
-    IEnumerator ActivateCutScene()
+    public override IEnumerator ActivateCutScene()
     {
         GetComponent<Collider2D>().enabled = false;
 
         // Initial Zoom In CutScene.
-        yield return ActivateCutSceneFlow(_playableDirector, _asset, _freezePlayerPosition, _customFreezePlayerPosX, false);
+        yield return ActivateCutSceneFlow(_freezePlayerPosition, _customFreezePlayerPosX, false);
         PlayerController.Instance.ResetCamera();
 
         // Add actors.

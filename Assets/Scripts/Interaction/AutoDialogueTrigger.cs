@@ -7,14 +7,15 @@ using UnityEngine;
  */
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(DialogueActivator))]
-public class AutoDialogueTrigger : MonoBehaviour
+public class AutoDialogueTrigger : InteractionStateReporter
 {
     [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
     private DialogueActivator _activator;
-    private bool _hasInteracted;
 
     private void Start()
     {
+        Initialize();
+
         _activator = GetComponent<DialogueActivator>();
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
@@ -22,12 +23,12 @@ public class AutoDialogueTrigger : MonoBehaviour
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = PlayerController.Instance;
-        if (!_hasInteracted && player != null)
+        if (!_isInteracted && player != null)
         {
             player.StopPlayerMovement();
             yield return StartCoroutine(_activator.ActivateDialogue(_dialogueTextEmotionStructList));
             player.ResumePlayerMovement();
-            _hasInteracted = true;
+            MarkReporter();
         }
     }
 
