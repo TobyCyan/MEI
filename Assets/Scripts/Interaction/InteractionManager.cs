@@ -2,37 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
  * Manager for managing the order of which the interactable scripts will be called.
  */
 [RequireComponent(typeof(BoxCollider2D))]
-public class InteractionManager : MonoBehaviour
+[RequireComponent(typeof(ObserverNotifier))]
+public class InteractionManager : InteractionStateReporter
 {
     [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new();
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
-    [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
-    private readonly List<Observer> _observers = new();
-
-    /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
-    private string _uniqueID;
+    [SerializeField] private bool _shouldCameraReset = true;
+    private ObserverNotifier _observerNotifier;
 
     private ItemInteractable _itemInteractable;
 
     private void Start()
     {
-        // GameObject names in the same scene are unique.
-        _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
-
-        // Check if this manager has been interacted before, which will prevent the interaction from happening.
-        _isInteracted = GameManager.Instance.IsManagerInteracted(_uniqueID);
+        Initialize();
 
         // Gets a list of Item Interactables.
         // Then, get the first ItemInteractable in the list and check if it exists.
@@ -52,6 +45,8 @@ public class InteractionManager : MonoBehaviour
         {
             _interactionIcon.SetActive(false);
         }
+
+        _observerNotifier = GetComponent<ObserverNotifier>();
     }
 
     private void OnDestroy()
@@ -92,6 +87,11 @@ public class InteractionManager : MonoBehaviour
             player.ResumePlayerMovement();
         }
 
+        if (_shouldCameraReset)
+        {
+            player.ResetCamera();
+        }
+
         // Add the new player state after completing the interaction.
         if (_onCompletePlayerState != PlayerState.State.None)
         {
@@ -102,7 +102,7 @@ public class InteractionManager : MonoBehaviour
         if (!_isAllowRepeatedInteractions)
         {
             _isInteracted = true;
-            GameManager.Instance.AddInteractedManager(_uniqueID);
+            MarkReporter();
         }
 
         NotifyObservers();
@@ -110,10 +110,7 @@ public class InteractionManager : MonoBehaviour
 
     private void NotifyObservers()
     {
-        foreach (var observer in _observers)
-        {
-            observer.UpdateSelf();
-        }
+        _observerNotifier.NotifyObservers();
     }
 
     private IEnumerator UseItem(Item item)
@@ -185,10 +182,5 @@ public class InteractionManager : MonoBehaviour
     private bool IsItemInteractable(Interactable interactable)
     {
         return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
-    }
-
-    public void AddObserver(Observer observer)
-    {
-        _observers.Add(observer);
     }
 }

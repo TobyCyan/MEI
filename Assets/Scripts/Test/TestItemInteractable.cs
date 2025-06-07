@@ -5,4 +5,8 @@ using UnityEngine;
 public class TestItemInteractable : ItemInteractable
 {
     // nothing
+    public override IEnumerator Interact()
+    {
+        throw new System.NotImplementedException();
+    }
 }

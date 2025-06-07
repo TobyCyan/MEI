@@ -404,7 +404,6 @@ GameObject:
   - component: {fileID: 94205588}
   - component: {fileID: 94205587}
   - component: {fileID: 94205589}
-  - component: {fileID: 94205590}
   m_Layer: 0
   m_Name: MoveBackCutscene
   m_TagString: Untagged
@@ -466,20 +465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f99c357a0d3594fb518f5dea463aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 572207564}
   _asset: {fileID: 11400000, guid: 65c0566b0d48b994b94c1d6967030b7b, type: 2}
---- !u!114 &94205590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94205585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
 --- !u!1 &115749576
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +478,6 @@ GameObject:
   - component: {fileID: 115749577}
   - component: {fileID: 115749579}
   - component: {fileID: 115749578}
-  - component: {fileID: 115749581}
   - component: {fileID: 115749580}
   m_Layer: 0
   m_Name: StudentA (1)
@@ -600,20 +586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 771203599}
   _fadeOutSpeed: 1.5
---- !u!114 &115749581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115749576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 771203593}
+  _isFadeOut: 1
 --- !u!1 &117407089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1801,7 @@ GameObject:
   - component: {fileID: 572207559}
   - component: {fileID: 572207558}
   - component: {fileID: 572207562}
-  - component: {fileID: 572207563}
+  - component: {fileID: 572207564}
   m_Layer: 6
   m_Name: Mirror
   m_TagString: Untagged
@@ -2014,7 +1989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabfd6a5a695cd74e8d81fc6649abe19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &572207563
+  _observerNotifier: {fileID: 1411074205}
+--- !u!114 &572207564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2023,10 +1999,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 572207555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
 --- !u!1 &607977048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,8 +2101,8 @@ GameObject:
   - component: {fileID: 771203593}
   - component: {fileID: 771203592}
   - component: {fileID: 771203596}
-  - component: {fileID: 771203597}
   - component: {fileID: 771203598}
+  - component: {fileID: 771203599}
   m_Layer: 0
   m_Name: MeiDesk
   m_TagString: Untagged
@@ -2324,19 +2299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adeb06bcce66fcb41bef415d3e7548dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &771203597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771203589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
+  _observerNotifier: {fileID: 572207564}
 --- !u!114 &771203598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,7 +2312,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594c05757cacaac4daa10e537912fd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 572207564}
   _newSprite: {fileID: 5710265908325907151, guid: 825839a4a6948c947979e2bcb07cf027, type: 3}
+--- !u!114 &771203599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771203589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &776677948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7162,6 +7138,7 @@ GameObject:
   - component: {fileID: 1411074202}
   - component: {fileID: 1411074203}
   - component: {fileID: 1411074204}
+  - component: {fileID: 1411074205}
   m_Layer: 0
   m_Name: MirrorCutscene
   m_TagString: Untagged
@@ -7386,6 +7363,18 @@ PlayableDirector:
     value: {fileID: 201356097}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1411074205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411074195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411164649
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,7 +7531,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1472992357}
   - component: {fileID: 1472992356}
-  - component: {fileID: 1472992358}
   m_Layer: 0
   m_Name: InteractableStudents
   m_TagString: Untagged
@@ -7562,6 +7550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee9b540f86f54f4e901bc940475a2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 572207564}
 --- !u!4 &1472992357
 Transform:
   m_ObjectHideFlags: 0
@@ -7580,19 +7569,6 @@ Transform:
   - {fileID: 1797366674}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1472992358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472992354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
 --- !u!1 &1495128850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7604,7 +7580,6 @@ GameObject:
   - component: {fileID: 1495128851}
   - component: {fileID: 1495128852}
   - component: {fileID: 1495128853}
-  - component: {fileID: 1495128855}
   - component: {fileID: 1495128854}
   m_Layer: 0
   m_Name: Chihaya (1)
@@ -7713,20 +7688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 771203599}
   _fadeOutSpeed: 1.5
---- !u!114 &1495128855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495128850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 771203593}
+  _isFadeOut: 1
 --- !u!1 &1601613152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7827,7 +7791,7 @@ GameObject:
   - component: {fileID: 1625056725}
   - component: {fileID: 1625056730}
   - component: {fileID: 1625056729}
-  - component: {fileID: 1625056731}
+  - component: {fileID: 1625056732}
   m_Layer: 0
   m_Name: Broken Mirror
   m_TagString: Untagged
@@ -8107,7 +8071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac191d9b576e3a4dbef1a25d7e7b1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1625056731
+  _observerNotifier: {fileID: 572207564}
+--- !u!114 &1625056732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8116,10 +8081,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1625056721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
 --- !u!1 &1627655276
 GameObject:
   m_ObjectHideFlags: 0
@@ -8296,7 +8260,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724811281}
-  - component: {fileID: 1724811283}
   - component: {fileID: 1724811282}
   m_Layer: 0
   m_Name: DarkSceneTransitionObserver
@@ -8332,19 +8295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baedb1c96f2e0fb43baf12df83e0dd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1724811283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724811280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 771203593}
+  _observerNotifier: {fileID: 771203599}
 --- !u!1001 &1728714849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9109,7 +9060,6 @@ GameObject:
   - component: {fileID: 1797366674}
   - component: {fileID: 1797366676}
   - component: {fileID: 1797366675}
-  - component: {fileID: 1797366678}
   - component: {fileID: 1797366677}
   m_Layer: 0
   m_Name: StudentB (1)
@@ -9218,20 +9168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752ef87c6f720aa4aa8284b95a8a3072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 771203599}
   _fadeOutSpeed: 1.5
---- !u!114 &1797366678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797366673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 771203593}
+  _isFadeOut: 1
 --- !u!1001 &1804371835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9539,7 +9478,6 @@ GameObject:
   - component: {fileID: 1992726939}
   - component: {fileID: 1992726938}
   - component: {fileID: 1992726940}
-  - component: {fileID: 1992726941}
   m_Layer: 0
   m_Name: PostMirrorCutsceneVolume
   m_TagString: Untagged
@@ -9591,19 +9529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee9b540f86f54f4e901bc940475a2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1992726941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992726937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
+  _observerNotifier: {fileID: 572207564}
 --- !u!1 &2067358445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9875,7 +9801,6 @@ GameObject:
   - component: {fileID: 4074058673112751625}
   - component: {fileID: 3395130356438067944}
   - component: {fileID: 4074058673112751626}
-  - component: {fileID: 4074058673112751627}
   m_Layer: 0
   m_Name: PointLight
   m_TagString: Untagged
@@ -10093,22 +10018,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324f09332716cf049b02183172b66639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _observerNotifier: {fileID: 572207564}
   _components:
   - {fileID: 782134098758036692}
   - {fileID: 2030123826630311749}
---- !u!114 &4074058673112751627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204415238092807422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6831f73d38184993145da65bc2644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionManager: {fileID: 572207559}
 --- !u!61 &4174639345085152289
 BoxCollider2D:
   m_ObjectHideFlags: 0
