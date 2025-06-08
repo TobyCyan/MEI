@@ -8327,7 +8327,7 @@ MonoBehaviour:
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: a130ecd000000000
+  m_ApplyToSortingLayers: a130ecd00000000067cf6f07df8e3e44
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -8377,7 +8377,7 @@ MonoBehaviour:
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: a130ecd000000000
+  m_ApplyToSortingLayers: a130ecd00000000067cf6f07df8e3e44
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -9026,7 +9026,7 @@ GameObject:
   - component: {fileID: 4174639345858260285}
   - component: {fileID: 8952798730520045922}
   - component: {fileID: 3720326631180314403}
-  - component: {fileID: 8952798730520045923}
+  - component: {fileID: 8952798730520045924}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -9054,7 +9054,7 @@ MonoBehaviour:
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: a130ecd000000000
+  m_ApplyToSortingLayers: a130ecd00000000067cf6f07df8e3e44
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -9425,7 +9425,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8952798730520045923
+--- !u!114 &8952798730520045924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9434,10 +9434,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6911364090124303613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a849fb5f797a74840966648a067041e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 47c892e6936204b47a2386617d1eaa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!114 &9189771399878121662
 MonoBehaviour:
   m_ObjectHideFlags: 0
