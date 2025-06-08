@@ -22251,7 +22251,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.52, y: 0.94}
+    oldSize: {x: 2.1666667, y: 3.9166667}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -27017,6 +27017,7 @@ GameObject:
   - component: {fileID: 894074189498205538}
   - component: {fileID: 5312440933954208061}
   - component: {fileID: 443163370486452092}
+  - component: {fileID: 7728281218526402868}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -27034,7 +27035,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.49, y: 0, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7832258881088600995}
@@ -27070,6 +27071,19 @@ MonoBehaviour:
   _walkingAudio: {fileID: 6648100669680655551}
   _speed: 5
   _isFacingRight: 1
+--- !u!114 &7728281218526402868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668846098892264610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a849fb5f797a74840966648a067041e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!212 &7816694965444222062
 SpriteRenderer:
   m_ObjectHideFlags: 0

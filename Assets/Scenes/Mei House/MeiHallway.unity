@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 59311293}
   - component: {fileID: 59311292}
   - component: {fileID: 59311291}
+  - component: {fileID: 59311296}
   m_Layer: 0
   m_Name: Hallway_Photo_L
   m_TagString: Untagged
@@ -275,8 +276,9 @@ MonoBehaviour:
   - {fileID: 59311291}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!61 &59311294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -335,6 +337,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueCanvas: {fileID: 269130627}
+--- !u!114 &59311296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59311288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &118156074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -431,6 +445,7 @@ GameObject:
   - component: {fileID: 159674813}
   - component: {fileID: 159674812}
   - component: {fileID: 159674816}
+  - component: {fileID: 159674817}
   m_Layer: 0
   m_Name: Hallway_Photo_R
   m_TagString: Untagged
@@ -548,8 +563,9 @@ MonoBehaviour:
   - {fileID: 159674816}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!61 &159674814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -622,6 +638,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 6249808325903707267, guid: 1afeed6645a807440893ed0804f86fec, type: 3}
   _activator: {fileID: 1361350679}
+--- !u!114 &159674817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159674809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &173659884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,8 +1165,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.64535004, y: -0.19319999, z: 0}
-    m_Extent: {x: 2.30925, y: 1.7645, z: 0}
+    m_Center: {x: -0.64595, y: -0.19365, z: 0}
+    m_Extent: {x: 2.30895, y: 1.76385, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6145,6 +6173,7 @@ GameObject:
   - component: {fileID: 1491233428}
   - component: {fileID: 1491233427}
   - component: {fileID: 1491233426}
+  - component: {fileID: 1491233433}
   m_Layer: 0
   m_Name: Hallway_Photo_M
   m_TagString: Untagged
@@ -6206,8 +6235,9 @@ MonoBehaviour:
   - {fileID: 1491233426}
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 1
-  _isInteracted: 0
   _shouldPlayerLookUp: 1
+  _shouldPlayerBeActiveAfter: 1
+  _shouldCameraReset: 1
 --- !u!61 &1491233429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6333,6 +6363,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491233433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491233425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cfcae48823243478bcf7476f328026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1619034650
 GameObject:
   m_ObjectHideFlags: 0
@@ -6820,6 +6862,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.17
