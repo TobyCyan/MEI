@@ -23878,7 +23878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _leftBorderX: -28
-  _rightBorderX: 54
+  _rightBorderX: 56
 --- !u!1001 &2500952156541240052
 PrefabInstance:
   m_ObjectHideFlags: 0

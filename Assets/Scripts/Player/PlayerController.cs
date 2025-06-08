@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(MeiAnimationController))]
 public class PlayerController : MonoBehaviour
 {
     #region Singleton
@@ -32,16 +33,18 @@ public class PlayerController : MonoBehaviour
     private bool _isWalking = false;
     private Vector3 _target;
     private bool _isActive = true;
-    private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
-    private Camera _camera;
     private readonly float _epsilon = 0.01f;
+
+    // Components.
+    private SpriteRenderer _spriteRenderer;
+    private Camera _camera;
+    private MeiAnimationController _animationController;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
         _camera = Camera.main;
+        _animationController = GetComponent<MeiAnimationController>();
     }
 
     // Update is called once per frame
@@ -58,41 +61,7 @@ public class PlayerController : MonoBehaviour
 
         MoveToTarget();
         PlayWalkSound();
-        ActivateWalkAnimation();
-    }
-
-    /**
-     * Activate walk animation in the animator by tweaking the isMoving boolean.
-     */
-    private void ActivateWalkAnimation()
-    {
-        string currentAnimationName = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-        if (_isWalking && currentAnimationName == GameConstants.CLIP_MEI_UP)
-        {
-            _animator.StopPlayback();
-        }
-        _animator.SetBool(GameConstants.STATEBOOL_MOVE, _isWalking);
-    }
-
-    public void ActivateInteractingAnimation()
-    {
-        _animator.SetBool(GameConstants.STATEBOOL_INTERACT, true);
-    }
-
-    /**
-     * Deactivates the current interaction animation.
-     * Then, forces the animator to go back to the idle state.
-     * This fixes the problem where the interaction animation is still playing even when the player is able to move again.
-     */
-    public void DeactivateInteractingAnimation()
-    {
-        _animator.SetBool(GameConstants.STATEBOOL_INTERACT, false);
-        GoIdleAnimation();
-    }
-
-    public void GoIdleAnimation()
-    {
-        _animator.Play(GameConstants.CLIP_MEI_IDLE);
+        _animationController.ActivateWalkAnimation(_isWalking);
     }
 
     private void OnEnable()
@@ -189,6 +158,16 @@ public class PlayerController : MonoBehaviour
     public void SetTarget(Vector3 target)
     {
         _target = target;
+    }
+
+    public void ActivateInteractingAnimation()
+    {
+        _animationController.ActivateInteractingAnimation();
+    }
+
+    public void DeactivateInteractingAnimation()
+    {
+        _animationController.DeactivateInteractingAnimation();
     }
 
     /** <summary>
