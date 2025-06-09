@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
         {
             return null;
         }
-
+        
         return hit.collider.gameObject.GetComponent<InteractionManager>();
     }
 
@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour
     public void SetFocus(InteractionManager interactionManager)
     {
         FocusedInteractable = interactionManager;
+        print("interactable: " + FocusedInteractable?.name);
     }
 
     public void RemoveFocus()
