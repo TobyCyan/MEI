@@ -14,7 +14,7 @@ public class SerializableDialogueDict
     public Dictionary<string, EmotionEnum.Emotion> ToDict()
     {
         // Loads all the pairs from the inspector into a dictionary and returns it.
-        Dictionary<string, EmotionEnum.Emotion> newDict = new Dictionary<string, EmotionEnum.Emotion>();
+        Dictionary<string, EmotionEnum.Emotion> newDict = new();
         foreach (var item in dialogueItems)
         {
             newDict[item.text] = item.emotion;

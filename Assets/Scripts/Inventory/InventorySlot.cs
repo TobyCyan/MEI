@@ -56,12 +56,14 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         draggedItem.sprite = icon.sprite;
         draggedItem.rectTransform.localScale = icon.rectTransform.localScale;
         draggedItem.gameObject.SetActive(true);
+        draggedItem.preserveAspect = true;
         icon.enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
+        draggedItem.preserveAspect = true;
         draggedItem.transform.position = mousePos;
 
         Vector2 mouseWorldPos = GetWorldPositionOnPlane(mousePos, 0f);
