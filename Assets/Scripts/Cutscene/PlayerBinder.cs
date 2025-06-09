@@ -22,7 +22,7 @@ public class PlayerBinder : MonoBehaviour
         Assert.IsNotNull(timelineAsset, "Timeline Asset Not Assigned To Binder " + name);
         foreach (var track in timelineAsset.GetOutputTracks())
         {
-            if (track.name.Equals("PlayerTrack"))
+            if (track.name.Equals("Player Track"))
             {
                 _director.SetGenericBinding(track, playerAnimator);
             }

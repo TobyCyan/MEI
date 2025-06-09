@@ -502,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 419579615}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.63, y: -2.04, z: -0.27980357}
+  m_LocalPosition: {x: 57.85, y: -2.04, z: -0.27980357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1856,7 +1856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.58
+      value: -23.85
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4341,8 +4341,10 @@ MonoBehaviour:
   - text: Haru did? Why didn't he tell me instead..?
     emotion: 8
     character: 1
-  - text: Remember when Chihaya asked you to meet up with Haru, but you were greeted
-      by some other people instead?
+  - text: Remember when Chihaya asked you to meet up with Haru-
+    emotion: 0
+    character: 3
+  - text: But you were greeted by some other people instead?
     emotion: 0
     character: 3
 --- !u!114 &1209247074
@@ -23437,6 +23439,8 @@ GameObject:
   - component: {fileID: 1755388927}
   - component: {fileID: 1755388928}
   - component: {fileID: 1755388929}
+  - component: {fileID: 1755388930}
+  - component: {fileID: 1755388931}
   m_Layer: 0
   m_Name: RunawayDarkMei
   m_TagString: CutSceneStudent
@@ -23670,6 +23674,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f27c3cf932b8e9446961f623b826bdbe, type: 2}
     - {fileID: 11400000, guid: c2cdbd723a924034287a91a395b431ff, type: 2}
     - {fileID: 11400000, guid: 766bce59392190a448bac0a772e9e5d2, type: 2}
+    - {fileID: 11400000, guid: c0aeab826928f0a4b967a7b700fd9312, type: 2}
+    - {fileID: 11400000, guid: fa0ade9c6f0dea342a439d974ae14913, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -23713,6 +23719,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1755388931}
+          m_TargetAssemblyTypeName: PlayerSignalHandler, Assembly-CSharp
+          m_MethodName: OnFreezePlayerSignal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1755388931}
+          m_TargetAssemblyTypeName: PlayerSignalHandler, Assembly-CSharp
+          m_MethodName: OnUnfreezePlayerSignal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1755388929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23723,6 +23757,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47c892e6936204b47a2386617d1eaa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1755388930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755388921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c28859278836b4abe5656823d4837e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1755388931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755388921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364aa213e33353541b405f0dbee76e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2033779229
