@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SfxPlayer : MonoBehaviour
 {
-    [Header("Must Assign The Audio Clip.")]
-    [SerializeField] private AudioClip _clip;
     private AudioSource _audioSrc;
 
     private void Start()
@@ -12,9 +10,9 @@ public class SfxPlayer : MonoBehaviour
         _audioSrc = GetComponent<AudioSource>();
     }
 
-    public void PlaySfx()
+    public void PlaySfx(AudioClip audioClip)
     {
-        _audioSrc.clip = _clip;
+        _audioSrc.clip = audioClip;
         _audioSrc.Play();
     }
 
