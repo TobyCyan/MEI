@@ -52,4 +52,9 @@ public class SceneTransition : Interactable
         }
         yield break;
     }
+
+    public void SetScenePath(string scenePath)
+    {
+        _scenePath = scenePath;
+    }
 }

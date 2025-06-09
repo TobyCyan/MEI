@@ -12,9 +12,11 @@ public class EmotionEnum : MonoBehaviour
         None,
         Mei_Despair,
         Mei_Neutral,
-        Mei_Smiling1,
-        Mei_Smiling2,
+        Mei_Smiling_1,
+        Mei_Smiling_2,
         Mei_Worried,
-        
+        Mei_Crying,
+        Mei_Surprised_1,
+        Mei_Surprised_2,
     }
 }

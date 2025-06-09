@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[RequireComponent(typeof(AudioSource))]
 public class BGMManager : MonoBehaviour
 {
     public static BGMManager Instance;
@@ -19,6 +20,7 @@ public class BGMManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         _audioSource = GetComponent<AudioSource>();
         _filter = GetComponent<AudioLowPassFilter>();
+        _audioSource.loop = true;
         if (_audioSource.clip != null)
         {
             _audioSource.Play();

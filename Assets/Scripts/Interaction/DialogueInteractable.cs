@@ -16,7 +16,7 @@ public class DialogueInteractable : Interactable
     private void Awake()
     {
         _activator = GetComponent<DialogueActivator>();
-        _player = FindAnyObjectByType<PlayerController>();
+        _player = PlayerController.Instance;
     }
 
     public override IEnumerator Interact()
