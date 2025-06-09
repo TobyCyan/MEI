@@ -4754,14 +4754,14 @@ MonoBehaviour:
   - text: Mei! Let me introduce you to my friends here.
     emotion: 0
     character: 4
-  - text: Hey Mei! Let's get along well! :D
+  - text: Hey Mei, I'm Yuna! Let's get along well! :D
     emotion: 0
-    character: 7
-  - text: Did you bring a lunchbox? Looks delicious! Join us for lunch!
+    character: 9
+  - text: I'm Rin! Did you bring a lunchbox? Looks delicious! Join us for lunch!
     emotion: 0
-    character: 8
+    character: 10
   - text: Ni-Nice to meet you! ...I hope we get along!
-    emotion: 8
+    emotion: 7
     character: 1
   - text: Remember when she helped you make new friends?
     emotion: 0

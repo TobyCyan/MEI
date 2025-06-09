@@ -2616,10 +2616,10 @@ MonoBehaviour:
     character: 4
   - text: You should add one more-"Cursed"!
     emotion: 0
-    character: 2
+    character: 7
   - text: That's how her mother died, right?
     emotion: 0
-    character: 2
+    character: 7
   - text: Oh you're absolutely right!
     emotion: 0
     character: 4
