@@ -231,7 +231,6 @@ public class PlayerController : MonoBehaviour
     public void SetFocus(InteractionManager interactionManager)
     {
         FocusedInteractable = interactionManager;
-        print("interactable: " + FocusedInteractable?.name);
     }
 
     public void RemoveFocus()

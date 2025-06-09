@@ -56,10 +56,8 @@ public class InteractionManager : InteractionStateReporter
 
     public IEnumerator GoThroughInteractions()
     {
-        print("interacting");
         if (_isInteracted)
         {
-            print("Interacted");
             yield break;
         }
 
