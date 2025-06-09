@@ -11802,8 +11802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 298958681}
   _isPingPong: 1
-  _startAudio: {fileID: 810217725331332173}
-  _endAudio: {fileID: 2963292590974100463}
+  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
+  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
@@ -12600,6 +12600,7 @@ GameObject:
   - component: {fileID: 8952798730750864272}
   - component: {fileID: 3720326631485842897}
   - component: {fileID: 1320687185591767056}
+  - component: {fileID: 8952798730750864273}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -12641,8 +12642,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30799997, y: -1.07155, z: 0}
-    m_Extent: {x: 3.7399998, y: 4.12265, z: 0}
+    m_Center: {x: 0.30935, y: -1.07245, z: 0}
+    m_Extent: {x: 3.73945, y: 4.12275, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12985,8 +12986,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.3080001, y: -1.0723501, z: 0}
-    m_Extent: {x: 3.7395, y: 4.12265, z: 0}
+    m_Center: {x: 0.30849993, y: -1.0722499, z: 0}
+    m_Extent: {x: 3.7402, y: 4.12355, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13035,8 +13036,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30780005, y: -1.07145, z: 0}
-    m_Extent: {x: 3.7393, y: 4.12315, z: 0}
+    m_Center: {x: 0.30799997, y: -1.07185, z: 0}
+    m_Extent: {x: 3.7392998, y: 4.12335, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13085,8 +13086,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30844998, y: -1.0727999, z: 0}
-    m_Extent: {x: 3.7388499, y: 4.123, z: 0}
+    m_Center: {x: 0.30855012, y: -1.0722001, z: 0}
+    m_Extent: {x: 3.74035, y: 4.1232004, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13135,8 +13136,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.3086499, y: -1.0714, z: 0}
-    m_Extent: {x: 3.7389498, y: 4.1232, z: 0}
+    m_Center: {x: 0.30824995, y: -1.0719, z: 0}
+    m_Extent: {x: 3.74015, y: 4.1227, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13185,8 +13186,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30884993, y: -1.07255, z: 0}
-    m_Extent: {x: 3.73985, y: 4.1234503, z: 0}
+    m_Center: {x: 0.30790007, y: -1.0716, z: 0}
+    m_Extent: {x: 3.7392, y: 4.1226, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13343,6 +13344,7 @@ GameObject:
   - component: {fileID: 810217725331332173}
   - component: {fileID: 2963292590974100463}
   - component: {fileID: 4077598808921621172}
+  - component: {fileID: 8853489218041103215}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -13350,6 +13352,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8853489218041103215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853489218041103214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497479a87de0dc04a9bd96b6910e2843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8952798730750864272
 Rigidbody2D:
   serializedVersion: 4
@@ -13377,6 +13391,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8952798730750864273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911364090454736399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c892e6936204b47a2386617d1eaa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9189771401607863735
 MonoBehaviour:
   m_ObjectHideFlags: 0
