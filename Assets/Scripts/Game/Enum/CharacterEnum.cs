@@ -15,6 +15,8 @@ public class CharacterEnum
         Chihaya,
         Haru,
         DarkMei,
+        StudentA,
+        StudentB,
     }
 
     /**
@@ -30,6 +32,8 @@ public class CharacterEnum
         { Character.Chihaya, "Chihaya" },
         { Character.Haru, "Haru" },
         { Character.DarkMei, "Dark Mei" },
+        { Character.StudentA, "Student A" },
+        { Character.StudentB, "Student B" },
     };
 }
 
