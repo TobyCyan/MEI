@@ -177,7 +177,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e84e0b1935a12f4b9ac1459b767ca91, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -380,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &469003860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19342,7 +19342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4202472385017739902, guid: be8ac87fb0d25264596db5be073a5687, type: 3}
       propertyPath: _hasTransitionedToDarkScene
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5243968684626522474, guid: be8ac87fb0d25264596db5be073a5687, type: 3}
       propertyPath: m_Name
@@ -21563,6 +21563,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 0}
   _dependentLockedInteractable: {fileID: 493758593766487330}
+  _sceneTransition: {fileID: 0}
 --- !u!114 &493758593766487330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21581,6 +21582,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 11400000, guid: dae6d82e37462b843866d2d32b62ccc6, type: 2}
   _dependentLockedInteractable: {fileID: 493758593120329505}
+  _sceneTransition: {fileID: 0}
 --- !u!114 &493758593800819941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21599,6 +21601,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 0}
   _dependentLockedInteractable: {fileID: 653631193094789430}
+  _sceneTransition: {fileID: 0}
 --- !u!114 &653631193094789430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21617,6 +21620,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 11400000, guid: dae6d82e37462b843866d2d32b62ccc6, type: 2}
   _dependentLockedInteractable: {fileID: 493758593800819941}
+  _sceneTransition: {fileID: 3924546365291042770}
 --- !u!61 &671580486831487532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26137,7 +26141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
@@ -26156,7 +26160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
@@ -26175,7 +26179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
@@ -26194,7 +26198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
@@ -26213,7 +26217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
@@ -26232,7 +26236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1463672102}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
+  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
   _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0

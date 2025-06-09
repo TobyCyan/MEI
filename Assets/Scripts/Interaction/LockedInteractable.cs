@@ -21,7 +21,7 @@ public class LockedInteractable : ItemInteractable
     private string _uniqueID;
 
     // Other components.
-    private readonly SceneTransition _sceneTransition;
+    [SerializeField] private SceneTransition _sceneTransition;
     private SfxPlayer _sfxPlayer;
 
     private void Start()

@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 94205588}
   - component: {fileID: 94205587}
   - component: {fileID: 94205589}
+  - component: {fileID: 94205590}
   m_Layer: 0
   m_Name: MoveBackCutscene
   m_TagString: Untagged
@@ -467,6 +468,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _observerNotifier: {fileID: 572207564}
   _asset: {fileID: 11400000, guid: 65c0566b0d48b994b94c1d6967030b7b, type: 2}
+--- !u!114 &94205590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94205585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c28859278836b4abe5656823d4837e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115749576
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +959,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 0}
   _dependentLockedInteractable: {fileID: 0}
+  _sceneTransition: {fileID: 0}
 --- !u!82 &259603945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2434,7 +2448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6829551823400016818, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: _speed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6853945996705638713, guid: cb8f6766ff09b8b4c89343a15532940d, type: 3}
       propertyPath: m_LocalPosition.x
