@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class DiaryManager : MonoBehaviour
 {
     [SerializeField] private DiaryEntryDataBase _diaryEntryDataBase;
-    private List<DiaryEntry> _foundDiaryEntries = new();
     private DiaryUi _diaryUi;
     private int _currentPageIndex = 0;
     private bool _isDiaryOpened = false;
 
     private void Awake()
     {
+        Assert.IsNotNull(_diaryEntryDataBase, "Diary Entry DataBase Is Not Assigned To " + name + "!");
+        _diaryEntryDataBase = Instantiate(_diaryEntryDataBase);
         _diaryUi = GetComponentInChildren<DiaryUi>();
-        UpdateFoundEntries();
+        _diaryEntryDataBase.UpdateFoundEntries();
     }
 
     private void Start()
@@ -25,30 +27,20 @@ public class DiaryManager : MonoBehaviour
         return _diaryEntryDataBase.AddEntry(id);
     }
 
+    public bool IsEntryFound(int id)
+    {
+        return _diaryEntryDataBase.CheckIsEntryFoundById(id);
+    }
+
     public DiaryEntry GetDiaryEntryById(int id)
     {
         return _diaryEntryDataBase.GetDiaryEntryById(id);
     }
 
-    public DiaryEntry GetDiaryEntryByIndex(int index)
-    {
-        return _diaryEntryDataBase.GetDiaryEntryByIndex(index);
-    }
-
-    public List<DiaryEntry> GetAllFoundEntries()
-    {
-        return _diaryEntryDataBase.GetAllFoundEntries();
-    }
-
-    public bool IsIndexValid(int index)
-    {
-        return index >= 0 && index < _foundDiaryEntries.Count;
-    }
-
     public void NextPage()
     {
         int nextPageIndex = _currentPageIndex + 1;
-        if (!IsIndexValid(nextPageIndex))
+        if (!_diaryEntryDataBase.IsFoundEntryIndexValid(nextPageIndex))
         {
             return;
         }
@@ -61,7 +53,7 @@ public class DiaryManager : MonoBehaviour
     public void PrevPage()
     {
         int prevPageIndex = _currentPageIndex - 1;
-        if (!IsIndexValid(prevPageIndex))
+        if (!_diaryEntryDataBase.IsFoundEntryIndexValid(prevPageIndex))
         {
             return;
         }
@@ -83,7 +75,6 @@ public class DiaryManager : MonoBehaviour
         {
             return;
         }
-        UpdateFoundEntries();
         _isDiaryOpened = true;
         _diaryUi.gameObject.SetActive(true);
         LoadPage(0);
@@ -97,10 +88,5 @@ public class DiaryManager : MonoBehaviour
         }
         _isDiaryOpened = false;
         _diaryUi.gameObject.SetActive(false);
-    }
-
-    private void UpdateFoundEntries()
-    {
-        _foundDiaryEntries = GetAllFoundEntries();
     }
 }

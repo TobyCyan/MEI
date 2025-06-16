@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu(menuName = "Diary/Diary Entry Database")]
 public class DiaryEntryDataBase : ScriptableObject
 {
     [SerializeField] private List<DiaryEntry> _diaryEntries = new();
+    private List<DiaryEntry> _foundDiaryEntries = new();
 
     public List<DiaryEntry> GetAllFoundEntries()
     {
@@ -13,22 +15,24 @@ public class DiaryEntryDataBase : ScriptableObject
 
     public bool AddEntry(int id)
     {
-        bool isContainEntry = IsContainEntry(id);
+        Assert.IsTrue(CheckIsEntryExistById(id), 
+            "Diary Entry With ID " + id + " Doesn't Exist In The DataBase!");
         bool isEntryFound = CheckIsEntryFoundById(id);
-        bool CanBeAdded = isContainEntry && !isEntryFound;
-        if (CanBeAdded)
+        if (!isEntryFound)
         {
             GetDiaryEntryById(id).IsFound = true;
+            UpdateFoundEntries();
+            return true;
         }
-        return CanBeAdded;
+        return false;
     }
 
-    private bool IsContainEntry(int id)
+    public bool CheckIsEntryExistById(int id)
     {
         return GetDiaryEntryById(id) != null;
     }
 
-    private bool CheckIsEntryFoundById(int id)
+    public bool CheckIsEntryFoundById(int id)
     {
         return GetDiaryEntryById(id).IsFound;
     }
@@ -51,5 +55,15 @@ public class DiaryEntryDataBase : ScriptableObject
     public int GetDiaryEntryId(int index)
     {
         return GetDiaryEntryByIndex(index).Id;
+    }
+
+    public bool IsFoundEntryIndexValid(int index)
+    {
+        return index >= 0 && index < _foundDiaryEntries.Count;
+    }
+
+    public void UpdateFoundEntries()
+    {
+        _foundDiaryEntries = GetAllFoundEntries();
     }
 }

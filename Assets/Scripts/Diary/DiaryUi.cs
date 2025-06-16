@@ -6,7 +6,15 @@ public class DiaryUi : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private TextMeshProUGUI _contentText;
     [SerializeField] private SfxPlayer _sfxPlayer;
-    [SerializeField] private AudioClip _flipPageSfx;
+    private AudioClip _flipPageSfx;
+
+    private void Awake()
+    {
+        _flipPageSfx = Resources.Load<AudioClip>(
+            GameConstants.RESOURCEPATH_SFX_UI
+            + "Diary/SFX_Flip_Page"
+            );
+    }
 
     public void LoadPage(string title, string content)
     {
