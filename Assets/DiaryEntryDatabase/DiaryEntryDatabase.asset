@@ -15,7 +15,8 @@ MonoBehaviour:
   _diaryEntries:
   - Id: 0
     Title: Mei's Diary
-    Content: 
+    Content: This is the beginning of Mie Mei's diary.. I hope a lot of fun lies
+      ahead :)
     IsFound: 1
   - Id: 1
     Title: What a bummer...
