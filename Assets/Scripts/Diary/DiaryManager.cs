@@ -4,6 +4,7 @@ using UnityEngine;
 public class DiaryManager : MonoBehaviour
 {
     [SerializeField] private DiaryEntryDataBase _diaryEntryDataBase;
+    private List<DiaryEntry> _foundDiaryEntries = new();
     private DiaryUi _diaryUi;
     private int _currentPageIndex = 0;
     private bool _isDiaryOpened = false;
@@ -11,6 +12,7 @@ public class DiaryManager : MonoBehaviour
     private void Awake()
     {
         _diaryUi = GetComponentInChildren<DiaryUi>();
+        UpdateFoundEntries();
     }
 
     private void Start()
@@ -38,16 +40,15 @@ public class DiaryManager : MonoBehaviour
         return _diaryEntryDataBase.GetAllFoundEntries();
     }
 
+    public bool IsIndexValid(int index)
+    {
+        return index >= 0 && index < _foundDiaryEntries.Count;
+    }
+
     public void NextPage()
     {
         int nextPageIndex = _currentPageIndex + 1;
-        if (!_diaryEntryDataBase.IsIndexValid(nextPageIndex))
-        {
-            return;
-        }
-
-        bool isEntryFound = _diaryEntryDataBase.CheckIsEntryFoundByIndex(nextPageIndex);
-        if (!isEntryFound)
+        if (!IsIndexValid(nextPageIndex))
         {
             return;
         }
@@ -60,13 +61,7 @@ public class DiaryManager : MonoBehaviour
     public void PrevPage()
     {
         int prevPageIndex = _currentPageIndex - 1;
-        if (!_diaryEntryDataBase.IsIndexValid(prevPageIndex))
-        {
-            return;
-        }
-        
-        bool isEntryFound = _diaryEntryDataBase.CheckIsEntryFoundByIndex(prevPageIndex);
-        if (!isEntryFound)
+        if (!IsIndexValid(prevPageIndex))
         {
             return;
         }
@@ -88,6 +83,7 @@ public class DiaryManager : MonoBehaviour
         {
             return;
         }
+        UpdateFoundEntries();
         _isDiaryOpened = true;
         _diaryUi.gameObject.SetActive(true);
         LoadPage(0);
@@ -101,5 +97,10 @@ public class DiaryManager : MonoBehaviour
         }
         _isDiaryOpened = false;
         _diaryUi.gameObject.SetActive(false);
+    }
+
+    private void UpdateFoundEntries()
+    {
+        _foundDiaryEntries = GetAllFoundEntries();
     }
 }

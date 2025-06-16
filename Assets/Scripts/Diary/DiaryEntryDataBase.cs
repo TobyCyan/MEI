@@ -43,16 +43,6 @@ public class DiaryEntryDataBase : ScriptableObject
         return _diaryEntries.Find(entry => entry.Id == id);
     }
 
-    private int GetEntryCount()
-    {
-        return _diaryEntries.Count;
-    }
-
-    public bool IsIndexValid(int index)
-    {
-        return index >= 0 && index < GetEntryCount();
-    }
-
     public DiaryEntry GetDiaryEntryByIndex(int index)
     {
         return _diaryEntries[index];
