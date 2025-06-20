@@ -24,6 +24,11 @@ public class LockedInteractable : ItemInteractable
     [SerializeField] private SceneTransition _sceneTransition;
     private SfxPlayer _sfxPlayer;
 
+    private void Awake()
+    {
+        _lockedAudioClip = Resources.Load<AudioClip>("SFX/Environment/SFX_Thump");
+    }
+
     private void Start()
     {
         // GameObject names in the same scene are unique.
