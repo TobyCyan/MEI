@@ -22,6 +22,18 @@ public class TransitionInteractable : Interactable
     private SpriteRenderer _spriteRenderer;
     private SfxPlayer _sfxPlayer;
 
+    private void Awake()
+    {
+        _startAudioClip = Resources.Load<AudioClip>(
+            GameConstants.RESOURCEPATH_SFX_ENVIRONMENT 
+            + "SFX_Open_Door"
+            );
+        _endAudioClip = Resources.Load<AudioClip>(
+            GameConstants.RESOURCEPATH_SFX_ENVIRONMENT
+            + "SFX_Close_Door"
+            );
+    }
+
     private void Start()
     {
         Assert.IsNotNull(_fadeEffect, "Transition Interactable " 

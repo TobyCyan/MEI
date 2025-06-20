@@ -5,7 +5,7 @@ public class SfxPlayer : MonoBehaviour
 {
     private AudioSource _audioSrc;
 
-    private void Start()
+    private void Awake()
     {
         _audioSrc = GetComponent<AudioSource>();
     }

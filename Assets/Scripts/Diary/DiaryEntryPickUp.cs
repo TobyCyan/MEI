@@ -1,13 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class ItemPickup : Interactable
+public class DiaryEntryPickUp : Interactable
 {
-    public Item item;
+    public PickUpDiaryEntry _pickUpDiaryEntry;
     [SerializeField] private bool _isDestroyAfterPickUp = true;
     private bool _isPickedUp = false;
 
     // Components.
+    [SerializeField] private DiaryManager _diaryManager;
     [SerializeField] private SfxPlayer _sfxPlayer;
     private AudioClip _pickUpSfx;
     private BoxCollider2D _collider;
@@ -15,17 +17,18 @@ public class ItemPickup : Interactable
 
     private void Awake()
     {
+        Assert.IsNotNull(_diaryManager, "Diary Manager Is Not Attached To " + name + "!");
         _collider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _pickUpSfx = Resources.Load<AudioClip>(
-            GameConstants.RESOURCEPATH_SFX_UI
+            GameConstants.RESOURCEPATH_SFX_UI 
             + "PopUp/SFX_PickUp"
             );
     }
 
     private void Start()
     {
-        _isPickedUp = Inventory.Instance.Contains(item);
+        _isPickedUp = _diaryManager.IsEntryFound(_pickUpDiaryEntry.Id);
         if (!_isPickedUp)
         {
             return;
@@ -39,7 +42,7 @@ public class ItemPickup : Interactable
         {
             gameObject.SetActive(false);
         }
-        
+
     }
 
     public override IEnumerator Interact()
@@ -54,9 +57,9 @@ public class ItemPickup : Interactable
         yield break;
     }
 
-    void Pickup()
+    private void Pickup()
     {
-        _isPickedUp = Inventory.Instance.Add(item);
+        _isPickedUp = _diaryManager.AddEntry(_pickUpDiaryEntry.Id);
         _sfxPlayer.PlaySfx(_pickUpSfx);
 
         // Some objects may not need to be destroyed upon picking up.
@@ -70,5 +73,4 @@ public class ItemPickup : Interactable
             }
         }
     }
-
 }

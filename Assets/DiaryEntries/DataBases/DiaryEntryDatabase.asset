@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ee418b41c049043887d29a788d8ee3, type: 3}
+  m_Name: DiaryEntryDatabase
+  m_EditorClassIdentifier: 
+  _diaryEntries:
+  - Id: 0
+    Title: Mei's Diary
+    Content: This is the beginning of Mie Mei's diary.. I hope a lot of fun lies
+      ahead :)
+    Doodle: {fileID: 793347343, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
+    IsFound: 1
+  - Id: 1
+    Title: What a bummer...
+    Content: They're at me again... I wished they would just ignore me sometimes.
+    Doodle: {fileID: 929884368, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
+    IsFound: 0
+  - Id: 2
+    Title: It never ends.
+    Content: Dad and mom are always fighting, or at least they used to. Now, dad
+      is just silent and never speaks to me...
+    Doodle: {fileID: -201837044, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
+    IsFound: 0
