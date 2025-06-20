@@ -66,7 +66,7 @@ public class DiaryManager : MonoBehaviour
     public void LoadPage(int id)
     {
         DiaryEntry diaryEntry = GetDiaryEntryById(id);
-        _diaryUi.LoadPage(diaryEntry.Title, diaryEntry.Content);
+        _diaryUi.LoadPage(diaryEntry.Title, diaryEntry.Content, diaryEntry.Doodle);
     }
 
     public void OpenDiary()

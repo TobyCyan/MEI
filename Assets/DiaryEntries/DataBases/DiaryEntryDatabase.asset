@@ -17,13 +17,16 @@ MonoBehaviour:
     Title: Mei's Diary
     Content: This is the beginning of Mie Mei's diary.. I hope a lot of fun lies
       ahead :)
+    Doodle: {fileID: 793347343, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
     IsFound: 1
   - Id: 1
     Title: What a bummer...
     Content: They're at me again... I wished they would just ignore me sometimes.
+    Doodle: {fileID: 929884368, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
     IsFound: 0
   - Id: 2
     Title: It never ends.
     Content: Dad and mom are always fighting, or at least they used to. Now, dad
       is just silent and never speaks to me...
+    Doodle: {fileID: -201837044, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
     IsFound: 0
