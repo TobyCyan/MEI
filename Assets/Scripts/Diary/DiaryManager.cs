@@ -68,6 +68,18 @@ public class DiaryManager : MonoBehaviour
         _diaryUi.LoadPage(diaryEntry.Title, diaryEntry.Content, diaryEntry.Doodle);
     }
 
+    public void OpenDiary(int entryId)
+    {
+        if (_isDiaryOpened)
+        {
+            return;
+        }
+        _isDiaryOpened = true;
+        _diaryUi.gameObject.SetActive(true);
+        _currentPageIndex = _diaryEntryDataBase.GetFoundDiaryEntryIndexById(entryId);
+        LoadPage(entryId);
+    }
+
     public void OpenDiary()
     {
         if (_isDiaryOpened)
@@ -77,7 +89,7 @@ public class DiaryManager : MonoBehaviour
         _isDiaryOpened = true;
         _diaryUi.gameObject.SetActive(true);
         _currentPageIndex = 0;
-        LoadPage(_currentPageIndex);
+        LoadPage(0);
     }
 
     public void CloseDiary()
