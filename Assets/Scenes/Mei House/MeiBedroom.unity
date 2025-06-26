@@ -7775,7 +7775,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 15
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -7919,13 +7919,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dc321a837cb3a46bf963d33072305f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsSatisfied: 0
-  m_DialogueTextEmotionStructList:
-  - text: I should probably get changed first.
-    emotion: 4
-    character: 1
-  m_Activator: {fileID: 8091639974187663486}
-  m_FadeEffect: {fileID: 763261586}
+  _isSatisfied: 0
+  _dialogueTextEmotionStructList: []
+  _activator: {fileID: 0}
+  _fadeEffect: {fileID: 0}
 --- !u!212 &3395130357688035283
 SpriteRenderer:
   m_ObjectHideFlags: 0

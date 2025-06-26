@@ -683,8 +683,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25925002, y: 0.02395001, z: 0}
-    m_Extent: {x: 0.96665, y: 0.76055, z: 0}
+    m_Center: {x: -0.25880003, y: 0.024399996, z: 0}
+    m_Extent: {x: 0.9678, y: 0.7615, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6851,8 +6851,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25955, y: 0.023999989, z: 0}
-    m_Extent: {x: 0.96685004, y: 0.7605, z: 0}
+    m_Center: {x: -0.2596, y: 0.02395001, z: 0}
+    m_Extent: {x: 0.9675, y: 0.76014996, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7622,6 +7622,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4abee6815cf559d4e9edd7a592ba471c, type: 3}
+--- !u!1 &1199415472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6977057200182336310, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+  m_PrefabInstance: {fileID: 387392188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1244690736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7751,8 +7756,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.2593, y: 0.024350017, z: 0}
-    m_Extent: {x: 0.9676, y: 0.76055, z: 0}
+    m_Center: {x: -0.25884998, y: 0.024000019, z: 0}
+    m_Extent: {x: 0.96715, y: 0.7609, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8032,8 +8037,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25910002, y: 0.02395001, z: 0}
-    m_Extent: {x: 0.96750003, y: 0.76105, z: 0}
+    m_Center: {x: -0.25925002, y: 0.02429998, z: 0}
+    m_Extent: {x: 0.96725, y: 0.7601, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8519,7 +8524,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 15
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -8716,7 +8721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionIcon: {fileID: 0}
+  _interactionIcon: {fileID: 1199415472}
   _interactables:
   - {fileID: 1826547653}
   - {fileID: 1826547650}
