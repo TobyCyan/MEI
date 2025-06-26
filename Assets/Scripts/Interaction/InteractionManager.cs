@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /**
@@ -126,29 +127,43 @@ public class InteractionManager : InteractionStateReporter
             return;
         }
 
-        PlayerController player = PlayerController.Instance;
-
-        // TODO Right now the player always interacts at the edge of the interactable collider 2D.
-        // Make player move towards the center first, then interact.
-
-        if (player.FocusedInteractable == this)
-        {
-            PlayerController.Instance.RemoveFocus();
-            if (CanUseItem && player.IsUsingItem())
-            {
-                Item usedItem = player.UsedItem;
-                player.StopUsingItem();
-                StartCoroutine(UseItem(usedItem));
-            }
-            else
-            {
-                StartCoroutine(GoThroughInteractions());
-            }
-        }
-        else if (_interactionIcon != null)
+        if (_interactionIcon != null)
         {
             OpenInterableIcon();
         }
+
+        PlayerController player = PlayerController.Instance;
+
+        if (player.FocusedInteractable != this)
+        {
+            return;
+        }
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 centerPoint = new(transform.position.x, playerPos.y, playerPos.z);
+
+        // Makes player move towards the center first, then interact.
+        player.SetTarget(centerPoint);
+
+        float centerPointX = centerPoint.x;
+        float epsilon = 0.01f;
+        if (Mathf.Abs(playerPos.x - centerPointX) > epsilon)
+        {
+            return;
+        }
+
+        PlayerController.Instance.RemoveFocus();
+        if (CanUseItem && player.IsUsingItem())
+        {
+            Item usedItem = player.UsedItem;
+            player.StopUsingItem();
+            StartCoroutine(UseItem(usedItem));
+        }
+        else
+        {
+            StartCoroutine(GoThroughInteractions());
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
