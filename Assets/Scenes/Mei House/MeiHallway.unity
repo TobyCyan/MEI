@@ -8569,13 +8569,25 @@ PrefabInstance:
       value: DiaryEntry
       objectReference: {fileID: 0}
     - target: {fileID: 6189402541916953372, guid: 17d5817f77634044fa548dee9361b986, type: 3}
+      propertyPath: _openEntryId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189402541916953372, guid: 17d5817f77634044fa548dee9361b986, type: 3}
       propertyPath: _diaryManager
       value: 
       objectReference: {fileID: 664030147}
+    - target: {fileID: 6290240786568137257, guid: 17d5817f77634044fa548dee9361b986, type: 3}
+      propertyPath: _shouldPlayerBeActiveAfter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6293682760869129098, guid: 17d5817f77634044fa548dee9361b986, type: 3}
       propertyPath: _diaryManager
       value: 
       objectReference: {fileID: 664030147}
+    - target: {fileID: 6293682760869129098, guid: 17d5817f77634044fa548dee9361b986, type: 3}
+      propertyPath: _pickUpDiaryEntry
+      value: 
+      objectReference: {fileID: 11400000, guid: 804d74370ff0b834a823ae74e571e390, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

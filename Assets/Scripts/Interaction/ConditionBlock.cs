@@ -9,35 +9,34 @@ using UnityEngine;
  */
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(DialogueActivator))]
-public class ConditionBlock : MonoBehaviour
+public class ConditionBlock : InteractionStateReporter
 {
-    [SerializeField] private ICondition[] m_Conditions;
+    private ICondition[] _conditions;
 
     [Header("To specify conditions to check for, just add the ICondition components to this game object.")]
-    [SerializeField] private bool m_IsSatisfied = false;
-    [SerializeField] private List<DialogueInfoStruct> m_DialogueTextEmotionStructList;
-    [SerializeField] private DialogueActivator m_Activator;
-    [SerializeField] private GDTFadeEffect m_FadeEffect;
+    [SerializeField] private bool _isSatisfied = false;
+    [SerializeField] private List<DialogueInfoStruct> _dialogueTextEmotionStructList;
+    [SerializeField] private DialogueActivator _activator;
+    [SerializeField] private GDTFadeEffect _fadeEffect;
 
-    private float m_HalfWidth;
+    private float _halfWidth;
 
     private void Awake()
     {
-        // Might remove this if there are too many condition blocks in the game.
-        // Re-Checking if all conditions are satisfied may be better for performance in this case.
-        DontDestroyOnLoad(gameObject);
+        Initialize();
+        _isSatisfied = _isInteracted;
     }
 
     private void Start()
     {
-        m_Activator = GetComponent<DialogueActivator>();
-        m_HalfWidth = GetComponent<BoxCollider2D>().size.x / 2;
-        m_Conditions = GetComponents<ICondition>();
+        _activator = GetComponent<DialogueActivator>();
+        _halfWidth = GetComponent<BoxCollider2D>().size.x / 2;
+        _conditions = GetComponents<ICondition>();
     }
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        if (m_IsSatisfied)
+        if (_isSatisfied)
         {
             yield break;
         }
@@ -57,12 +56,13 @@ public class ConditionBlock : MonoBehaviour
         
         if (areConditionsSatisfied)
         {
-            m_IsSatisfied = true;
+            _isSatisfied = _isInteracted = true;
+            MarkReporter();
         }
         else
         {
             player.StopPlayerMovement();
-            yield return StartCoroutine(m_Activator.ActivateDialogue(m_DialogueTextEmotionStructList));
+            yield return StartCoroutine(_activator.ActivateDialogue(_dialogueTextEmotionStructList));
             MovePlayerBack(player);
             player.ResumePlayerMovement();
         }
@@ -70,7 +70,7 @@ public class ConditionBlock : MonoBehaviour
 
     private bool CheckConditions()
     {
-        foreach (ICondition condition in m_Conditions)
+        foreach (ICondition condition in _conditions)
         {
             bool isSatisfied = condition.CheckCond();
             if (!isSatisfied)
@@ -95,11 +95,11 @@ public class ConditionBlock : MonoBehaviour
 
         if (isPlayerLeft)
         {
-            player.transform.position = new Vector3(playerPos.x - m_HalfWidth, playerPos.y, playerPos.z);
+            player.transform.position = new Vector3(playerPos.x - _halfWidth, playerPos.y, playerPos.z);
         }
         else
         {
-            player.transform.position = new Vector3(playerPos.x + m_HalfWidth, playerPos.y, playerPos.z);
+            player.transform.position = new Vector3(playerPos.x + _halfWidth, playerPos.y, playerPos.z);
         }
 
         // Reset the target position so that player does not keep moving towards the previous target.
@@ -111,11 +111,11 @@ public class ConditionBlock : MonoBehaviour
      */
     private void PerformTransition()
     {
-        m_FadeEffect.pingPong = true;
-        m_FadeEffect.firstColor = Color.clear;
-        m_FadeEffect.lastColor = Color.black;
-        m_FadeEffect.disableWhenFinish = true;
+        _fadeEffect.pingPong = true;
+        _fadeEffect.firstColor = Color.clear;
+        _fadeEffect.lastColor = Color.black;
+        _fadeEffect.disableWhenFinish = true;
 
-        m_FadeEffect.gameObject.SetActive(true);
+        _fadeEffect.gameObject.SetActive(true);
     }
 }

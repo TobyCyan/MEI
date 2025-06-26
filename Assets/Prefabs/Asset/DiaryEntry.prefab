@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09042cc7377224b4787702aa6f13b6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickUpDiaryEntry: {fileID: 11400000, guid: 804d74370ff0b834a823ae74e571e390, type: 2}
+  _pickUpDiaryEntry: {fileID: 0}
   _isDestroyAfterPickUp: 1
   _diaryManager: {fileID: 0}
   _sfxPlayer: {fileID: 404892274197043252}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _diaryManager: {fileID: 0}
-  _openEntryId: 3
+  _openEntryId: 0
 --- !u!82 &5270777843995987769
 AudioSource:
   m_ObjectHideFlags: 0

@@ -18,11 +18,12 @@ public class DiaryEntryPickUp : Interactable
     private void Awake()
     {
         Assert.IsNotNull(_diaryManager, "Diary Manager Is Not Attached To " + name + "!");
+        Assert.IsNotNull(_pickUpDiaryEntry, "A Pick Up Diary Entry Is Not Attached To " + name + "!");
         _collider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _pickUpSfx = Resources.Load<AudioClip>(
             GameConstants.RESOURCEPATH_SFX_UI 
-            + "PopUp/SFX_PickUp"
+            + "Diary/SFX_Flip_Page"
             );
     }
 
