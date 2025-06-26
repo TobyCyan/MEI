@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff814231899b35b4a969a424eb4952f1, type: 3}
-  m_Name: Pick Up Diary Entry 1
+  m_Name: Pick Up Diary Entry 2
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 2

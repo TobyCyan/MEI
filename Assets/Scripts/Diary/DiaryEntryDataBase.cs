@@ -66,4 +66,9 @@ public class DiaryEntryDataBase : ScriptableObject
     {
         _foundDiaryEntries = GetAllFoundEntries();
     }
+
+    public int GetFoundDiaryEntryId(int id)
+    {
+        return _foundDiaryEntries[id].Id;
+    }
 }

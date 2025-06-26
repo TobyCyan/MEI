@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -45,7 +44,7 @@ public class DiaryManager : MonoBehaviour
             return;
         }
 
-        int entryId = _diaryEntryDataBase.GetDiaryEntryId(nextPageIndex);
+        int entryId = _diaryEntryDataBase.GetFoundDiaryEntryId(nextPageIndex);
         LoadPage(entryId);
         _currentPageIndex = nextPageIndex;
     }
@@ -58,7 +57,7 @@ public class DiaryManager : MonoBehaviour
             return;
         }
 
-        int entryId = _diaryEntryDataBase.GetDiaryEntryId(prevPageIndex);
+        int entryId = _diaryEntryDataBase.GetFoundDiaryEntryId(prevPageIndex);
         LoadPage(entryId);
         _currentPageIndex = prevPageIndex;
     }
@@ -77,7 +76,8 @@ public class DiaryManager : MonoBehaviour
         }
         _isDiaryOpened = true;
         _diaryUi.gameObject.SetActive(true);
-        LoadPage(0);
+        _currentPageIndex = 0;
+        LoadPage(_currentPageIndex);
     }
 
     public void CloseDiary()
