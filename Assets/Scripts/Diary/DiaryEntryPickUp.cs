@@ -23,7 +23,7 @@ public class DiaryEntryPickUp : Interactable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _pickUpSfx = Resources.Load<AudioClip>(
             GameConstants.RESOURCEPATH_SFX_UI 
-            + "Diary/SFX_Flip_Page"
+            + "Diary/SFX_Writing"
             );
     }
 
