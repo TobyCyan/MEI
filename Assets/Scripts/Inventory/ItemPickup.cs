@@ -28,6 +28,7 @@ public class ItemPickup : Interactable
         _isPickedUp = Inventory.Instance.Contains(item);
         if (!_isPickedUp)
         {
+            Debug.Log("not picked up");
             return;
         }
 
