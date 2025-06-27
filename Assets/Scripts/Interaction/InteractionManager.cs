@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
@@ -22,6 +23,7 @@ public class InteractionManager : InteractionStateReporter
     private ObserverNotifier _observerNotifier;
 
     private ItemInteractable _itemInteractable;
+    private SceneTransition _sceneTransition;
 
     private void Start()
     {
@@ -30,16 +32,15 @@ public class InteractionManager : InteractionStateReporter
         // Gets a list of Item Interactables.
         // Then, get the first ItemInteractable in the list and check if it exists.
         // Assumption: There is only one ItemInteractable in _interactables.
-        var itemInteractables = _interactables.Where(interactable => IsItemInteractable(interactable)).ToList();
-        if (itemInteractables.Count > 0)
-        {
-            _itemInteractable = itemInteractables.First() as ItemInteractable;
-            CanUseItem = _itemInteractable != null;
-        }
-        else if (itemInteractables.Count > 1)
-        {
-            Debug.LogError($"More than one ItemInteractable on {this.name}");
-        }
+        var itemInteractables = _interactables.OfType<ItemInteractable>();
+        Assert.IsTrue(itemInteractables.Count() <= 1, $"More than one ItemInteractable on { this.name }");
+        _itemInteractable = itemInteractables.FirstOrDefault();
+        CanUseItem = _itemInteractable != null;
+
+        var sceneTransitions = _interactables.OfType<SceneTransition>();
+        Assert.IsTrue(sceneTransitions.Count() <= 1, $"More than one ItemInteractable on {this.name}");
+        _sceneTransition = sceneTransitions.FirstOrDefault();
+        _interactables.Remove(_sceneTransition);
 
         Transform interactionIconTransform = transform.Find("InteractIcon");
 
@@ -92,6 +93,18 @@ public class InteractionManager : InteractionStateReporter
             CloseInterableIcon();
         }
 
+        // Add the new player state after completing the interaction.
+        if (_onCompletePlayerState != PlayerState.State.None)
+        {
+            player.AddPlayerState(_onCompletePlayerState);
+        }
+
+        // Scene transition should be executed before resetting or triggering events.
+        if (_sceneTransition != null)
+        {
+            yield return StartCoroutine(_sceneTransition.Interact());
+        }
+
         // Go back to idle.
         player.DeactivateInteractingAnimation();
 
@@ -108,13 +121,8 @@ public class InteractionManager : InteractionStateReporter
             player.ResetCamera();
         }
 
-        // Add the new player state after completing the interaction.
-        if (_onCompletePlayerState != PlayerState.State.None)
-        {
-            player.AddPlayerState(_onCompletePlayerState);
-        }
-
         NotifyObservers();
+
     }
 
     private void NotifyObservers()
@@ -200,10 +208,5 @@ public class InteractionManager : InteractionStateReporter
         {
             _interactionIcon.SetActive(false);
         }
-    }
-
-    private bool IsItemInteractable(Interactable interactable)
-    {
-        return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
     }
 }
