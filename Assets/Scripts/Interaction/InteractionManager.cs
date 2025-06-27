@@ -50,6 +50,11 @@ public class InteractionManager : InteractionStateReporter
         }
 
         _observerNotifier = GetComponent<ObserverNotifier>();
+
+        if (_isInteracted)
+        {
+            NotifyObservers();
+        }
     }
 
     private void OnDestroy()

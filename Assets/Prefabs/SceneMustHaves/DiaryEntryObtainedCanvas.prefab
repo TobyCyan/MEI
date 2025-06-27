@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 85
-  _posOffset: 55
+  _posOffset: 57
   _delay: 1
   _isActive: 0
   _isBounceUpward: 0
