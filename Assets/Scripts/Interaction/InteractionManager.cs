@@ -41,8 +41,11 @@ public class InteractionManager : InteractionStateReporter
             Debug.LogError($"More than one ItemInteractable on {this.name}");
         }
 
-        if (_interactionIcon != null)
+        Transform interactionIconTransform = transform.Find("InteractIcon");
+
+        if (interactionIconTransform != null)
         {
+            _interactionIcon = interactionIconTransform.gameObject;
             _interactionIcon.SetActive(false);
         }
 

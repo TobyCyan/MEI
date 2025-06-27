@@ -15,6 +15,7 @@ public class TransitionInteractable : Interactable
     [SerializeField] private float _pauseDuration = 0.75f;
     [SerializeField] private bool _disableWhenFinish = true;
     [SerializeField] private bool _isInvisibleTransitionObject = false;
+    [SerializeField] private TransitionInteractableType _type = TransitionInteractableType.DOOR;
 
     private float _fadeDuration = 0.0f;
     private float _startAudioDuration = 0.0f;
@@ -24,14 +25,7 @@ public class TransitionInteractable : Interactable
 
     private void Awake()
     {
-        _startAudioClip = Resources.Load<AudioClip>(
-            GameConstants.RESOURCEPATH_SFX_ENVIRONMENT 
-            + "SFX_Open_Door"
-            );
-        _endAudioClip = Resources.Load<AudioClip>(
-            GameConstants.RESOURCEPATH_SFX_ENVIRONMENT
-            + "SFX_Close_Door"
-            );
+        AssignAudioClips(_type);
     }
 
     private void Start()
@@ -102,5 +96,34 @@ public class TransitionInteractable : Interactable
         }
 
         yield break;
+    }
+
+    private void AssignAudioClips(TransitionInteractableType type)
+    {
+        switch (type)
+        {
+            case TransitionInteractableType.DOOR:
+                _startAudioClip = Resources.Load<AudioClip>(
+                    GameConstants.RESOURCEPATH_SFX_ENVIRONMENT
+                    + "SFX_Open_Door"
+                    );
+                _endAudioClip = Resources.Load<AudioClip>(
+                    GameConstants.RESOURCEPATH_SFX_ENVIRONMENT
+                    + "SFX_Close_Door"
+                    );
+                break;
+
+            case TransitionInteractableType.STAIRS:
+                _startAudioClip = Resources.Load<AudioClip>(
+                    GameConstants.RESOURCEPATH_SFX_ENVIRONMENT
+                    + "SFX_Concrete_Stairs_Short"
+                    );
+                _endAudioClip = null;
+                break;
+
+            case TransitionInteractableType.NONE:
+                _startAudioClip = _endAudioClip = null;
+                break;
+        }
     }
 }

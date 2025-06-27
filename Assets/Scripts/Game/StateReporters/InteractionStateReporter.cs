@@ -1,23 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class InteractionStateReporter : MonoBehaviour
+public abstract class InteractionStateReporter : StateReporter
 {
-    protected string _uniqueId;
     protected bool _isInteracted = false;
 
-    protected void Initialize()
+    protected override void Initialize()
     {
-        AssignIdAndCheckInteractionState();
+        AssignIdAndCheckReporterState();
     }
 
-    protected void MarkReporter()
+    protected override void MarkReporter()
     {
         _isInteracted = true;
         GameManager.Instance.AddInteractedReporter(_uniqueId);
     }
 
-    private void AssignIdAndCheckInteractionState()
+    protected override void AssignIdAndCheckReporterState()
     {
         // GameObject names in the same scene are unique.
         _uniqueId = SceneManager.GetActiveScene().name + gameObject.name;
