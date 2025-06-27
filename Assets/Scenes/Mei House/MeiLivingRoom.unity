@@ -414,6 +414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 969761135}
   _interactables:
   - {fileID: 276915356}
@@ -567,7 +570,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276915347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ee9b540f86f54f4e901bc940475a2e5, type: 3}
   m_Name: 
@@ -643,8 +646,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25954998, y: 0.024500012, z: 0}
-    m_Extent: {x: 0.96784997, y: 0.7601, z: 0}
+    m_Center: {x: -0.2596, y: 0.024650007, z: 0}
+    m_Extent: {x: 0.9675, y: 0.76094997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -682,6 +685,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1826547649}
     m_Modifications:
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6718,8 +6729,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25945002, y: 0.024500012, z: 0}
-    m_Extent: {x: 0.96715003, y: 0.76, z: 0}
+    m_Center: {x: -0.25990003, y: 0.024749994, z: 0}
+    m_Extent: {x: 0.9674, y: 0.76065, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7134,6 +7145,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 276915354}
     m_Modifications:
     - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -7319,6 +7338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 1244690737}
   _interactables:
   - {fileID: 1027663619}
@@ -7747,6 +7769,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1027663614}
     m_Modifications:
     - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -7964,8 +7994,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25865, y: 0.024149984, z: 0}
-    m_Extent: {x: 0.96715003, y: 0.75995004, z: 0}
+    m_Center: {x: -0.25915, y: 0.024400026, z: 0}
+    m_Extent: {x: 0.96725, y: 0.7599, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8111,8 +8141,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.25905, y: 0.023850024, z: 0}
-    m_Extent: {x: 0.96675, y: 0.76045, z: 0}
+    m_Center: {x: -0.25915003, y: 0.02485001, z: 0}
+    m_Extent: {x: 0.96815, y: 0.76075, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8554,7 +8584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3fe953b90c5ec4380fc78212929dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftBorderX: -6.5
+  _leftBorderX: -8.05
   _rightBorderX: 4.5
 --- !u!81 &1793822693
 AudioListener:
@@ -8624,7 +8654,7 @@ Transform:
   m_GameObject: {fileID: 1793822691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 1.5, z: -10}
+  m_LocalPosition: {x: -8.05, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8795,6 +8825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 1199415472}
   _interactables:
   - {fileID: 1826547653}
@@ -9148,6 +9181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 9166250784149176131}
@@ -9436,6 +9472,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dc321a837cb3a46bf963d33072305f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _isSatisfied: 0
   _dialogueTextEmotionStructList:
   - text: I think I'm forgetting something...
@@ -9897,6 +9936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: 1stFloor
   _newScenePlayerPosX: -35
+  _shouldResumePlayerMovement: 1
 --- !u!114 &5270021156455509062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9911,11 +9951,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 145130694}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
+  _type: 1
 --- !u!114 &5467677912869907305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10065,11 +10104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 145130694}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 1
+  _type: 0
 --- !u!114 &7373841968179758192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10132,6 +10170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 8494140492891319058}
@@ -10347,6 +10388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: MeiHallway
   _newScenePlayerPosX: -15
+  _shouldResumePlayerMovement: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

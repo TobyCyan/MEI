@@ -1142,6 +1142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiaryCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4582274435046636787, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

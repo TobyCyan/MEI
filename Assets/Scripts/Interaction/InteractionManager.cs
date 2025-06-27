@@ -84,6 +84,7 @@ public class InteractionManager : InteractionStateReporter
         {
             _isInteracted = true;
             MarkReporter();
+            CloseInterableIcon();
         }
 
         // Go back to idle.
@@ -124,7 +125,7 @@ public class InteractionManager : InteractionStateReporter
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player") || _isInteracted)
         {
             return;
         }

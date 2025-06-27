@@ -6490,6 +6490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9fac85a8a78844795b62ff94b3f256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _dialogueTextEmotionStructList:
   - text: '*yawns*'
     emotion: 1
@@ -6720,11 +6723,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 763261586}
   _isPingPong: 1
-  _startAudioClip: {fileID: 0}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
+  _type: 0
 --- !u!61 &1615058181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6814,13 +6816,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 1476272100}
   _interactables:
   - {fileID: 1615058183}
   - {fileID: 1615058180}
   - {fileID: 1615058182}
   _onCompletePlayerState: 1
-  _isAllowRepeatedInteractions: 1
+  _isAllowRepeatedInteractions: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
@@ -7325,6 +7330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 1519887432}
   _interactables:
   - {fileID: 1998659176}
@@ -7716,6 +7724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 4400697820235108144}
@@ -7738,11 +7749,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 763261586}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
+  _type: 0
 --- !u!114 &2030123825917211262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8031,6 +8041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dc321a837cb3a46bf963d33072305f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _isSatisfied: 0
   _dialogueTextEmotionStructList: []
   _activator: {fileID: 0}
@@ -8142,7 +8155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scenePath: MeiHallway
-  _newScenePlayerPosX: 6.63
+  _newScenePlayerPosX: 6.38
+  _shouldResumePlayerMovement: 1
 --- !u!61 &4742996823932395578
 BoxCollider2D:
   m_ObjectHideFlags: 0

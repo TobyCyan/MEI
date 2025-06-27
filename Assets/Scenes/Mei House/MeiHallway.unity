@@ -271,6 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 260409852}
   _interactables:
   - {fileID: 59311292}
@@ -488,6 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 1001742871}
   _interactables:
   - {fileID: 159674812}
@@ -823,6 +829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 67028347}
   _interactables:
   - {fileID: 188853898}
@@ -6527,6 +6536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 2147276749}
   _interactables:
   - {fileID: 1491233427}
@@ -7775,6 +7787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 9166250782807249971}
@@ -7890,6 +7905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 4400697820518952103}
@@ -7936,11 +7954,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1011909247}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
+  _type: 0
 --- !u!114 &2030123826696124429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8534,6 +8551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: MeiBedroom
   _newScenePlayerPosX: -9.5
+  _shouldResumePlayerMovement: 1
 --- !u!114 &4467614611215657804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8560,11 +8578,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1011909247}
   _isPingPong: 0
-  _startAudioClip: {fileID: 0}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
+  _type: 1
 --- !u!4 &6194658707871701076
 Transform:
   m_ObjectHideFlags: 0
@@ -8890,6 +8907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: MeiLivingRoom
   _newScenePlayerPosX: 5
+  _shouldResumePlayerMovement: 1
 --- !u!114 &9189771400478215032
 MonoBehaviour:
   m_ObjectHideFlags: 0
