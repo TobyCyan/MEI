@@ -10,8 +10,6 @@ public class TransitionInteractable : Interactable
 {
     [SerializeField] private GDTFadeEffect _fadeEffect;
     [SerializeField] private bool _isPingPong = true;
-    [SerializeField] private AudioClip _startAudioClip;
-    [SerializeField] private AudioClip _endAudioClip;
     [SerializeField] private float _pauseDuration = 0.75f;
     [SerializeField] private bool _disableWhenFinish = true;
     [SerializeField] private bool _isInvisibleTransitionObject = false;
@@ -22,6 +20,8 @@ public class TransitionInteractable : Interactable
     private float _endAudioDuration = 0.0f;
     private SpriteRenderer _spriteRenderer;
     private SfxPlayer _sfxPlayer;
+    private AudioClip _startAudioClip;
+    private AudioClip _endAudioClip;
 
     private void Awake()
     {
@@ -49,8 +49,11 @@ public class TransitionInteractable : Interactable
         {
             _endAudioDuration = _endAudioClip.length;
         }
+        float emptyAudioDuration = 1.0f;
+        _startAudioDuration = _startAudioDuration == 0.0f ? emptyAudioDuration : _startAudioDuration;
+        _endAudioDuration = _endAudioDuration == 0.0f ? emptyAudioDuration : _endAudioDuration;
 
-        _fadeDuration = _pauseDuration + 0.5f;
+        _fadeDuration = _pauseDuration + 1.0f;
     }
 
     public override IEnumerator Interact()

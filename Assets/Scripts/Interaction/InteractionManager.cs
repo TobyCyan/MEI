@@ -61,7 +61,6 @@ public class InteractionManager : InteractionStateReporter
     {
         if (_isInteracted)
         {
-            Debug.Log("Interacted " + name);
             yield break;
         }
 
@@ -78,6 +77,13 @@ public class InteractionManager : InteractionStateReporter
         {
             yield return StartCoroutine(interactable.Interact());
             yield return new WaitForSeconds(0.1f);
+        }
+
+        // Interactions won't happen again if not allowed to.
+        if (!_isAllowRepeatedInteractions)
+        {
+            _isInteracted = true;
+            MarkReporter();
         }
 
         // Go back to idle.
@@ -100,13 +106,6 @@ public class InteractionManager : InteractionStateReporter
         if (_onCompletePlayerState != PlayerState.State.None)
         {
             player.AddPlayerState(_onCompletePlayerState);
-        }
-
-        // Interactions won't happen again if not allowed to.
-        if (!_isAllowRepeatedInteractions)
-        {
-            _isInteracted = true;
-            MarkReporter();
         }
 
         NotifyObservers();

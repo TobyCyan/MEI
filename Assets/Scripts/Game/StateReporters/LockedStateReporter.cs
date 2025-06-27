@@ -2,11 +2,6 @@ public class LockedStateReporter : StateReporter
 {
     protected bool _isLocked = true;
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
     protected override void Initialize()
     {
         AssignIdAndCheckReporterState();

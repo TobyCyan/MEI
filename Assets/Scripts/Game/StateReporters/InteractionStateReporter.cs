@@ -2,11 +2,6 @@ public class InteractionStateReporter : StateReporter
 {
     protected bool _isInteracted = false;
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
     protected override void Initialize()
     {
         AssignIdAndCheckReporterState();

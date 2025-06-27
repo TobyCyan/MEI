@@ -19,6 +19,11 @@ public abstract class StateReporter : MonoBehaviour
     protected abstract void AssignIdAndCheckReporterState();
     public abstract bool IsMarked();
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
     protected string GetReporterToReportId()
     {
         string sceneName = SceneManager.GetActiveScene().name;

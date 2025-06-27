@@ -1050,6 +1050,103 @@ Transform:
   - {fileID: 2122676433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &613814279
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834258637395551560, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582274435046636787, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
+      propertyPath: m_Name
+      value: DiaryCanvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 101c68bebb8f3cf49b0a465df644d5fa, type: 3}
 --- !u!1001 &619564686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5440,7 +5537,7 @@ MonoBehaviour:
   _onCompletePlayerState: 0
   _isAllowRepeatedInteractions: 0
   _shouldPlayerLookUp: 1
-  _shouldPlayerBeActiveAfter: 0
+  _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
 --- !u!61 &1064894015
 BoxCollider2D:
@@ -5543,11 +5640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
-  _isPingPong: 1
-  _startAudioClip: {fileID: 0}
-  _endAudioClip: {fileID: 0}
-  _pauseDuration: 0.5
-  _disableWhenFinish: 1
+  _isPingPong: 0
+  _pauseDuration: 0
+  _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
   _type: 2
 --- !u!114 &1064894021
@@ -24473,8 +24568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
@@ -24493,8 +24586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
@@ -24513,8 +24604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
@@ -24533,8 +24622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 0
@@ -26135,8 +26222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 0
-  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
@@ -26155,8 +26240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 0
-  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
@@ -26175,8 +26258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1373150473}
   _isPingPong: 0
-  _startAudioClip: {fileID: 8300000, guid: 77b2a681a81502343ae8b2c95603a2d9, type: 3}
-  _endAudioClip: {fileID: 0}
   _pauseDuration: 0.75
   _disableWhenFinish: 0
   _isInvisibleTransitionObject: 0
@@ -27024,6 +27105,7 @@ SceneRoots:
   - {fileID: 225305441}
   - {fileID: 619564686}
   - {fileID: 1509891592}
+  - {fileID: 613814279}
   - {fileID: 1594885576}
   - {fileID: 759364249}
   - {fileID: 1698483638}
