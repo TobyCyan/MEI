@@ -1,9 +1,11 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public abstract class InteractionStateReporter : StateReporter
+public class InteractionStateReporter : StateReporter
 {
     protected bool _isInteracted = false;
+
+    private void Awake()
+    {
+        Initialize();
+    }
 
     protected override void Initialize()
     {
@@ -19,10 +21,15 @@ public abstract class InteractionStateReporter : StateReporter
     protected override void AssignIdAndCheckReporterState()
     {
         // GameObject names in the same scene are unique.
-        _uniqueId = SceneManager.GetActiveScene().name + gameObject.name;
+        _uniqueId = GetReporterToReportId();
 
         // Check if this manager has been interacted before,
         // which will prevent the interaction from happening.
-        _isInteracted = GameManager.Instance.IsReporterInteracted(_uniqueId);
+        _isInteracted = IsMarked();
+    }
+
+    public override bool IsMarked()
+    {
+        return GameManager.Instance.IsReporterInteracted(_uniqueId);
     }
 }

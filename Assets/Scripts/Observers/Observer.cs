@@ -7,6 +7,13 @@ public abstract class Observer : MonoBehaviour
 
     void Awake()
     {
+        Initialize();
+    }
+
+    // Initializes the observer.
+    // Call this explicitly if Awake is defined in child class.
+    protected void Initialize()
+    {
         Assert.IsNotNull(_observerNotifier, "Observer "
             + gameObject.name
             + " Does Not Have A Notifier!");

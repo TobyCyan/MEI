@@ -1,8 +1,11 @@
-using UnityEngine.SceneManagement;
-
 public class LockedStateReporter : StateReporter
 {
     protected bool _isLocked = true;
+
+    private void Awake()
+    {
+        Initialize();
+    }
 
     protected override void Initialize()
     {
@@ -18,10 +21,15 @@ public class LockedStateReporter : StateReporter
     protected override void AssignIdAndCheckReporterState()
     {
         // GameObject names in the same scene are unique.
-        _uniqueId = SceneManager.GetActiveScene().name + gameObject.name;
+        _uniqueId = GetReporterToReportId();
 
         // Check if this manager has been interacted before,
         // which will prevent the interaction from happening.
-        _isLocked = GameManager.Instance.IsReporterUnlocked(_uniqueId);
+        _isLocked = IsMarked();
+    }
+
+    public override bool IsMarked()
+    {
+        return GameManager.Instance.IsReporterUnlocked(_uniqueId);
     }
 }

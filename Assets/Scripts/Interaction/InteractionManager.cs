@@ -61,6 +61,7 @@ public class InteractionManager : InteractionStateReporter
     {
         if (_isInteracted)
         {
+            Debug.Log("Interacted " + name);
             yield break;
         }
 
