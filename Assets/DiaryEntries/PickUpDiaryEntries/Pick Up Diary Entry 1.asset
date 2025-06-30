@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff814231899b35b4a969a424eb4952f1, type: 3}
   m_Name: Pick Up Diary Entry 1
   m_EditorClassIdentifier: 
-  Id: 2
+  Id: 1

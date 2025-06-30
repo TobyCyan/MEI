@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     /** Maintain a set of locked interactables IDs to check whether a door has been unlocked when going between scenes. **/
-    private HashSet<string> _openedLockedInteractables = new HashSet<string>();
+    private readonly HashSet<string> _openedLockedInteractables = new();
 
-    private HashSet<string> _interactedStateReporters = new HashSet<string>();
+    private readonly HashSet<string> _interactedStateReporters = new();
+
+    private readonly HashSet<string> _openedLockedReporters = new();
 
     [SerializeField] private bool _hasTransitionedToDarkScene = false;
 
@@ -54,6 +56,16 @@ public class GameManager : MonoBehaviour
     public bool IsReporterInteracted(string id)
     {
         return _interactedStateReporters.Contains(id);
+    }
+
+    public void AddUnlockedReporter(string id)
+    {
+        _openedLockedReporters.Add(id);
+    }
+
+    public bool IsReporterUnlocked(string id)
+    {
+        return _openedLockedReporters.Contains(id);
     }
 
     public void TransitionToDarkScene()
