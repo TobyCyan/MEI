@@ -52,9 +52,10 @@ public class DiaryEntryDataBase : ScriptableObject
         return _diaryEntries[index];
     }
 
-    public int GetDiaryEntryId(int index)
+    public int GetFoundDiaryEntryIndexById(int entryId)
     {
-        return GetDiaryEntryByIndex(index).Id;
+        DiaryEntry diaryEntry = GetDiaryEntryById(entryId);
+        return _foundDiaryEntries.IndexOf(diaryEntry);
     }
 
     public bool IsFoundEntryIndexValid(int index)
@@ -65,5 +66,10 @@ public class DiaryEntryDataBase : ScriptableObject
     public void UpdateFoundEntries()
     {
         _foundDiaryEntries = GetAllFoundEntries();
+    }
+
+    public int GetFoundDiaryEntryId(int id)
+    {
+        return _foundDiaryEntries[id].Id;
     }
 }

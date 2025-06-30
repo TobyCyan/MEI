@@ -5,8 +5,9 @@ public class InteractionActivationObserver : Observer
 {
     private InteractionManager _interactionManager;
 
-    private void Start()
+    private void Awake()
     {
+        Initialize();
         _interactionManager = GetComponent<InteractionManager>();
     }
 

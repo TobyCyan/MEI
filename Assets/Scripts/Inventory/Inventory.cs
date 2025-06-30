@@ -62,6 +62,8 @@ public class Inventory : MonoBehaviour
     */
     public bool Contains(Item item)
     {
-        return items.Contains(item) || _pickedUpItems.Contains(item);
+        bool isItemInInventory = items.Contains(item);
+        bool isItemPickedUp = _pickedUpItems.Contains(item);
+        return isItemInInventory || isItemPickedUp;
     }
 }
