@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,40 +20,52 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     /** Maintain a set of locked interactables IDs to check whether a door has been unlocked when going between scenes. **/
-    private HashSet<string> _openedLockedInteractables = new HashSet<string>();
+    private readonly HashSet<string> _openedLockedInteractables = new();
 
-    private HashSet<string> _interactedManagers = new HashSet<string>();
+    private readonly HashSet<string> _interactedStateReporters = new();
+
+    private readonly HashSet<string> _openedLockedReporters = new();
 
     [SerializeField] private bool _hasTransitionedToDarkScene = false;
 
-    public void AddUnlockedDoor(string doorID)
+    public void AddUnlockedDoor(string id)
     {
-        _openedLockedInteractables.Add(doorID);
+        _openedLockedInteractables.Add(id);
     }
 
-    public void RemoveUnlockedDoor(string unlockedDoorID)
+    public void RemoveUnlockedDoor(string id)
     {
-        _openedLockedInteractables.Remove(unlockedDoorID);
+        _openedLockedInteractables.Remove(id);
     }
 
-    public bool IsDoorUnlocked(string doorID)
+    public bool IsDoorUnlocked(string id)
     {
-        return _openedLockedInteractables.Contains(doorID);
+        return _openedLockedInteractables.Contains(id);
     }
 
-    public void AddInteractedManager(string interactedManagerID)
+    public void AddInteractedReporter(string id)
     {
-        _interactedManagers.Add(interactedManagerID);
+        _interactedStateReporters.Add(id);
     }
 
-    public void RemoveInteractedManager(string interactedManagerID)
+    public void RemoveInteractedReporter(string id)
     {
-        _interactedManagers.Remove(interactedManagerID);
+        _interactedStateReporters.Remove(id);
     }
 
-    public bool IsManagerInteracted(string interactedManagerID)
+    public bool IsReporterInteracted(string id)
     {
-        return _interactedManagers.Contains(interactedManagerID);
+        return _interactedStateReporters.Contains(id);
+    }
+
+    public void AddUnlockedReporter(string id)
+    {
+        _openedLockedReporters.Add(id);
+    }
+
+    public bool IsReporterUnlocked(string id)
+    {
+        return _openedLockedReporters.Contains(id);
     }
 
     public void TransitionToDarkScene()

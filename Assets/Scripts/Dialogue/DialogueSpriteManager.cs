@@ -14,7 +14,7 @@ public class DialogueSpriteManager : MonoBehaviour
 
     void Awake()
     {
-        sprites = Resources.LoadAll<Sprite>("Mei");
+        sprites = Resources.LoadAll<Sprite>("Avatars/Mei");
         LoadSpritesIntoSpriteDict(sprites);
     }
 

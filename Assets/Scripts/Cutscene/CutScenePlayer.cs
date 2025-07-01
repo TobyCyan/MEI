@@ -2,49 +2,37 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CutScenePlayer : MonoBehaviour
+public abstract class CutScenePlayer : Interactable
 {
-    #region Singleton
-    public static CutScenePlayer Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
-    #endregion
-
     [SerializeField] private GDTFadeEffect _fadeEffect;
-    private PlayableDirector _playableDirector;
-    private PlayerController _player;
+    [SerializeField] protected PlayableAsset _asset;
+    private PlayableDirector _director;
 
-    void Start()
+    protected void GetDirectorComponent()
     {
-        _playableDirector = GetComponent<PlayableDirector>();
-        _player = PlayerController.Instance;
-        SetFadeParameters();
+        _director = GetComponent<PlayableDirector>();
     }
 
-
-    public void FreezePlayer(float positionX)
+    protected void FreezePlayer(PlayerController player, float positionX)
     {
-        Vector3 playerPos = _player.transform.position;
-        _player.transform.position = new Vector3(positionX, playerPos.y, playerPos.z);
-        _player.StopPlayerMovement();
+        Vector3 playerPos = player.transform.position;
+        player.transform.position = new Vector3(positionX, playerPos.y, playerPos.z);
+        player.StopPlayerMovement();
     }
 
-    private void SetFadeParameters()
+    protected void SetFadeParametersWithPingPong()
     {
         _fadeEffect.firstColor = Color.clear;
         _fadeEffect.lastColor = Color.black;
         _fadeEffect.pingPong = true;
+        _fadeEffect.disableWhenFinish = true;
+    }
+
+    protected void SetFadeParametersWithoutPingPong()
+    {
+        _fadeEffect.firstColor = Color.clear;
+        _fadeEffect.lastColor = Color.black;
+        _fadeEffect.pingPong = false;
         _fadeEffect.disableWhenFinish = true;
     }
 
@@ -53,12 +41,19 @@ public class CutScenePlayer : MonoBehaviour
         _fadeEffect.gameObject.SetActive(true);
     }
 
-    public IEnumerator ActivateCutSceneFlow(PlayableAsset assetToPlay, MovePosition.Position freezePos, float customFreezePosX, bool canPlayerMove)
+    protected void ResetToPlayer()
+    {
+        PlayerController.Instance.ResetCamera();
+        PlayerController.Instance.ResumePlayerMovement();
+    }
+
+    protected IEnumerator ActivateCutSceneFlow(MovePosition.Position freezePos, float customFreezePosX, bool canPlayerMove)
     {
         float fadeDuration = _fadeEffect.CalculateFadeDuration();
+        float cutsceneDurationOffset = 1.0f;
 
         // Fade into the cutscene.
-        SetFadeParameters();
+        SetFadeParametersWithPingPong();
         ActivateFadeEffect();
         yield return new WaitForSeconds(fadeDuration);
 
@@ -66,19 +61,21 @@ public class CutScenePlayer : MonoBehaviour
         {
             // Freeze the player somewhere.
             Vector3 freezePosition = MovePosition.GetMovePosX(freezePos, new Vector3(customFreezePosX, 0.0f, 0.0f));
-            FreezePlayer(freezePosition.x);
+            FreezePlayer(PlayerController.Instance, freezePosition.x);
         }
-         
-        _playableDirector.Play(assetToPlay);
+        
+        _director.Play(_asset);
         // Wait for the cutscene to play out.
-        yield return new WaitForSeconds((float) assetToPlay.duration);
+        yield return new WaitForSeconds((float) _asset.duration - cutsceneDurationOffset);
 
         // Fade out of the cutscene.
+        SetFadeParametersWithoutPingPong();
         ActivateFadeEffect();
+        fadeDuration = _fadeEffect.CalculateFadeDuration();
         yield return new WaitForSeconds(fadeDuration);
-        
-        _playableDirector.Stop();
-        Camera.main.GetComponent<CameraFollow>().ResetCamera();
-        _player.ResumePlayerMovement();
+
+        _director.Stop();
     }
+
+    public abstract IEnumerator ActivateCutScene();
 }

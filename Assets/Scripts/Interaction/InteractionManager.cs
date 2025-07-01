@@ -2,52 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Assertions;
 
 /**
  * IMPORTANT: Attach this onto any interactable object and specify the order of interactables.
  * Manager for managing the order of which the interactable scripts will be called.
  */
 [RequireComponent(typeof(BoxCollider2D))]
-public class InteractionManager : MonoBehaviour
+[RequireComponent(typeof(ObserverNotifier))]
+public class InteractionManager : InteractionStateReporter
 {
     [HideInInspector] public bool CanUseItem { get; private set; }
     [SerializeField] private GameObject _interactionIcon;
     [SerializeField] private List<Interactable> _interactables = new();
     [SerializeField] private PlayerState.State _onCompletePlayerState = PlayerState.State.None;
     [SerializeField] private bool _isAllowRepeatedInteractions = true;
-    [SerializeField] private bool _isInteracted = false;
     [SerializeField] private bool _shouldPlayerLookUp = true;
-    /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
-    private string _uniqueID;
+    [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
+    [SerializeField] private bool _shouldCameraReset = true;
+    private ObserverNotifier _observerNotifier;
 
     private ItemInteractable _itemInteractable;
+    private SceneTransition _sceneTransition;
 
     private void Start()
     {
-        // GameObject names in the same scene are unique.
-        _uniqueID = SceneManager.GetActiveScene().name + gameObject.name;
-
-        // Check if this manager has been interacted before, which will prevent the interaction from happening.
-        _isInteracted = GameManager.Instance.IsManagerInteracted(_uniqueID);
+        Initialize();
 
         // Gets a list of Item Interactables.
         // Then, get the first ItemInteractable in the list and check if it exists.
         // Assumption: There is only one ItemInteractable in _interactables.
-        var itemInteractables = _interactables.Where(interactable => IsItemInteractable(interactable)).ToList();
-        if (itemInteractables.Count > 0)
+        var itemInteractables = _interactables.OfType<ItemInteractable>();
+        Assert.IsTrue(itemInteractables.Count() <= 1, $"More than one ItemInteractable on { this.name }");
+        _itemInteractable = itemInteractables.FirstOrDefault();
+        CanUseItem = _itemInteractable != null;
+
+        var sceneTransitions = _interactables.OfType<SceneTransition>();
+        Assert.IsTrue(sceneTransitions.Count() <= 1, $"More than one ItemInteractable on {this.name}");
+        _sceneTransition = sceneTransitions.FirstOrDefault();
+        _interactables.Remove(_sceneTransition);
+
+        Transform interactionIconTransform = transform.Find("InteractIcon");
+
+        if (interactionIconTransform != null)
         {
-            _itemInteractable = itemInteractables.First() as ItemInteractable;
-            CanUseItem = _itemInteractable != null;
-        }
-        else if (itemInteractables.Count > 1)
-        {
-            Debug.LogError($"More than one ItemInteractable on {this.name}");
+            _interactionIcon = interactionIconTransform.gameObject;
+            _interactionIcon.SetActive(false);
         }
 
-        if (_interactionIcon != null)
+        _observerNotifier = GetComponent<ObserverNotifier>();
+
+        if (_isInteracted)
         {
-            _interactionIcon.SetActive(false);
+            NotifyObservers();
         }
     }
 
@@ -78,13 +85,13 @@ public class InteractionManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        // Go back to idle.
-        player.DeactivateInteractingAnimation();
-
-        // Wait a little more to ensure the interaction to ensure the interacting animation is fully deactivated.
-        yield return new WaitForSeconds(0.1f);
-
-        player.ResumePlayerMovement();
+        // Interactions won't happen again if not allowed to.
+        if (!_isAllowRepeatedInteractions)
+        {
+            _isInteracted = true;
+            MarkReporter();
+            CloseInterableIcon();
+        }
 
         // Add the new player state after completing the interaction.
         if (_onCompletePlayerState != PlayerState.State.None)
@@ -92,12 +99,35 @@ public class InteractionManager : MonoBehaviour
             player.AddPlayerState(_onCompletePlayerState);
         }
 
-        // Interactions won't happen again if not allowed to.
-        if (!_isAllowRepeatedInteractions)
+        // Scene transition should be executed before resetting or triggering events.
+        if (_sceneTransition != null)
         {
-            _isInteracted = true;
-            GameManager.Instance.AddInteractedManager(_uniqueID);
+            yield return StartCoroutine(_sceneTransition.Interact());
         }
+
+        // Go back to idle.
+        player.DeactivateInteractingAnimation();
+
+        // Wait a little more to ensure the interaction to ensure the interacting animation is fully deactivated.
+        yield return new WaitForSeconds(0.1f);
+
+        if (_shouldPlayerBeActiveAfter)
+        {
+            player.ResumePlayerMovement();
+        }
+
+        if (_shouldCameraReset)
+        {
+            player.ResetCamera();
+        }
+
+        NotifyObservers();
+
+    }
+
+    private void NotifyObservers()
+    {
+        _observerNotifier.NotifyObservers();
     }
 
     private IEnumerator UseItem(Item item)
@@ -108,34 +138,48 @@ public class InteractionManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player") || _isInteracted)
         {
             return;
         }
 
-        PlayerController player = PlayerController.Instance;
-
-        // TODO Right now the player always interacts at the edge of the interactable collider 2D.
-        // Make player move towards the center first, then interact.
-
-        if (player.FocusedInteractable == this)
-        {
-            PlayerController.Instance.RemoveFocus();
-            if (CanUseItem && player.IsUsingItem())
-            {
-                Item usedItem = player.UsedItem;
-                player.StopUsingItem();
-                StartCoroutine(UseItem(usedItem));
-            }
-            else
-            {
-                StartCoroutine(GoThroughInteractions());
-            }
-        }
-        else if (_interactionIcon != null)
+        if (_interactionIcon != null)
         {
             OpenInterableIcon();
         }
+
+        PlayerController player = PlayerController.Instance;
+
+        if (player.FocusedInteractable != this)
+        {
+            return;
+        }
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 centerPoint = new(transform.position.x, playerPos.y, playerPos.z);
+
+        // Makes player move towards the center first, then interact.
+        player.SetTarget(centerPoint);
+
+        float centerPointX = centerPoint.x;
+        float epsilon = 0.01f;
+        if (Mathf.Abs(playerPos.x - centerPointX) > epsilon)
+        {
+            return;
+        }
+
+        PlayerController.Instance.RemoveFocus();
+        if (CanUseItem && player.IsUsingItem())
+        {
+            Item usedItem = player.UsedItem;
+            player.StopUsingItem();
+            StartCoroutine(UseItem(usedItem));
+        }
+        else
+        {
+            StartCoroutine(GoThroughInteractions());
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -164,10 +208,5 @@ public class InteractionManager : MonoBehaviour
         {
             _interactionIcon.SetActive(false);
         }
-    }
-
-    private bool IsItemInteractable(Interactable interactable)
-    {
-        return interactable.GetType().IsSubclassOf(typeof(ItemInteractable));
     }
 }

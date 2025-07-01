@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /**
@@ -13,23 +10,31 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float _leftBorderX;
     [SerializeField] private float _rightBorderX;
     
-    private readonly float _camYPos = 1.5f;
-    private readonly float _camFOV = 60.0f;
-    private Vector3 _camSize;
+    private static readonly float CAM_Y_POS = 1.5f;
+    private static readonly float CAM_Z_POS = -10.0f;
+    private static readonly float CAM_FOV = 60.0f;
+    private static readonly float CAM_SIZE = 5.0f;
+    private static readonly float CAM_SPEED = 3.0f;
+    private Vector3 _camScale;
     private PlayerController _player;
     private Camera _cam;
+    private bool _isActive = true;
 
     void Start()
     {
         _player = PlayerController.Instance;
         _cam = GetComponent<Camera>();
         // Cache the camera's original scale to use for resetting later.
-        _camSize = transform.localScale;
+        _camScale = transform.localScale;
         ResetCamera();
     }
 
     void Update()
     {
+        if (!_isActive)
+        {
+            return;
+        }
         UpdateCamPos();
     }
 
@@ -40,20 +45,39 @@ public class CameraFollow : MonoBehaviour
     */
     public void ResetCamera()
     {
-        transform.localScale = _camSize;
-        _cam.transform.position = new Vector3(_cam.transform.position.x, _camYPos, _cam.transform.position.z);
-        _cam.fieldOfView = _camFOV;
+        _isActive = false;
+        transform.localScale = _camScale;
+        _cam.transform.position = GetClampedXPos();
+        _cam.fieldOfView = CAM_FOV;
+        _cam.orthographicSize = CAM_SIZE;
+        _isActive = true;
     }
 
     private void UpdateCamPos()
     {
         if (_player != null)
         {
-            Vector3 playerPos = _player.transform.position;
-            Vector3 camPos = _cam.transform.position;
-            _cam.transform.position = new Vector3(Mathf.Clamp(playerPos.x, _leftBorderX, _rightBorderX),
-                                                    camPos.y,
-                                                    camPos.z);
+            Vector3 targetPos = GetClampedXPos();
+            _cam.transform.position = Vector3.Lerp(
+                _cam.transform.position, 
+                targetPos, 
+                CAM_SPEED * Time.deltaTime
+                );
         }
+    }
+
+    public void FreezeCameraToPos(Vector3 freezePosition)
+    {
+        _isActive = false;
+        transform.position = freezePosition;
+    }
+
+    private Vector3 GetClampedXPos()
+    {
+        Vector3 playerPos = _player.transform.position;
+        Vector3 camPos = _cam.transform.position;
+        return new (Mathf.Clamp(playerPos.x, _leftBorderX, _rightBorderX),
+                                                    CAM_Y_POS,
+                                                    CAM_Z_POS);
     }
 }

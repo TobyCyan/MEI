@@ -1,24 +1,33 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(DialogueInteractable))]
+[RequireComponent(typeof(SfxPlayer))]
 public class LockedInteractable : ItemInteractable
 { 
     private bool _isLocked = true;
     private bool _isFirstTimeEnter = true;
     [SerializeField] private DialogueInteractable _lockedDialogue;
+    [SerializeField] private AudioClip _lockedAudioClip;
+    [Header("Leave The Followings Empty If This Object Cannot Be Unlocked.")]
     [SerializeField] private DialogueInteractable _unlockedDialogue;
+    [SerializeField] private AudioClip _unlockedAudioClip;
     [SerializeField] private Item _unlockItem;
-
-    [Header("Dependent door can be nothing.")]
+    [Header("Dependent Door Can Be Nothing.")]
     [SerializeField] private LockedInteractable _dependentLockedInteractable;
 
     /** Unique IDs Saved Are SceneName + the Given Unique ID. **/
     private string _uniqueID;
 
-    private SceneTransition _sceneTransition;
+    // Other components.
+    [SerializeField] private SceneTransition _sceneTransition;
+    private SfxPlayer _sfxPlayer;
+
+    private void Awake()
+    {
+        _lockedAudioClip = Resources.Load<AudioClip>("SFX/Environment/SFX_Thump");
+    }
 
     private void Start()
     {
@@ -33,6 +42,7 @@ public class LockedInteractable : ItemInteractable
         {
             _isLocked = _isFirstTimeEnter = false;
         }
+        _sfxPlayer = GetComponent<SfxPlayer>();
     }
 
     public override IEnumerator Interact()
@@ -40,6 +50,7 @@ public class LockedInteractable : ItemInteractable
         // Door is locked.
         if (_isLocked)
         {
+            _sfxPlayer.PlaySfx(_lockedAudioClip);
             yield return StartCoroutine(_lockedDialogue.Interact());
             yield break;
         }
@@ -70,6 +81,7 @@ public class LockedInteractable : ItemInteractable
     {
         if (_isLocked && item.Equals(_unlockItem))
         {
+            _sfxPlayer.PlaySfx(_unlockedAudioClip);
             _isLocked = false;
             GameManager.Instance.AddUnlockedDoor(_uniqueID);
             Inventory.Instance.Remove(item);
