@@ -21,10 +21,7 @@ public class ItemPickup : Interactable
             GameConstants.RESOURCEPATH_SFX_UI
             + "PopUp/SFX_PickUp"
             );
-    }
 
-    private void Start()
-    {
         _isPickedUp = Inventory.Instance.Contains(item);
         if (!_isPickedUp)
         {
@@ -35,11 +32,17 @@ public class ItemPickup : Interactable
         enabled = false;
 
         // Disable game object if it is set to be destroyed after picking up.
-        if (_isDestroyAfterPickUp)
+        if (!_isDestroyAfterPickUp)
         {
-            gameObject.SetActive(false);
+            return;
         }
-        
+        // gameObject.SetActive(false);
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.enabled = false;
+        }
+
+        _collider.enabled = false;
     }
 
     public override IEnumerator Interact()

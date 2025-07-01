@@ -15,7 +15,7 @@ public class SceneTransition : Interactable
     // New scene player information.
     [Header("Y and Z Values are (0.0f, -1.0f)")]
     [SerializeField] private float _newScenePlayerPosX;
-    // [SerializeField] private bool _shouldPlayerLookRight = false;
+    [SerializeField] private bool _shouldResumePlayerMovement = true;
 
     private PlayerController _player;
     private TransitionInteractable _transition;
@@ -47,7 +47,7 @@ public class SceneTransition : Interactable
             // Update the player position in the next scene.
             Vector3 scenePlayerPos = ScenePlayerInfo.scenePlayerPosition;
             ScenePlayerInfo.scenePlayerPosition = new Vector3(_newScenePlayerPosX, scenePlayerPos.y, scenePlayerPos.z);
-            // ScenePlayerInfo.shouldPlayerLookRight = _shouldPlayerLookRight;
+            ScenePlayerInfo.shouldResumePlayerMovement = _shouldResumePlayerMovement;
             SceneManager.LoadScene(_scenePath);
         }
         yield break;

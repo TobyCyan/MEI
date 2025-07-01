@@ -6,5 +6,5 @@ using UnityEngine;
 public static class ScenePlayerInfo
 {
     public static Vector3 scenePlayerPosition = new Vector3(0.0f, 0.0f, 0.0f);
-    // public static bool shouldPlayerLookRight = false;
+    public static bool shouldResumePlayerMovement = true;
 }

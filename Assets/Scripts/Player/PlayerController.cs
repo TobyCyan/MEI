@@ -83,7 +83,14 @@ public class PlayerController : MonoBehaviour
         transform.position = ScenePlayerInfo.scenePlayerPosition;
         SetCamera(Camera.main);
         ResetTarget();
-        ResumePlayerMovement();
+        if (ScenePlayerInfo.shouldResumePlayerMovement)
+        {
+            ResumePlayerMovement();
+        }
+        else
+        {
+            StopPlayerMovement();
+        }
     }
 
     private void UpdateTarget()

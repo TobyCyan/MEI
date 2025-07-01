@@ -30,3 +30,9 @@ MonoBehaviour:
       is just silent and never speaks to me...
     Doodle: {fileID: -201837044, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
     IsFound: 0
+  - Id: 3
+    Title: My locker password
+    Content: 'Mom and dad always tell me to write down important stuff somewhere.
+      So here is my locker password: my birthday month followed by the day.'
+    Doodle: {fileID: 160107383, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
+    IsFound: 0
