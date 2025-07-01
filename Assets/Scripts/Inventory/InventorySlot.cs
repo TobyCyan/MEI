@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(UnityEngine.UI.Button))]
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
     private InventoryUI _inventoryCanvas;
     private Item _item;
-    private Button _button;
+    private UnityEngine.UI.Button _button;
     private bool _hasItem = false;
 
     [SerializeField] private Image draggedItem;
@@ -21,7 +21,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         _inventoryCanvas = FindAnyObjectByType<InventoryUI>();
-        _button = GetComponent<Button>();
+        _button = GetComponent<UnityEngine.UI.Button>();
     }
 
     public void AddItem(Item item)

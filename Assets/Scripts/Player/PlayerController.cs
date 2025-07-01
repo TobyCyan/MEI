@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEditor.Animations;
+using System;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,12 +32,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new();
     [SerializeField] private bool _isFacingRight = true;
+    [SerializeField] private float arrivalThreshold = 0.0f;
     private bool _isWalking = false;
     private Vector3 _target;
-    private bool _isActive = true;
+    private bool _isActive = true;                                           
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Camera _camera;
+    private Vector3 destination;
+    private bool isOnMission = false;
+
 
     private void Start()
     {
@@ -47,10 +53,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distance = Mathf.Abs(destination.x - transform.position.x);
+     
+        if (isOnMission && distance > 0f && distance <= 0.5f)
+        //if (isOnMission)
+        {
+            isOnMission = false;
+            //_isActive = false;
+            Debug.Log("printed");
+            HoverTextManager.Instance.ShowButton();
+        }
         // Pause any controls when player is inactive.
         // If the mouse pointer is over a UI element, don't change target
         if (_isActive && !EventSystem.current.IsPointerOverGameObject())
         {
+            if (HandleWorldClickBlocking())
+                return; // Click was handled by a non-move interaction
+
             UpdateTarget();
             UpdateIsFacingRight();
             FlipSprite();
@@ -60,6 +79,36 @@ public class PlayerController : MonoBehaviour
         PlayWalkSound();
         ActivateWalkAnimation();
     }
+
+    //private IEnumerator DelayedInteraction()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    Debug.Log("printed");
+    //    HoverTextManager.Instance.ShowButton();
+    //}
+
+    private bool HandleWorldClickBlocking()
+    {
+        if (!Mouse.current.leftButton.wasPressedThisFrame)
+            return false;
+
+        Vector3 mouseScreenPos = Mouse.current.position.value;
+        Vector3 worldPos = GetWorldPositionOnPlane(mouseScreenPos, transform.position.z);
+        Vector2 worldPos2D = new Vector2(worldPos.x, worldPos.y);
+
+        Collider2D hit = Physics2D.OverlapPoint(worldPos2D);
+        if (hit == null) return false;
+
+        var clickable = hit.GetComponent<IClickable>();
+        if (clickable != null && clickable.HandleClick())
+        {
+            Debug.Log("? Click handled by IClickable. Block player movement.");
+            return true;
+        }
+
+        return false;
+    }
+
 
     /**
      * Activate walk animation in the animator by tweaking the isMoving boolean.
@@ -279,5 +328,38 @@ public class PlayerController : MonoBehaviour
     public void SetCamera(Camera camera)
     {
         _camera = camera;
+    }
+
+    /// <summary>
+    /// Simulates a click on a target position, causing the player to walk to it with all animations and sound.
+    /// </summary>
+    public bool SimulateClickToMove(Transform targetTransform)
+    {
+
+        Vector3 playerPos = transform.position;
+        destination = targetTransform.position;
+
+        // Create a target vector that only updates the X position, keeping Y and Z the same
+        Vector3 targetPos = new Vector3(destination.x, playerPos.y, playerPos.z);
+
+        UsedItem = null;
+        isOnMission = true;
+        Debug.Log("simulated");
+        SetTarget(targetPos);
+        SetFocus(GetInteractableAtPosition(destination)); // optional if clicking on interactable
+
+        UpdateIsFacingRight();
+        FlipSprite();
+        return true;
+    }
+
+    public void isActiveSetTrue()
+    {
+        _isActive = true;
+    }
+
+    public void isActiveSetFalse()
+    {
+        _isActive = false;
     }
 }
