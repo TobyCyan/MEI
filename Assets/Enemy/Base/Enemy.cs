@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 
     #endregion
 
-    private void Awake()
+    protected virtual void Awake()
     {
         EnemyStateMachine = new EnemyStateMachine();
 
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
         AttackState = new EnemyAttackState(this, EnemyStateMachine);
     }
 
-    private void Start()
+    protected  void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         EnemyStateMachine.Initialize(IdleState);
@@ -100,8 +100,17 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 
     #endregion
 
+    #region Animator Bool Setters
+
     public void SetWalkingAnimatorBool(bool isWalking)
     {
         _animator.SetBool("IsWalking", isWalking);
     }
+
+    public void SetChasingAnimatorBool(bool isChasing)
+    {
+        _animator.SetBool("IsChasing", isChasing);
+    }
+
+    #endregion
 }

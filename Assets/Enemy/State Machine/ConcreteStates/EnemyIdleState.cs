@@ -35,6 +35,12 @@ public class EnemyIdleState : EnemyState
     {
         base.FrameUpdate();
 
+        // Change from Idle State to Chase State
+        if (_enemy.IsAggroed && _enemy.IsWalkingSoundHeard)
+        {
+            _enemy.EnemyStateMachine.ChangeState(_enemy.ChaseState);
+        }
+
         if (_enemy.IsWalkingSoundHeard) 
         {
             _targetPos = _player.transform.position;

@@ -6,7 +6,7 @@ public class EnemyHearingDistanceCheck : MonoBehaviour
 {
     public GameObject PlayerTarget { get; set; }
     private HearingEnemy _enemy;
-    private PlayerController _player { get; set; }
+    private PlayerController _player;
 
     private void Awake()
     {
@@ -27,15 +27,18 @@ public class EnemyHearingDistanceCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject == PlayerTarget && _player.IsWalkingSoundPlaying())
+        if (_enemy.EnemyStateMachine.CurrentEnemyState == _enemy.IdleState) // Avoid Hearing Check Triggers during other states
         {
-            _enemy.SetWalkingSoundHeardStatus(true);
-            Debug.Log("Player walking sound still heard by enemy while in hearing range");
-        } 
-        else if (collision.gameObject == PlayerTarget && !_player.IsWalkingSoundPlaying())
-        {
-            _enemy.SetWalkingSoundHeardStatus(false);
-            Debug.Log("Player walking sound not heard by enemy anymore, but still in hearing range");
+            if (collision.gameObject == PlayerTarget && _player.IsWalkingSoundPlaying())
+            {
+                _enemy.SetWalkingSoundHeardStatus(true);
+                Debug.Log("Player walking sound still heard by enemy while in hearing range");
+            }
+            else if (collision.gameObject == PlayerTarget && !_player.IsWalkingSoundPlaying())
+            {
+                _enemy.SetWalkingSoundHeardStatus(false);
+                Debug.Log("Player walking sound not heard by enemy anymore, but still in hearing range");
+            }
         }
     }
 
