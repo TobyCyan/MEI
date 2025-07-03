@@ -20,6 +20,8 @@ public class InteractionManager : InteractionStateReporter
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
     [SerializeField] private bool _shouldCameraReset = true;
+    [SerializeField] private bool _useItemInstantly = false;  // new field
+
     private ObserverNotifier _observerNotifier;
 
     private ItemInteractable _itemInteractable;
@@ -209,4 +211,26 @@ public class InteractionManager : InteractionStateReporter
             _interactionIcon.SetActive(false);
         }
     }
+
+    public void HandleItemUse(Item item)
+    {
+        if (CanUseItem && _itemInteractable != null)
+        {
+            if (_useItemInstantly)
+            {
+                StartCoroutine(_itemInteractable.UseItem(item));  // Instant use (your new way)
+
+                if (!_isAllowRepeatedInteractions)
+                {
+                    _isInteracted = true;   // Block future uses if repeat not allowed
+                    CloseInterableIcon();
+                }
+            }
+            else
+            {
+                PlayerController.Instance.UseItemOn(item, this);  // Original: walk over to use
+            }
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ public class Mannequinn: MonoBehaviour
     [SerializeField] private AudioClip _accessGrantedSfx;
     [SerializeField] private AudioClip _accessDeniedSfx;
     [SerializeField] private int[] _correctNumberCombination = new int[] { 0, 0, 0, 0 };
+    
  
 
     public void CheckResult()

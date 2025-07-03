@@ -1,70 +1,39 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class HoverTextTrigger : MonoBehaviour
 {
-    [SerializeField] private string message = "Press E to inspect";
-    [SerializeField] private string InnerThought = "[Category A....]";
+    [SerializeField] private string notificationMessage = "You have obtained a book.";
+    [SerializeField] private string innerThought = "[Category A....]";
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private TMP_Text dialogueLabel;
-    private Boolean isClicked = false;
-    private Boolean isInteractable = false;
+    [SerializeField] private int bookType;
 
-
-    private void Update()
+    /// <summary>
+    /// Called by HoverTextManager to determine which item to add to inventory.
+    /// </summary>
+    public int bookTypeGetter()
     {
-        if (isInteractable)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Interact();
-            }
-        }
-    }
-    private List<DialogueInfoStruct> CreateInnerThought(string thoughtText)
-    {
-        return new List<DialogueInfoStruct>()
-    {
-        new DialogueInfoStruct
-        {
-            character = CharacterEnum.Character.None, // Hide name
-            emotion = EmotionEnum.Emotion.None,       // Hide portrait
-            text = thoughtText
-        }
-    };
+        return bookType;
     }
 
     private void OnMouseOver()
     {
-        if (!isClicked)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                isClicked = true;
-                isInteractable = true;
-                string innerThought = InnerThought;  
-                List<DialogueInfoStruct> innerThoughtDialogue = CreateInnerThought(innerThought);
-                StartCoroutine(dialogueUI.RunDialogue(innerThoughtDialogue));
-                HoverTextManager.Instance.ShowText(message, transform);
-            }
+            Debug.Log("interacted");
+            HoverTextManager.Instance.ShowText(transform, this, innerThought);
         }
     }
 
-    private void OnMouseExit()
-    {
-        isClicked = false;
-        isInteractable = false;
-        HoverTextManager.Instance.HideText();
-        dialogueUI.CloseDialogue(dialogueLabel); // Overload version with no parameter needed
-
-    }
-
+    /// <summary>
+    /// Called when the Inspect button is clicked.
+    /// </summary>
     public void Interact()
     {
-        // Show camera message
-        NotificationManager.Instance.ShowNotification("You have obtained a book.");
+        NotificationManager.Instance.ShowNotification(notificationMessage);
+        gameObject.SetActive(false); // Optional: deactivate after use
     }
 }
