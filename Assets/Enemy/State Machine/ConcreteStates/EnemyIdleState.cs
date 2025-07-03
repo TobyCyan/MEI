@@ -6,11 +6,14 @@ public class EnemyIdleState : EnemyState
 {
     private Vector3 _targetPos;
     private Vector3 _direction;
-    private PlayerController _player = PlayerController.Instance;
-    [field: SerializeField] private float _idleMoveSpeed = 1f;
+    private PlayerController _player;
+    private HearingEnemy _enemy;
+    [SerializeField] private float _idleMoveSpeed = 1f;
 
     public EnemyIdleState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _enemy = enemy as HearingEnemy; 
     }
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
@@ -32,17 +35,19 @@ public class EnemyIdleState : EnemyState
     {
         base.FrameUpdate();
 
-        if (_player.IsWalkingSoundPlaying()) // still need to add trigger checks
+        if (_enemy.IsWalkingSoundHeard) 
         {
             _targetPos = _player.transform.position;
-            _direction = (_targetPos - enemy.transform.position).normalized;
+            _direction = (_targetPos - _enemy.transform.position).normalized;
 
-            enemy.MoveEnemy(_direction * _idleMoveSpeed);
+            _enemy.MoveEnemy(_direction * _idleMoveSpeed);
+            _enemy.SetWalkingAnimatorBool(true);
         }
 
-        if ((enemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
+        if ((_enemy.transform.position - _targetPos).sqrMagnitude < 0.01f)
         {
-            enemy.MoveEnemy(Vector3.zero);
+            _enemy.MoveEnemy(Vector3.zero);
+            _enemy.SetWalkingAnimatorBool(false);
         }
     }
 

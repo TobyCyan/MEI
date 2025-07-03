@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IEnemyMoveable
+public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 
 {
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; } = true;
+    public bool IsAggroed { get; set; }
+    public bool IsWithinAttackingDistance { get; set; }
+    [SerializeField] private Animator _animator;
 
     #region State Machine Variables
 
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour, IEnemyMoveable
     }
 
     #region Movement Functions
+
     public void MoveEnemy(Vector2 velocity)
     {
         RB.velocity = velocity;
@@ -65,7 +69,21 @@ public class Enemy : MonoBehaviour, IEnemyMoveable
         }
     }
 
-    #endregion 
+    #endregion
+
+    #region Trigger Check Functions
+
+    public void SetAggroStatus(bool isAggroed)
+    {
+        IsAggroed = isAggroed;
+    }
+    
+    public void SetAttackingDistanceBool(bool isWithinAttackingDistance)
+    {
+        IsWithinAttackingDistance = isWithinAttackingDistance;
+    }
+
+    #endregion
 
     #region Animation Triggers
 
@@ -73,10 +91,17 @@ public class Enemy : MonoBehaviour, IEnemyMoveable
     {
         EnemyStateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
     }
+
     public enum AnimationTriggerType
     {
         EnemyAlerted,
         PlayFootstepSound
     }
+
     #endregion
+
+    public void SetWalkingAnimatorBool(bool isWalking)
+    {
+        _animator.SetBool("IsWalking", isWalking);
+    }
 }

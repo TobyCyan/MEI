@@ -297,4 +297,14 @@ public class PlayerController : MonoBehaviour
     {
         SetTarget(transform.position);
     }
+
+    #region Functions Needed for CryingMei
+
+    public bool IsWalkingSoundPlaying()
+    {
+        return _walkingAudio.isPlaying;
+    }
+
+    #endregion
+
 }
