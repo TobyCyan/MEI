@@ -43,6 +43,7 @@ public class SpecialMannequin : ItemInteractable, IClickable
 
         if (item == requiredItem)
         {
+            Debug.Log("sameItem");
             Debug.Log($" Correct item used on {name}");
             SwapSprite();
             Inventory.Instance.Remove(item);
@@ -58,14 +59,14 @@ public class SpecialMannequin : ItemInteractable, IClickable
     // Optional interaction logic
     public override IEnumerator Interact()
     {
-        Debug.Log($" Interacting with {name}");
+        //Debug.Log($" Interacting with {name}");
 
         // You can add additional behavior here:
         // - show dialogue
         // - emit particle effect
         // - toggle between half/completed state, etc.
 
-        yield return base.Interact();
+        yield break;
     }
 
     public void allEquippedSetter()

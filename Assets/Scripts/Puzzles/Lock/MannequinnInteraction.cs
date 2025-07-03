@@ -21,13 +21,18 @@ public class MannequinnInteraction : MonoBehaviour
     [SerializeField] private InventoryUI _inventoryUI;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Item item;
+
     private int _clickCount = 0;
     private bool allEquipped = false;
+    private bool _inputEnabled = true;
     private SpecialMannequin[] _selectedMannequins = new SpecialMannequin[2];
+    private Plane _interactionPlane = new Plane(Vector3.forward, 0f);
 
     private void Awake()
     {
-        for (int i = 0; i < 6; i ++)
+        PlayerController.Instance.RemoveFocus();
+
+        for (int i = 0; i < 6; i++)
         {
             _inventory.Add(item);
         }
@@ -35,52 +40,81 @@ public class MannequinnInteraction : MonoBehaviour
 
     private void Update()
     {
-        // Only run if left or right mouse button is clicked
-        if (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) return;
+        if (!_inputEnabled) return;
 
-        // Get mouse world position
-        Vector3 mouseWorldPos = _cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 clickPosition = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+        // Handle left click
+        if (Input.GetMouseButtonDown(0))
+        {
+            ProcessClick(true);
+        }
+        // Handle right click
+        else if (Input.GetMouseButtonDown(1))
+        {
+            ProcessClick(false);
+        }
+    }
 
-        Debug.Log($"Mouse Screen Pos: {Input.mousePosition} | World Pos: {mouseWorldPos}"); 
-        Debug.DrawRay(clickPosition, Vector3.forward * 0.1f, Color.red, 2f);
+    private void ProcessClick(bool isLeftClick)
+    {
+        // Capture mouse position immediately on click
+        Vector3 clickScreenPos = Input.mousePosition;
+        Vector3 worldPosition = GetWorldPosition(clickScreenPos);
+        CheckObjectAtPosition(worldPosition, isLeftClick);
+    }
 
+    private Vector3 GetWorldPosition(Vector3 screenPosition)
+    {
+        Ray ray = _cam.ScreenPointToRay(screenPosition);
+        float distance;
+        if (_interactionPlane.Raycast(ray, out distance))
+        {
+            Vector3 hitPoint = ray.GetPoint(distance);
+            Debug.DrawRay(hitPoint, Vector3.up * 0.5f, Color.green, 1f);
+            return hitPoint;
+        }
 
-        // Fire the raycast from mouse position into 2D space
-        RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero, Mathf.Infinity);
+        // Fallback if plane raycast fails
+        return _cam.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y,
+            Mathf.Abs(_cam.transform.position.z)));
+    }
 
-        Debug.DrawRay(clickPosition, Vector3.forward * 0.1f, Color.red, 2f); // Optional, for debug
+    private void CheckObjectAtPosition(Vector3 worldPosition, bool isLeftClick)
+    {
+        Vector2 checkPosition = new Vector2(worldPosition.x, worldPosition.y);
+
+        // Visualize the exact detection point
+        Debug.DrawRay(checkPosition, Vector3.forward * 0.5f, Color.cyan, 2f);
+
+        RaycastHit2D hit = Physics2D.Raycast(checkPosition, Vector2.zero, Mathf.Infinity);
 
         if (hit.collider == null)
         {
-            Debug.Log(" No object hit by raycast.");
+            Debug.Log("No object detected at click position");
             return;
         }
 
         GameObject clickedObject = hit.collider.gameObject;
-        Debug.Log(" Raycast hit: " + clickedObject.name);
+        Debug.Log($"Detected: {clickedObject.name}");
 
-        // Handle based on mouse button
-        if (Input.GetMouseButtonDown(0))
+        if (isLeftClick)
         {
             HandleLeftClick(clickedObject);
         }
-        else if (Input.GetMouseButtonDown(1))
+        else
         {
             HandleRightClick(clickedObject);
         }
     }
 
-
-    private Vector2 GetMouseClickPosition()
-    {
-        Vector3 mouseWorldPos = _cam.ScreenToWorldPoint(Input.mousePosition);
-        return new Vector2(mouseWorldPos.x, mouseWorldPos.y);
-    }
-
     private void HandleLeftClick(GameObject clickedObject)
     {
         if (!clickedObject.TryGetComponent(out SpecialMannequin mannequin)) return;
+
+        if (clickedObject.TryGetComponent(out InteractionManager interactionManager))
+        {
+            PlayerController.Instance.SetFocus(interactionManager);
+            PlayerController.Instance.SetTarget(interactionManager.transform.position);
+        }
 
         if (AllMannequinsEquid())
         {
@@ -89,82 +123,97 @@ public class MannequinnInteraction : MonoBehaviour
                 _selectedMannequins[_clickCount] = mannequin;
                 _clickCount++;
 
-                Debug.Log("Selected: " + mannequin.name);
+                Debug.Log($"Selected: {mannequin.name} ({_clickCount}/2)");
 
                 if (_clickCount == 2)
                 {
                     SwapSelectedMannequins();
-                    _clickCount = 0;
                 }
             }
         }
-        else
+        else if (!_inventoryUI.isOpenGetter())
         {
-            if (!_inventoryUI.isOpenGetter())
-            {
-                _inventoryUI.ToggleUi();
-            }
+            _inventoryUI.ToggleUi();
         }
     }
 
     private void HandleRightClick(GameObject clickedObject)
     {
-        if (AllMannequinsEquid())
+        if (AllMannequinsEquid() && clickedObject.GetComponent<SpecialMannequin>() != null)
         {
-            Debug.Log("Right-clicked on Mannequinn padlock.");
+            Debug.Log("Checking combination...");
             CheckResult();
         }
     }
 
     private void SwapSelectedMannequins()
     {
-        var m1 = _selectedMannequins[0];
-        var m2 = _selectedMannequins[1];
+        SpecialMannequin m1 = _selectedMannequins[0];
+        SpecialMannequin m2 = _selectedMannequins[1];
 
+        // Validate selection
         if (m1 == null || m2 == null)
         {
-            Debug.LogWarning("Swap aborted: One or both mannequins are null.");
+            Debug.LogWarning("Swap failed: One or both mannequins are null");
+            ResetSelection();
             return;
         }
 
-        Debug.Log($"Swapping: {m1.name} <-> {m2.name}");
-        StartCoroutine(SwapPositions(m1.transform, m2.transform));
+        if (m1 == m2)
+        {
+            Debug.LogWarning("Swap failed: Selected the same mannequin twice");
+            ResetSelection();
+            return;
+        }
 
+        Debug.Log($"Swapping positions: {m1.name} <-> {m2.name}");
+        StartCoroutine(PerformSwap(m1.transform, m2.transform));
+
+        // Update array references
         int index1 = System.Array.IndexOf(_lockValue, m1);
         int index2 = System.Array.IndexOf(_lockValue, m2);
 
         if (index1 != -1 && index2 != -1)
         {
+            // Swap positions in array
             (_lockValue[index1], _lockValue[index2]) = (_lockValue[index2], _lockValue[index1]);
         }
         else
         {
-            Debug.LogWarning("One or both mannequins not found in _lockValue array.");
+            Debug.LogWarning("One or both mannequins not found in registry");
         }
-
-        _selectedMannequins[0] = null;
-        _selectedMannequins[1] = null;
     }
 
-    private IEnumerator SwapPositions(Transform t1, Transform t2)
+    private IEnumerator PerformSwap(Transform t1, Transform t2)
     {
+        _inputEnabled = false;
         Vector3 startPos1 = t1.position;
         Vector3 startPos2 = t2.position;
         float elapsed = 0f;
 
         while (elapsed < swapDuration)
         {
-            float t = elapsed / swapDuration;
-            t1.position = Vector3.Lerp(startPos1, startPos2, t);
-            t2.position = Vector3.Lerp(startPos2, startPos1, t);
+            float progress = elapsed / swapDuration;
+            t1.position = Vector3.Lerp(startPos1, startPos2, progress);
+            t2.position = Vector3.Lerp(startPos2, startPos1, progress);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
+        // Ensure final positions are exact
         t1.position = startPos2;
         t2.position = startPos1;
 
-        Debug.Log("Swap completed.");
+        Debug.Log("Swap completed successfully");
+        ResetSelection();
+        _inputEnabled = true;
+    }
+
+    private void ResetSelection()
+    {
+        _clickCount = 0;
+        _selectedMannequins[0] = null;
+        _selectedMannequins[1] = null;
     }
 
     private void CheckResult()
@@ -173,29 +222,31 @@ public class MannequinnInteraction : MonoBehaviour
         {
             if (!_lockValue[i].CheckCombo(_correctNumberCombination[i]))
             {
+                Debug.Log("Incorrect combination");
                 _audioSource2.PlayOneShot(_accessDeniedSfx);
                 return;
             }
         }
 
+        Debug.Log("Correct combination!");
         _audioSource.PlayOneShot(_accessGrantedSfx);
     }
+
     private bool AllMannequinsEquid()
     {
-        if (allEquipped)
-        {
-            return true;
-        }
+        if (allEquipped) return true;
+
         foreach (SpecialMannequin m in _lockValue)
         {
             if (m == null || !m.IsEquipped())
                 return false;
         }
+
         foreach (SpecialMannequin m in _lockValue)
         {
             m.allEquippedSetter();
-
         }
+
         allEquipped = true;
         return true;
     }
@@ -205,4 +256,3 @@ public class MannequinnInteraction : MonoBehaviour
         return allEquipped;
     }
 }
-

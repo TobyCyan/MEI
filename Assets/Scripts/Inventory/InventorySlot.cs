@@ -85,7 +85,12 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = GetWorldPositionOnPlane(mousePos, 0f);
-        PlayerController.Instance.UseItemOn(_item, PlayerController.GetInteractableAtPosition(mouseWorldPos));
+        InteractionManager interactable = PlayerController.GetInteractableAtPosition(mouseWorldPos);
+        if (interactable != null)
+        {
+            interactable.HandleItemUse(_item);  // <-- NEW safer unified method
+        }
+
     }
 
     private IEnumerator DraggedItemDisableAnim()
