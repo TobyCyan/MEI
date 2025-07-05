@@ -20,8 +20,24 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
 
     #endregion
 
+    #region ScriptableObject Variables
+
+    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
+    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
+    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
+
+    public EnemyIdleSOBase EnemyIdleBaseInstance { get; set; }
+    public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
+    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
+
+    #endregion
+
     protected virtual void Awake()
     {
+        EnemyIdleBaseInstance = Instantiate(EnemyIdleBase);
+        EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
+
         EnemyStateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, EnemyStateMachine);
@@ -29,9 +45,14 @@ public class Enemy : MonoBehaviour, IEnemyMoveable, ITriggerCheckable
         AttackState = new EnemyAttackState(this, EnemyStateMachine);
     }
 
-    protected  void Start()
+    private void Start()
     {
         RB = GetComponent<Rigidbody2D>();
+
+        EnemyIdleBaseInstance.Initialize(gameObject, this);
+        EnemyChaseBaseInstance.Initialize(gameObject, this);
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
+
         EnemyStateMachine.Initialize(IdleState);
     }
 
