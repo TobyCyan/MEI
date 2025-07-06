@@ -31,13 +31,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 4.0f;
     [SerializeField] private Dictionary<PlayerState.State, bool> _playerStates = new();
     [SerializeField] private bool _isFacingRight = true;
-
+    [SerializeField] private float destinationDistanceLeft = 0.000f;
     private bool _isWalking = false;
     private Vector3 _target;
     private Vector3 _destination;
     private bool _isActive = true;
     private readonly float _epsilon = 0.01f;
     private bool _isInteracting = false;
+    private bool _isOnMission = false;
+    private Transform targetInteractableTransform;
 
 
     // Components
@@ -74,12 +76,24 @@ public class PlayerController : MonoBehaviour
             StopPlayerMovement();
     }
 
-    void Update()
+    private void Update()
     {
-        if (_isActive && !EventSystem.current.IsPointerOverGameObject())
+        if(_isOnMission && targetInteractableTransform != null)
+{
+            float distance = Mathf.Abs(transform.position.x - targetInteractableTransform.position.x);
+            //Debug.Log(distance);
+            if (distance <= destinationDistanceLeft)
+            {
+                Debug.Log("entered");
+                HoverTextManager.Instance.ShowButton(targetInteractableTransform);
+                _isOnMission = false;
+            }
+        }
+
+
+        if (!_isOnMission && _isActive && !EventSystem.current.IsPointerOverGameObject())
         {
             if (HandleWorldClickBlocking()) return;
-
             UpdateTarget();
             UpdateIsFacingRight();
             FlipSprite();
@@ -89,6 +103,7 @@ public class PlayerController : MonoBehaviour
         PlayWalkSound();
         _animationController.ActivateWalkAnimation(_isWalking);
     }
+
 
     private bool HandleWorldClickBlocking()
     {
@@ -267,18 +282,44 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Simulates a click on a target position, causing the player to walk to it with animation.
     /// </summary>
+
     public bool SimulateClickToMove(Transform targetTransform)
     {
         Vector3 playerPos = transform.position;
         _destination = targetTransform.position;
-        Vector3 targetPos = new Vector3(_destination.x, playerPos.y, playerPos.z);
+        targetInteractableTransform = targetTransform;
 
+        _isOnMission = true;
         UsedItem = null;
-        SetTarget(targetPos);
+        SetTarget(new Vector3(_destination.x, playerPos.y, playerPos.z));
         SetFocus(GetInteractableAtPosition(_destination));
         UpdateIsFacingRight();
+        float xDiff = _target.x - transform.position.x;
+        if (Mathf.Abs(xDiff) > _epsilon)
+        {
+            _isFacingRight = xDiff > 0;
+        }
+        Debug.Log(_isFacingRight);
         FlipSprite();
 
         return true;
     }
+
+    //public bool SimulateClickToMove(Transform targetTransform)
+    //{
+    //    Debug.Log("simulated");
+    //    Vector3 playerPos = transform.position;
+    //    _destination = targetTransform.position;
+    //    Vector3 targetPos = new Vector3(_destination.x, playerPos.y, playerPos.z);
+
+    //    UsedItem = null;
+    //    SetTarget(targetPos);
+    //    SetFocus(GetInteractableAtPosition(_destination));
+    
+    //    UpdateIsFacingRight();
+    //    Debug.Log(_isFacingRight);
+    //    FlipSprite();
+    //    return true;
+    //}
+
 }
