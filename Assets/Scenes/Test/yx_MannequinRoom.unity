@@ -7179,7 +7179,7 @@ GameObject:
   - component: {fileID: 321673463}
   - component: {fileID: 321673462}
   m_Layer: 0
-  m_Name: Mannequinn 1
+  m_Name: Mannequinn 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8198,7 +8198,7 @@ GameObject:
   - component: {fileID: 579073990}
   - component: {fileID: 579073989}
   m_Layer: 0
-  m_Name: Mannequinn 2
+  m_Name: Mannequinn 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9206,7 +9206,7 @@ GameObject:
   - component: {fileID: 774809509}
   - component: {fileID: 774809508}
   m_Layer: 0
-  m_Name: Mannequinn 3
+  m_Name: Mannequinn 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9810,10 +9810,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1187125359}
-  - {fileID: 321673466}
-  - {fileID: 579073993}
   - {fileID: 774809512}
+  - {fileID: 321673466}
   - {fileID: 1244918023}
+  - {fileID: 579073993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &883996103
@@ -9839,7 +9839,6 @@ MonoBehaviour:
       them."
     emotion: 8
     character: 1
-  CanCharacterMove: 0
 --- !u!114 &883996104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10965,7 +10964,7 @@ GameObject:
   - component: {fileID: 1244918020}
   - component: {fileID: 1244918019}
   m_Layer: 0
-  m_Name: Mannequinn 4
+  m_Name: Mannequinn 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
