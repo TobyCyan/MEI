@@ -26,12 +26,14 @@ public class DialogueActivator : MonoBehaviour
      */
     public IEnumerator ActivateDialogue(List<DialogueInfoStruct> dialogueInfo)
     {
+        Debug.Log("activator entered");
         if (_dialogueUI != null && isInteractCDOver)
         {
             // Activate the dialogue cooldown and stopping the player from moving.
             isInteractCDOver = false;
 
             yield return _dialogueUI.RunDialogue(dialogueInfo);
+            Debug.Log("activator executed");
 
             // Wait for some time before can interact again.
             yield return new WaitForSeconds(0.5f);

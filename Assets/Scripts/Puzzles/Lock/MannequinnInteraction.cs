@@ -1,154 +1,208 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MannequinnInteraction : MonoBehaviour
+public class MannequinInteraction : MonoBehaviour
 {
+    #region Singleton
+    public static MannequinInteraction Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+    #endregion
+
+    [Header("Mannequin Setup")]
     [SerializeField] private SpecialMannequin[] _lockValue;
+    [SerializeField] private int[] _correctNumberCombination;
+
+    [Header("Audio")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _audioSource2;
     [SerializeField] private AudioClip _accessGrantedSfx;
     [SerializeField] private AudioClip _accessDeniedSfx;
-    [SerializeField] private int[] _correctNumberCombination;
-    private Camera _cam;
-    private int click = 0;
-    private SpecialMannequin[] specialMannequins = new SpecialMannequin[2];
+
+    [Header("Swap")]
     public float swapDuration = 0.5f;
 
-    private void Awake()
+    [SerializeField] private Camera _cam;
+    [SerializeField] private InventoryUI _inventoryUI;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private Item item;
+
+    [Header("Dialogue")]
+    [SerializeField] private List<DialogueInfoStruct> _dialogueInfo; // Set this in Inspector for the specific dialogue
+    [SerializeField] private DialogueInteractable Interactor;
+    [SerializeField] private NotificationManager _notificationManager;
+    private bool _hasTriggered = false;
+
+    private int _clickCount = 0;
+    private bool allFiveEquipped = false;
+    private SpecialMannequin[] _selectedMannequins = new SpecialMannequin[2];
+
+    private void Start()
     {
-        _cam = Camera.main;
+        for (int i = 0; i < 6; i++)
+        {
+            _inventory.Add(item);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) return;
+
+        Vector3 mouseWorldPos = _cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 clickPosition = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero, Mathf.Infinity);
+
+        if (hit.collider == null) return;
+
+        GameObject clickedObject = hit.collider.gameObject;
+
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 clickPosition = new Vector2(mousePosition.x, mousePosition.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
-
-            if (hit.collider == null)
-            {
-                Debug.Log("No object hit.");
-                return;
-            }
-
-            Debug.Log("Hit object: " + hit.collider.gameObject.name);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (click < 2 && hit.collider.TryGetComponent(out SpecialMannequin mannequin))
-                {
-                    Debug.Log("SpecialMannequin detected: " + mannequin.name);
-                    specialMannequins[click] = mannequin;
-                    click++;
-
-                    if (click == 2)
-                    {
-                        swap();
-                        click = 0;
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Clicked object is not a SpecialMannequin.");
-                }
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (hit.collider.TryGetComponent(out SpecialMannequin mannequin))
-                {
-                    Debug.Log("Right-clicked on Mannequinn padlock.");
-                    CheckResult();
-                }
-            }
+            HandleLeftClick(clickedObject);
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            HandleRightClick(clickedObject);
         }
     }
 
-    public void swap()
+    private void HandleLeftClick(GameObject clickedObject)
     {
-        if (specialMannequins[0] != null && specialMannequins[1] != null)
+        if (!clickedObject.TryGetComponent(out SpecialMannequin mannequin)) return;
+
+        if (AllMannequinsEquipped())
         {
-            Debug.Log($"Swapping: {specialMannequins[0].name} <-> {specialMannequins[1].name}");
-
-            StartCoroutine(SwapPositions(specialMannequins[0].transform, specialMannequins[1].transform));
-            
-            int index1 = -1;
-            int index2 = -1;
-
-            for (int i = 0; i < _lockValue.Length; i++)
+            if (_clickCount < 2)
             {
-                if (_lockValue[i] == specialMannequins[0]) index1 = i;
-                if (_lockValue[i] == specialMannequins[1]) index2 = i;
-            }
+                _selectedMannequins[_clickCount] = mannequin;
+                _clickCount++;
 
-            if (index1 != -1 && index2 != -1)
-            {
-                var temp = _lockValue[index1];
-                _lockValue[index1] = _lockValue[index2];
-                _lockValue[index2] = temp;
+                if (_clickCount == 2)
+                {
+                    SwapSelectedMannequins();
+                    _clickCount = 0;
+                }
             }
-            else
-            {
-                Debug.LogWarning("One or both mannequins were not found in _lockValue array.");
-            }
-
-            specialMannequins[0] = null;
-            specialMannequins[1] = null;
         }
         else
         {
-            Debug.LogWarning("Swap aborted: one or both mannequins are null.");
+            if (!_inventoryUI.isOpenGetter())
+            {
+                _inventoryUI.ToggleUi();
+            }
         }
     }
 
+    private void HandleRightClick(GameObject clickedObject)
+    {
+        if (AllMannequinsEquipped())
+        {
+            CheckResult();
+        }
+    }
+
+    private void SwapSelectedMannequins()
+    {
+        var m1 = _selectedMannequins[0];
+        var m2 = _selectedMannequins[1];
+
+        if (m1 == null || m2 == null) return;
+
+        StartCoroutine(SwapPositions(m1.transform, m2.transform));
+
+        int index1 = System.Array.IndexOf(_lockValue, m1);
+        int index2 = System.Array.IndexOf(_lockValue, m2);
+
+        if (index1 != -1 && index2 != -1)
+        {
+            (_lockValue[index1], _lockValue[index2]) = (_lockValue[index2], _lockValue[index1]);
+        }
+
+        _selectedMannequins[0] = null;
+        _selectedMannequins[1] = null;
+    }
 
     private IEnumerator SwapPositions(Transform t1, Transform t2)
     {
         Vector3 startPos1 = t1.position;
         Vector3 startPos2 = t2.position;
-
-        Debug.Log($"StartPos1: {startPos1}, StartPos2: {startPos2}");
-
         float elapsed = 0f;
 
         while (elapsed < swapDuration)
         {
-            t1.position = Vector3.Lerp(startPos1, startPos2, elapsed / swapDuration);
-            t2.position = Vector3.Lerp(startPos2, startPos1, elapsed / swapDuration);
+            float t = elapsed / swapDuration;
+            t1.position = Vector3.Lerp(startPos1, startPos2, t);
+            t2.position = Vector3.Lerp(startPos2, startPos1, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         t1.position = startPos2;
         t2.position = startPos1;
-
-        Debug.Log("Swap completed.");
     }
 
-    public void CheckResult()
+    private void CheckResult()
     {
-        bool allCorrect = true;
-
         for (int i = 0; i < _lockValue.Length; i++)
         {
             if (!_lockValue[i].CheckCombo(_correctNumberCombination[i]))
             {
-                allCorrect = false;
-                break;
+                _audioSource2.PlayOneShot(_accessDeniedSfx);
+                return;
             }
         }
 
-        if (allCorrect)
+        _audioSource.PlayOneShot(_accessGrantedSfx);
+    }
+
+    private bool AllMannequinsEquipped()
+    {
+        return allFiveEquipped;
+    }
+
+    public void doneEquipped()
+    {
+        foreach (SpecialMannequin m in _lockValue)
         {
-            _audioSource.PlayOneShot(_accessGrantedSfx);
+            if (!m.IsEquipped())
+            {
+                return;
+            }
         }
-        else
+
+        foreach (SpecialMannequin m in _lockValue)
         {
-            _audioSource2.PlayOneShot(_accessDeniedSfx);
+            m.allEquippedSetter();
+            m.rise();
         }
+        allFiveEquipped = true;
+        if (_hasTriggered) return;
+        StartCoroutine(Interactor.Interact());
+        StartCoroutine(ShowNotificationWithDelay());
+    }
+
+    private IEnumerator ShowNotificationWithDelay()
+    {
+        if (Interactor != null)
+        {
+            yield return StartCoroutine(Interactor.Interact());
+        }
+
+        yield return new WaitForSeconds(7f);
+
+        _notificationManager.ShowNotification("Left-click on two mannequins to swap their positions. Right-click to check the arrangement.");
+        Debug.Log("notify");
     }
 
 }

@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(UnityEngine.UI.Button))]
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image icon;
     private InventoryUI _inventoryCanvas;
     private Item _item;
-    private Button _button;
+    private UnityEngine.UI.Button _button;
     private bool _hasItem = false;
 
     [SerializeField] private Image draggedItem;
@@ -21,7 +21,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         _inventoryCanvas = FindAnyObjectByType<InventoryUI>();
-        _button = GetComponent<Button>();
+        _button = GetComponent<UnityEngine.UI.Button>();
     }
 
     public void AddItem(Item item)
@@ -85,7 +85,12 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = GetWorldPositionOnPlane(mousePos, 0f);
-        PlayerController.Instance.UseItemOn(_item, PlayerController.GetInteractableAtPosition(mouseWorldPos));
+        InteractionManager interactable = PlayerController.GetInteractableAtPosition(mouseWorldPos);
+        if (interactable != null)
+        {
+            interactable.HandleItemUse(_item);  // <-- NEW safer unified method
+        }
+
     }
 
     private IEnumerator DraggedItemDisableAnim()

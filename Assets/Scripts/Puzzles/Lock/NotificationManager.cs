@@ -9,7 +9,7 @@ public class NotificationManager : MonoBehaviour
 
     [SerializeField] private GameObject notificationPanel;
     [SerializeField] private TMP_Text notificationText;
-    [SerializeField] private float duration = 1f;
+    [SerializeField] private float duration = 2f;
 
     private void Awake() => Instance = this;
 

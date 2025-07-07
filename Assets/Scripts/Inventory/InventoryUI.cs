@@ -70,4 +70,9 @@ public class InventoryUI : MonoBehaviour
     {
         inspectPanel.SetActive(false);
     }
+
+    public bool isOpenGetter()
+    {
+        return _isOpen;
+    }
 }
