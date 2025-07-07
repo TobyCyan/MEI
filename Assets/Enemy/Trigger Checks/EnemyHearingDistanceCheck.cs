@@ -21,7 +21,6 @@ public class EnemyHearingDistanceCheck : MonoBehaviour
         if (collision.gameObject == PlayerTarget && _player.IsWalkingSoundPlaying())
         {
             _hearingEnemy.SetWalkingSoundHeardStatus(true);
-            Debug.Log("Player walking sound heard by enemy");
         }
     }
 
@@ -32,12 +31,10 @@ public class EnemyHearingDistanceCheck : MonoBehaviour
             if (collision.gameObject == PlayerTarget && _player.IsWalkingSoundPlaying())
             {
                 _hearingEnemy.SetWalkingSoundHeardStatus(true);
-                Debug.Log("Player walking sound still heard by enemy while in hearing range");
             }
             else if (collision.gameObject == PlayerTarget && !_player.IsWalkingSoundPlaying())
             {
                 _hearingEnemy.SetWalkingSoundHeardStatus(false);
-                Debug.Log("Player walking sound not heard by enemy anymore, but still in hearing range");
             }
         }
     }
@@ -47,7 +44,6 @@ public class EnemyHearingDistanceCheck : MonoBehaviour
         if (collision.gameObject == PlayerTarget)
         {
             _hearingEnemy.SetWalkingSoundHeardStatus(false);
-            Debug.Log("Player exited hearing range, enemy no longer hears walking sound");
         }
     }
 }

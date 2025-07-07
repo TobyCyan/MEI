@@ -1616,6 +1616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1270819056}
+  EnemyIdleBase: {fileID: 11400000, guid: d55f9a88fd9b81e4c85b9201dcda1d5e, type: 2}
+  EnemyChaseBase: {fileID: 11400000, guid: 9217d6e1145d2984394998fcbf204916, type: 2}
+  EnemyAttackBase: {fileID: 11400000, guid: ce0257cdc48b81344bd995b4b8f5350d, type: 2}
 --- !u!50 &1270819058
 Rigidbody2D:
   serializedVersion: 4
