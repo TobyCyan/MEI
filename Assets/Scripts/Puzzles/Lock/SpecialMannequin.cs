@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpecialMannequin : ItemInteractable, IClickable
@@ -10,7 +9,7 @@ public class SpecialMannequin : ItemInteractable, IClickable
     [SerializeField] private GameObject mannequinBase;
     [SerializeField] private Item requiredItem;
 
-    private bool isEquipped = false;
+    [SerializeField] private bool isEquipped = false;
     private bool allEquipped = false;
 
     public bool CheckCombo(int result)
@@ -26,7 +25,7 @@ public class SpecialMannequin : ItemInteractable, IClickable
             spriteRenderer.sprite = completeMannequin;
             isEquipped = true;
         }
-        MannequinInteraction.Instance.doneEquipped();
+        MannequinInteraction.Instance.DoneEquipped();
     }
 
     public bool IsEquipped()
@@ -71,7 +70,7 @@ public class SpecialMannequin : ItemInteractable, IClickable
         yield break;
     }
 
-    public void allEquippedSetter()
+    public void AllEquippedSetter()
     {
         allEquipped = true;
     }
@@ -86,13 +85,13 @@ public class SpecialMannequin : ItemInteractable, IClickable
 
     }
 
-    public void rise()
+    public void Rise()
     {
         mannequinBase.SetActive(true);
-        StartCoroutine(riseSmoothly());
+        StartCoroutine(RiseSmoothly());
     }
 
-    private IEnumerator riseSmoothly()
+    private IEnumerator RiseSmoothly()
     {
         Vector3 startPos = transform.position;
         Vector3 targetPos = startPos + new Vector3(0, 0.8f, 0);
@@ -108,5 +107,4 @@ public class SpecialMannequin : ItemInteractable, IClickable
 
         transform.position = targetPos;  // Ensure it ends exactly at target
     }
-
 }
