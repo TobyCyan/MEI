@@ -38,6 +38,7 @@ public class InteractionManager : InteractionStateReporter
         Assert.IsTrue(itemInteractables.Count() <= 1, $"More than one ItemInteractable on {this.name}");
         _itemInteractable = itemInteractables.FirstOrDefault();
         CanUseItem = _itemInteractable != null;
+        _interactables.Remove(_itemInteractable);
 
         var sceneTransitions = _interactables.OfType<SceneTransition>();
         Assert.IsTrue(sceneTransitions.Count() <= 1, $"More than one ItemInteractable on {this.name}");
