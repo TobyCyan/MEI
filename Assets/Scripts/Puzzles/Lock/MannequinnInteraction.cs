@@ -38,7 +38,7 @@ public class MannequinInteraction : MonoBehaviour
 
     [Header("Dialogue")]
     [SerializeField] private List<DialogueInfoStruct> _dialogueInfo; // Set this in Inspector for the specific dialogue
-    [SerializeField] private DialogueInteractable Interactor;
+    [SerializeField] private InteractionManager Interactor;
     [SerializeField] private NotificationManager _notificationManager;
     private bool _hasTriggered = false;
 
@@ -171,7 +171,7 @@ public class MannequinInteraction : MonoBehaviour
         return allFiveEquipped;
     }
 
-    public void doneEquipped()
+    public void DoneEquipped()
     {
         foreach (SpecialMannequin m in _lockValue)
         {
@@ -183,22 +183,17 @@ public class MannequinInteraction : MonoBehaviour
 
         foreach (SpecialMannequin m in _lockValue)
         {
-            m.allEquippedSetter();
-            m.rise();
+            m.AllEquippedSetter();
+            m.Rise();
         }
         allFiveEquipped = true;
         if (_hasTriggered) return;
-        StartCoroutine(Interactor.Interact());
+        StartCoroutine(Interactor.GoThroughInteractions());
         StartCoroutine(ShowNotificationWithDelay());
     }
 
     private IEnumerator ShowNotificationWithDelay()
     {
-        if (Interactor != null)
-        {
-            yield return StartCoroutine(Interactor.Interact());
-        }
-
         yield return new WaitForSeconds(7f);
 
         _notificationManager.ShowNotification("Left-click on two mannequins to swap their positions. Right-click to check the arrangement.");

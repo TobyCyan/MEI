@@ -233,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 26545997}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011717126, y: -0.603, z: 0}
+  m_LocalPosition: {x: -0.362, y: -1.549, z: 0}
   m_LocalScale: {x: 1.3, y: 0.2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7022,7 +7022,7 @@ Transform:
   m_GameObject: {fileID: 262093756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -0.603, z: 0}
+  m_LocalPosition: {x: -0.02, y: -1.6, z: 0}
   m_LocalScale: {x: 1.3, y: 0.2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7068,7 +7068,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7198,10 +7198,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  completeMannequin: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  halfMannequin: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  completeMannequin: {fileID: -1190812274, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  halfMannequin: {fileID: -348803525, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 2010859811}
   requiredItem: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
+  isEquipped: 0
 --- !u!114 &321673462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7270,18 +7271,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.12691998, y: 0.034614563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.4890112, y: 0.47467873}
+    oldSize: {x: 1.9166666, y: 3.2083333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6461377, y: 3.2153282}
   m_EdgeRadius: 0
 --- !u!212 &321673465
 SpriteRenderer:
@@ -7324,9 +7325,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.24943063, g: 0.11635202, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: -348803525, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -7344,8 +7345,8 @@ Transform:
   m_GameObject: {fileID: 321673460}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.26, y: -0.1699, z: 0}
-  m_LocalScale: {x: 2.992114, y: 3.486461, z: 1}
+  m_LocalPosition: {x: 0.84, y: -0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 789178711}
@@ -8057,7 +8058,7 @@ Transform:
   m_GameObject: {fileID: 560803618}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.042993713, y: -0.603, z: 0}
+  m_LocalPosition: {x: -0.02, y: -1.569, z: 0}
   m_LocalScale: {x: 1.3, y: 0.2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8103,7 +8104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8160,11 +8161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded2a33f114a42d4a8756e3ecba331ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverTextPanel: {fileID: 1371364786}
-  hoverText: {fileID: 536632710}
+  inspectPanel: {fileID: 0}
   canvas: {fileID: 751302887}
-  dialogueUI: {fileID: 944427526}
   dialogueLabel: {fileID: 165379489}
+  dialogueUI: {fileID: 944427526}
+  bookType1Item: {fileID: 0}
+  bookType2Item: {fileID: 0}
+  bookType3Item: {fileID: 0}
 --- !u!4 &573190448
 Transform:
   m_ObjectHideFlags: 0
@@ -8195,7 +8198,7 @@ GameObject:
   - component: {fileID: 579073990}
   - component: {fileID: 579073989}
   m_Layer: 0
-  m_Name: Mannequinn 3
+  m_Name: Mannequinn 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8214,10 +8217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  completeMannequin: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  halfMannequin: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  completeMannequin: {fileID: -1261543872, guid: f40c2e51b58dba8489fd6c9fae158cfe, type: 3}
+  halfMannequin: {fileID: -1217738809, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 1937462542}
-  requiredItem: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
+  requiredItem: {fileID: 0}
+  isEquipped: 1
 --- !u!114 &579073989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8290,7 +8294,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.375, y: 3.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8340,8 +8344,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.98742133, g: 0.021735527, b: 0.9702097, a: 1}
+  m_Sprite: {fileID: -1217738809, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8360,8 +8364,8 @@ Transform:
   m_GameObject: {fileID: 579073987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -0.1699, z: 0}
-  m_LocalScale: {x: 2.992114, y: 3.486461, z: 1}
+  m_LocalPosition: {x: 6.01, y: -0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1551191092}
@@ -9202,7 +9206,7 @@ GameObject:
   - component: {fileID: 774809509}
   - component: {fileID: 774809508}
   m_Layer: 0
-  m_Name: Mannequinn 4
+  m_Name: Mannequinn 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9222,9 +9226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   completeMannequin: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  halfMannequin: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  halfMannequin: {fileID: 1146994774, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 26545997}
-  requiredItem: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
+  requiredItem: {fileID: 0}
+  isEquipped: 1
 --- !u!114 &774809508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9297,7 +9302,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.9166666, y: 3.2916667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -9347,8 +9352,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.095314145, g: 0.9882353, b: 0.02352938, a: 1}
+  m_Sprite: {fileID: 1146994774, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9367,8 +9372,8 @@ Transform:
   m_GameObject: {fileID: 774809506}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.33, y: -0.1699, z: 0}
-  m_LocalScale: {x: 2.992114, y: 3.486461, z: 1}
+  m_LocalPosition: {x: -2.17, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2045791180}
@@ -9582,11 +9587,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockValue:
   - {fileID: 1187125354}
-  - {fileID: 321673461}
-  - {fileID: 579073988}
   - {fileID: 774809507}
+  - {fileID: 321673461}
   - {fileID: 1244918018}
-  _correctNumberCombination: 0400000003000000020000000100000000000000
+  - {fileID: 579073988}
+  _correctNumberCombination: 0400000001000000020000000000000003000000
   _audioSource: {fileID: 883996101}
   _audioSource2: {fileID: 883996100}
   _accessGrantedSfx: {fileID: 8300000, guid: 3fad502eb95683c4da67a1583e86541d, type: 3}
@@ -9597,7 +9602,7 @@ MonoBehaviour:
   _inventory: {fileID: 1102759806}
   item: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
   _dialogueInfo: []
-  Interactor: {fileID: 883996103}
+  Interactor: {fileID: 883996104}
   _notificationManager: {fileID: 883996108}
 --- !u!82 &883996100
 AudioSource:
@@ -9805,10 +9810,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1187125359}
-  - {fileID: 321673466}
-  - {fileID: 579073993}
   - {fileID: 774809512}
+  - {fileID: 321673466}
   - {fileID: 1244918023}
+  - {fileID: 579073993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &883996103
@@ -9826,15 +9831,14 @@ MonoBehaviour:
   _dialogueTextEmotionStructList:
   - text: "They shifted. Like they\u2019re waiting for something\u2026 or someone."
     emotion: 8
-    character: 0
+    character: 1
   - text: "I think\u2026 I can move them now."
     emotion: 8
-    character: 0
+    character: 1
   - text: "There must be an order\u2026 a sequence I need to figure out to arrange
       them."
     emotion: 8
-    character: 0
-  CanCharacterMove: 0
+    character: 1
 --- !u!114 &883996104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9851,12 +9855,13 @@ MonoBehaviour:
   _customReporterName: 
   _customReporterScene: 
   _interactionIcon: {fileID: 0}
-  _interactables: []
+  _interactables:
+  - {fileID: 883996103}
   _onCompletePlayerState: 0
-  _isAllowRepeatedInteractions: 1
+  _isAllowRepeatedInteractions: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
-  _shouldCameraReset: 0
+  _shouldCameraReset: 1
   _useItemInstantly: 0
 --- !u!114 &883996105
 MonoBehaviour:
@@ -10478,7 +10483,7 @@ GameObject:
   - component: {fileID: 1187125356}
   - component: {fileID: 1187125355}
   m_Layer: 0
-  m_Name: Mannequinn
+  m_Name: Mannequinn 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10497,10 +10502,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  completeMannequin: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  halfMannequin: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  completeMannequin: {fileID: 1093325491, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  halfMannequin: {fileID: -1822231759, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 262093756}
   requiredItem: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
+  isEquipped: 0
 --- !u!114 &1187125355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10569,18 +10575,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000011920929, y: 0.6172854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.4287724, y: 0.49468976}
+    oldSize: {x: 1.5, y: 3.4166667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4985015, y: 2.2345707}
   m_EdgeRadius: 0
 --- !u!212 &1187125358
 SpriteRenderer:
@@ -10623,8 +10629,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9622642, g: 0.1301173, b: 0.1301173, a: 1}
+  m_Sprite: {fileID: -1822231759, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10643,8 +10649,8 @@ Transform:
   m_GameObject: {fileID: 1187125353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.11, y: -0.1699, z: 0}
-  m_LocalScale: {x: 3.0643349, y: 3.486461, z: 1}
+  m_LocalPosition: {x: -5.66, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1847577042}
@@ -10874,6 +10880,7 @@ MonoBehaviour:
   _walkingAudio: {fileID: 674876758}
   _speed: 4
   _isFacingRight: 1
+  destinationDistanceLeft: 0
 --- !u!212 &1222494976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10957,7 +10964,7 @@ GameObject:
   - component: {fileID: 1244918020}
   - component: {fileID: 1244918019}
   m_Layer: 0
-  m_Name: Mannequinn 5
+  m_Name: Mannequinn 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10976,10 +10983,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  completeMannequin: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  halfMannequin: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  completeMannequin: {fileID: -1605077190, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  halfMannequin: {fileID: 1365755280, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 560803618}
   requiredItem: {fileID: 11400000, guid: 72c3a4256187833488fb5852d8800ea3, type: 2}
+  isEquipped: 0
 --- !u!114 &1244918019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11048,18 +11056,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.12042749, y: -0.033719897}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.42215475, y: 0.5132758}
+    oldSize: {x: 1.625, y: 3.2916667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.664758, y: 3.264033}
   m_EdgeRadius: 0
 --- !u!212 &1244918022
 SpriteRenderer:
@@ -11102,9 +11110,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.006289184, g: 0.00025710388, b: 0.0013382206, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 1365755280, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -11122,8 +11130,8 @@ Transform:
   m_GameObject: {fileID: 1244918017}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.89, y: -0.1699, z: 0}
-  m_LocalScale: {x: 2.992114, y: 3.486461, z: 1}
+  m_LocalPosition: {x: 3.64, y: -0.63, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1531138709}
@@ -13243,7 +13251,7 @@ Transform:
   m_GameObject: {fileID: 1937462542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.017625302, y: -0.603, z: 0}
+  m_LocalPosition: {x: 0.017625302, y: -1.569, z: 0}
   m_LocalScale: {x: 1.3, y: 0.2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13289,7 +13297,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13327,7 +13335,7 @@ Transform:
   m_GameObject: {fileID: 2010859811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -0.603, z: 0}
+  m_LocalPosition: {x: -0.07, y: -1.5, z: 0}
   m_LocalScale: {x: 1.3, y: 0.2, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13373,7 +13381,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13481,8 +13489,6 @@ GameObject:
   - component: {fileID: 2130857225}
   - component: {fileID: 2130857230}
   - component: {fileID: 2130857229}
-  - component: {fileID: 2130857228}
-  - component: {fileID: 2130857227}
   - component: {fileID: 2130857231}
   m_Layer: 0
   m_Name: InnerThoughtCollider
@@ -13551,52 +13557,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2130857227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130857223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d3ecefae97b1649950ed92833e26b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogueTextEmotionStructList:
-  - text: "Five mannequins\u2026 all standing perfectly still\u2026 I can't move
-      them but something about them feels\u2026 off."
-    emotion: 7
-    character: 0
-  - text: "Their bodies are incomplete. Something is missing. I need to figure out
-      what\u2026 "
-    emotion: 5
-    character: 0
-  CanCharacterMove: 0
---- !u!114 &2130857228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130857223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _reporterToReport: 0
-  _customReporterName: 
-  _customReporterScene: 
-  _interactionIcon: {fileID: 0}
-  _interactables:
-  - {fileID: 2130857227}
-  _onCompletePlayerState: 0
-  _isAllowRepeatedInteractions: 1
-  _shouldPlayerLookUp: 1
-  _shouldPlayerBeActiveAfter: 1
-  _shouldCameraReset: 0
-  _useItemInstantly: 0
 --- !u!114 &2130857229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13631,19 +13591,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130857223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb45715628a72047b16a3980576c95f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa9fac85a8a78844795b62ff94b3f256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueInfo:
-  - text: "Five mannequins\u2026 all standing perfectly still\u2026 but something
-      about them feels\u2026 off."
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
+  _dialogueTextEmotionStructList:
+  - text: "Five mannequins\u2026 all standing perfectly still\u2026 I can't move
+      them but something about them feels\u2026 off."
     emotion: 7
-    character: 0
+    character: 1
   - text: "Their bodies are incomplete. Something is missing. I need to figure out
-      what\u2026 and why."
+      what\u2026 "
     emotion: 5
-    character: 0
-  Interactor: {fileID: 2130857227}
+    character: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
