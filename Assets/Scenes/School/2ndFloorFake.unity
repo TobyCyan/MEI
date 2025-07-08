@@ -1007,7 +1007,7 @@ Transform:
   m_GameObject: {fileID: 419579615}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.67, y: -1.68, z: -0.27980357}
+  m_LocalPosition: {x: 56.65, y: -1.68, z: -0.27980357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   _interactables:
   - {fileID: 900174063}
   _onCompletePlayerState: 0
-  _isAllowRepeatedInteractions: 1
+  _isAllowRepeatedInteractions: 0
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
