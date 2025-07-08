@@ -251,6 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables: []
   _onCompletePlayerState: 0
@@ -258,6 +261,7 @@ MonoBehaviour:
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
+  _useItemInstantly: 0
 --- !u!114 &118233056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,6 +1424,68 @@ Transform:
   - {fileID: 1583179188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1253053540
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1913857598}
+    m_Modifications:
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12528625
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977057200182336310, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+      propertyPath: m_Name
+      value: InteractIcon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+--- !u!4 &1253053541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 936708955181030616, guid: dd7f5669a1c38fc4798967a702a9a01d, type: 3}
+  m_PrefabInstance: {fileID: 1253053540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291560727
 GameObject:
   m_ObjectHideFlags: 0
@@ -7690,7 +7756,8 @@ Transform:
   m_LocalPosition: {x: -0.88, y: 1.66, z: -0.060555387}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1253053541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1913857600
@@ -7705,6 +7772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 1913857602}
@@ -7715,6 +7785,7 @@ MonoBehaviour:
   _shouldPlayerLookUp: 1
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
+  _useItemInstantly: 0
 --- !u!61 &1913857601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7868,25 +7939,25 @@ MonoBehaviour:
     emotion: 8
     character: 1
   - text: Still the plain old Mei. I'm the voice in your head.
-    emotion: 0
+    emotion: 9
     character: 6
   - text: I don't understand...
     emotion: 5
     character: 1
   - text: Say...
-    emotion: 0
+    emotion: 9
     character: 6
   - text: Don't you want revenge?
-    emotion: 0
+    emotion: 10
     character: 6
   - text: Revenge..? On who?
     emotion: 7
     character: 1
   - text: You know exactly who I'm talking about.
-    emotion: 0
+    emotion: 10
     character: 6
   - text: I can help you... I just need you to find me some items.
-    emotion: 0
+    emotion: 9
     character: 6
 --- !u!1 &2019123117
 GameObject:
@@ -7980,6 +8051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 2019123126}
@@ -7988,6 +8062,7 @@ MonoBehaviour:
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
+  _useItemInstantly: 0
 --- !u!61 &2019123123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8118,6 +8193,7 @@ MonoBehaviour:
   _unlockedAudioClip: {fileID: 0}
   _unlockItem: {fileID: 0}
   _dependentLockedInteractable: {fileID: 0}
+  _sceneTransition: {fileID: 0}
 --- !u!114 &2019123127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8630,6 +8706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468d6696a6168f84caaa6a953582229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reporterToReport: 0
+  _customReporterName: 
+  _customReporterScene: 
   _interactionIcon: {fileID: 0}
   _interactables:
   - {fileID: 4400697821559464883}
@@ -8638,6 +8717,7 @@ MonoBehaviour:
   _shouldPlayerLookUp: 0
   _shouldPlayerBeActiveAfter: 1
   _shouldCameraReset: 1
+  _useItemInstantly: 0
 --- !u!114 &1571073579367784545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8652,11 +8732,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeEffect: {fileID: 1665999826}
   _isPingPong: 1
-  _startAudioClip: {fileID: 8300000, guid: 036a738d3d530ba40b055294309b598b, type: 3}
-  _endAudioClip: {fileID: 8300000, guid: 84ba943f1f7a40b46a4b1b635f33598a, type: 3}
   _pauseDuration: 0.75
   _disableWhenFinish: 1
   _isInvisibleTransitionObject: 1
+  _type: 0
 --- !u!4 &2182284312931271047
 Transform:
   m_ObjectHideFlags: 0
@@ -9062,6 +9141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: 2ndFloor
   _newScenePlayerPosX: 63
+  _shouldResumePlayerMovement: 1
 --- !u!1 &4735476348612691641
 GameObject:
   m_ObjectHideFlags: 0
@@ -9162,6 +9242,7 @@ MonoBehaviour:
   _walkingAudio: {fileID: 7621748311325209824}
   _speed: 4
   _isFacingRight: 1
+  destinationDistanceLeft: 0
 --- !u!4 &6853945994796368871
 Transform:
   m_ObjectHideFlags: 0
