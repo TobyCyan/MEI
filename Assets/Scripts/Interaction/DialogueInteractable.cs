@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Assertions;
-
 /**
  * Attach this script to any interactable that has dialogue on it.
  * The dialogue text list should be customizable to every dialogue interactables' needs.
@@ -20,8 +18,8 @@ public class DialogueInteractable : Interactable
 
     public override IEnumerator Interact()
     {
-        // Calling activate dialogue using the dialogue _activator.
+        PlayerController.Instance.StopPlayerMovement();
         yield return StartCoroutine(_activator.ActivateDialogue(_dialogueTextEmotionStructList));
+        PlayerController.Instance.ResumePlayerMovement();
     }
-
 }

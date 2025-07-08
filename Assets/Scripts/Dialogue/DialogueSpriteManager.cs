@@ -9,13 +9,14 @@ using UnityEngine.UI;
 public class DialogueSpriteManager : MonoBehaviour
 {
     [SerializeField] private Image _image;
-    [SerializeField] private Dictionary<string, Sprite> _spriteDict = new Dictionary<string, Sprite>();
-    private Sprite[] sprites;
+    [SerializeField] private Dictionary<string, Sprite> _spriteDict = new();
+    private readonly Dictionary<CharacterEnum.Character, Sprite[]> _characterNameToSpritesDict = new();
 
     void Awake()
     {
-        sprites = Resources.LoadAll<Sprite>("Avatars/Mei");
-        LoadSpritesIntoSpriteDict(sprites);
+        _characterNameToSpritesDict[CharacterEnum.Character.Mei] = Resources.LoadAll<Sprite>("Avatars/Mei");
+        _characterNameToSpritesDict[CharacterEnum.Character.DarkMei] = Resources.LoadAll<Sprite>("Avatars/DarkMei");
+        LoadSpritesIntoSpriteDict(_characterNameToSpritesDict);
     }
 
     /**
@@ -32,13 +33,16 @@ public class DialogueSpriteManager : MonoBehaviour
         _image.sprite = _spriteDict[emotion.ToString()];
     }
 
-    private void LoadSpritesIntoSpriteDict(Sprite[] sprites)
+    private void LoadSpritesIntoSpriteDict(Dictionary<CharacterEnum.Character, Sprite[]> characterToSprites)
     {
-        foreach (Sprite sprite in sprites)
+        foreach (Sprite[] sprites in characterToSprites.Values)
         {
-            if (sprite != null)
+            foreach (Sprite sprite in sprites)
             {
-                _spriteDict[sprite.name] = sprite;
+                if (sprite != null)
+                {
+                    _spriteDict[sprite.name] = sprite;
+                }
             }
         }
     }

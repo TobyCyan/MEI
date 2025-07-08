@@ -20,6 +20,8 @@ public class InteractionManager : InteractionStateReporter
     [SerializeField] private bool _shouldPlayerLookUp = true;
     [SerializeField] private bool _shouldPlayerBeActiveAfter = true;
     [SerializeField] private bool _shouldCameraReset = true;
+    [SerializeField] private bool _useItemInstantly = false;  // new field
+
     private ObserverNotifier _observerNotifier;
 
     private ItemInteractable _itemInteractable;
@@ -33,9 +35,10 @@ public class InteractionManager : InteractionStateReporter
         // Then, get the first ItemInteractable in the list and check if it exists.
         // Assumption: There is only one ItemInteractable in _interactables.
         var itemInteractables = _interactables.OfType<ItemInteractable>();
-        Assert.IsTrue(itemInteractables.Count() <= 1, $"More than one ItemInteractable on { this.name }");
+        Assert.IsTrue(itemInteractables.Count() <= 1, $"More than one ItemInteractable on {this.name}");
         _itemInteractable = itemInteractables.FirstOrDefault();
         CanUseItem = _itemInteractable != null;
+        _interactables.Remove(_itemInteractable);
 
         var sceneTransitions = _interactables.OfType<SceneTransition>();
         Assert.IsTrue(sceneTransitions.Count() <= 1, $"More than one ItemInteractable on {this.name}");
@@ -179,7 +182,7 @@ public class InteractionManager : InteractionStateReporter
         {
             StartCoroutine(GoThroughInteractions());
         }
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -209,4 +212,26 @@ public class InteractionManager : InteractionStateReporter
             _interactionIcon.SetActive(false);
         }
     }
+
+    public void HandleItemUse(Item item)
+    {
+        if (CanUseItem && _itemInteractable != null)
+        {
+            if (_useItemInstantly)
+            {
+                StartCoroutine(_itemInteractable.UseItem(item));  // Instant use (your new way)
+
+                if (!_isAllowRepeatedInteractions)
+                {
+                    _isInteracted = true;   // Block future uses if repeat not allowed
+                    CloseInterableIcon();
+                }
+            }
+            else
+            {
+                PlayerController.Instance.UseItemOn(item, this);  // Original: walk over to use
+            }
+        }
+    }
+
 }

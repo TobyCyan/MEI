@@ -18,5 +18,7 @@ public class EmotionEnum : MonoBehaviour
         Mei_Crying,
         Mei_Surprised_1,
         Mei_Surprised_2,
+        DarkMei_Smiling_1,
+        DarkMei_Smiling_2,
     }
 }
