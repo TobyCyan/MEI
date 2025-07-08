@@ -36,3 +36,9 @@ MonoBehaviour:
       So here is my locker password: my birthday month followed by the day.'
     Doodle: {fileID: 160107383, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
     IsFound: 0
+  - Id: 4
+    Title: A bloody book
+    Content: How is it here? It can't be... I've heard of legends about a vandalized
+      book that brings bad luck to those it curses...
+    Doodle: {fileID: -210420768, guid: dc5002913c353aa45b857b73364d41fa, type: 3}
+    IsFound: 0

@@ -693,6 +693,7 @@ GameObject:
   - component: {fileID: 8650893893496796485}
   - component: {fileID: 5728941943257099392}
   - component: {fileID: 1376622171252106089}
+  - component: {fileID: 6434383502703445719}
   m_Layer: 5
   m_Name: DiaryCanvas
   m_TagString: Untagged
@@ -797,6 +798,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _diaryEntryDataBase: {fileID: 11400000, guid: ab1f85fb6ec37d147a99f1b0edc9fc24, type: 2}
+--- !u!114 &6434383502703445719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582274435046636787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541ad20e92bbf2b43b856f8857073cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forwardSortingOrder: 90
 --- !u!1 &5742256808042728725
 GameObject:
   m_ObjectHideFlags: 0

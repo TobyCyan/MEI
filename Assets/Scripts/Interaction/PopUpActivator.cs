@@ -9,6 +9,7 @@ public class PopUpActivator : MonoBehaviour
 {
     private GameObject _popUpCanvas;
     [SerializeField] private Image _image;
+    private bool _isExpanded = false;
 
     private void Awake()
     {
@@ -20,8 +21,7 @@ public class PopUpActivator : MonoBehaviour
     {
         SetPopUpImage(sprite);
         OpenPopUp();
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
-        ClosePopUp();     
+        yield return new WaitUntil(() => !_isExpanded);  
     }
 
     private void SetPopUpImage(Sprite image)
@@ -32,10 +32,12 @@ public class PopUpActivator : MonoBehaviour
     private void OpenPopUp()
     {
         _popUpCanvas.SetActive(true);
+        _isExpanded = true;
     }
 
-    private void ClosePopUp()
+    public void ClosePopUp()
     {
         _popUpCanvas.SetActive(false);
+        _isExpanded = false;
     }
 }

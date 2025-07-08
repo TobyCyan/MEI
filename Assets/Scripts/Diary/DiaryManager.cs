@@ -107,4 +107,6 @@ public class DiaryManager : MonoBehaviour
         _isDiaryOpened = false;
         _diaryUi.gameObject.SetActive(false);
     }
+
+    public bool IsDiaryOpened() => _isDiaryOpened;
 }

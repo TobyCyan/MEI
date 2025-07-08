@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class OpenDiaryInteractable : Interactable
 {
@@ -10,12 +9,12 @@ public class OpenDiaryInteractable : Interactable
 
     void Start()
     {
-        Assert.IsNotNull(_diaryManager, "Diary Manager Not Attached To: " + name);
+        Debug.Assert(_diaryManager != null, "Diary Manager Not Attached To: " + name);
     }
 
     public override IEnumerator Interact()
     {
         _diaryManager.OpenDiary(_openEntryId);
-        yield break;
+        yield return new WaitUntil(() => !_diaryManager.IsDiaryOpened());
     }
 }
