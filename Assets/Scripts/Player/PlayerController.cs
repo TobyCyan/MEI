@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isFacingRight = true;
     [SerializeField] private float destinationDistanceLeft = 0.000f;
     private bool _isWalking = false;
+    private bool _isRightMouseHeld = false;
     private Vector3 _target;
     private Vector3 _destination;
     private bool _isActive = true;
@@ -78,7 +79,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(_isOnMission && targetInteractableTransform != null)
+        _isRightMouseHeld = Mouse.current.rightButton.isPressed;
+
+        if (_isOnMission && targetInteractableTransform != null)
 {
             float distance = Mathf.Abs(transform.position.x - targetInteractableTransform.position.x);
             //Debug.Log(distance);
@@ -176,10 +179,14 @@ public class PlayerController : MonoBehaviour
     {
         if (_walkingAudio == null) return;
 
-        if (_isWalking && !_walkingAudio.isPlaying)
+        if (_isWalking && !_walkingAudio.isPlaying && !_isRightMouseHeld)
+        {
             _walkingAudio.Play();
-        else if (!_isWalking && _walkingAudio.isPlaying)
+        }        
+        else if ((!_isWalking || _isRightMouseHeld) && _walkingAudio.isPlaying)
+        {
             _walkingAudio.Stop();
+        }
     }
 
     public void SetTarget(Vector3 target)
@@ -305,29 +312,6 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
-    //public bool SimulateClickToMove(Transform targetTransform)
-    //{
-    //    Debug.Log("simulated");
-    //    Vector3 playerPos = transform.position;
-    //    _destination = targetTransform.position;
-    //    Vector3 targetPos = new Vector3(_destination.x, playerPos.y, playerPos.z);
-
-    //    UsedItem = null;
-    //    SetTarget(targetPos);
-    //    SetFocus(GetInteractableAtPosition(_destination));
-    
-    //    UpdateIsFacingRight();
-    //    Debug.Log(_isFacingRight);
-    //    FlipSprite();
-    //    return true;
-    //}
-
-<<<<<<< HEAD
-    public void ResetTarget()
-    {
-        SetTarget(transform.position);
-    }
-
     #region Functions Needed for CryingMei
 
     public bool IsWalkingSoundPlaying()
@@ -337,6 +321,4 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-=======
->>>>>>> main
 }
