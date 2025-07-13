@@ -7197,7 +7197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac7563a6e66d4642ba90d23f8e96266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 2
   completeMannequin: {fileID: -1190812274, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   halfMannequin: {fileID: -348803525, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 2010859811}
@@ -8217,7 +8217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac7563a6e66d4642ba90d23f8e96266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4
   completeMannequin: {fileID: -1261543872, guid: f40c2e51b58dba8489fd6c9fae158cfe, type: 3}
   halfMannequin: {fileID: -1217738809, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 1937462542}
@@ -9310,7 +9310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac7563a6e66d4642ba90d23f8e96266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
+  id: 1
   completeMannequin: {fileID: 1146994774, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   halfMannequin: {fileID: 1146994774, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 26545997}
@@ -9653,6 +9653,9 @@ GameObject:
   - component: {fileID: 883996104}
   - component: {fileID: 883996103}
   - component: {fileID: 883996108}
+  - component: {fileID: 883996111}
+  - component: {fileID: 883996110}
+  - component: {fileID: 883996109}
   m_Layer: 0
   m_Name: LockManager
   m_TagString: Untagged
@@ -9678,7 +9681,7 @@ MonoBehaviour:
   - {fileID: 321673461}
   - {fileID: 1244918018}
   - {fileID: 579073988}
-  _correctNumberCombination: 0400000001000000020000000000000003000000
+  _correctNumberCombination: 0400000003000000020000000100000000000000
   _audioSource: {fileID: 883996101}
   _audioSource2: {fileID: 883996100}
   _accessGrantedSfx: {fileID: 8300000, guid: 3fad502eb95683c4da67a1583e86541d, type: 3}
@@ -10035,6 +10038,51 @@ MonoBehaviour:
   notificationPanel: {fileID: 1823255140}
   notificationText: {fileID: 1529676510}
   duration: 2
+--- !u!114 &883996109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883996098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf19341b0892e8e4482b2a58e3bd886f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: yx_DarkMannequinRoom
+  _newScenePlayerPosX: 0
+  _shouldResumePlayerMovement: 1
+--- !u!114 &883996110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883996098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d159a1b12bb7d847a62925920f0a908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeEffect: {fileID: 88731060}
+  _isPingPong: 1
+  _pauseDuration: 0.75
+  _disableWhenFinish: 1
+  _isInvisibleTransitionObject: 0
+  _type: 2
+--- !u!114 &883996111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883996098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497479a87de0dc04a9bd96b6910e2843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &944427526 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3425917940864699284, guid: 9aed514b1bbe66c4e82149d4ddfc3fd6, type: 3}
@@ -11154,7 +11202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac7563a6e66d4642ba90d23f8e96266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
+  id: 3
   completeMannequin: {fileID: -1605077190, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   halfMannequin: {fileID: 1365755280, guid: e53e0b77059d80b438d8124686ca6ff4, type: 3}
   mannequinBase: {fileID: 560803618}
@@ -13601,7 +13649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1937462543
 Transform:
   m_ObjectHideFlags: 0
