@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.SceneManagement;
 
 public class MannequinInteraction : MonoBehaviour
 {
@@ -40,8 +42,10 @@ public class MannequinInteraction : MonoBehaviour
     [SerializeField] private List<DialogueInfoStruct> _dialogueInfo; // Set this in Inspector for the specific dialogue
     [SerializeField] private InteractionManager Interactor;
     [SerializeField] private NotificationManager _notificationManager;
-    private bool _hasTriggered = false;
 
+    //[SerializeField] private SceneTransition scenePlayer;
+
+    private bool _hasTriggered = false;
     private int _clickCount = 0;
     private bool allFiveEquipped = false;
     private SpecialMannequin[] _selectedMannequins = new SpecialMannequin[2];
@@ -135,21 +139,30 @@ public class MannequinInteraction : MonoBehaviour
 
     private IEnumerator SwapPositions(Transform t1, Transform t2)
     {
-        Vector3 startPos1 = t1.position;
-        Vector3 startPos2 = t2.position;
         float elapsed = 0f;
+        float duration = swapDuration;
 
-        while (elapsed < swapDuration)
+        float startX1 = t1.position.x;
+        float startX2 = t2.position.x;
+
+        Vector3 fixedPos1 = t1.position;
+        Vector3 fixedPos2 = t2.position;
+
+        while (elapsed < duration)
         {
-            float t = elapsed / swapDuration;
-            t1.position = Vector3.Lerp(startPos1, startPos2, t);
-            t2.position = Vector3.Lerp(startPos2, startPos1, t);
+            float t = elapsed / duration;
+
+            // Interpolate only X-axis
+            t1.position = new Vector3(Mathf.Lerp(startX1, startX2, t), fixedPos1.y, fixedPos1.z);
+            t2.position = new Vector3(Mathf.Lerp(startX2, startX1, t), fixedPos2.y, fixedPos2.z);
+
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        t1.position = startPos2;
-        t2.position = startPos1;
+        // Final positions (X swapped, YZ unchanged)
+        t1.position = new Vector3(startX2, fixedPos1.y, fixedPos1.z);
+        t2.position = new Vector3(startX1, fixedPos2.y, fixedPos2.z);
     }
 
     private void CheckResult()
@@ -162,8 +175,14 @@ public class MannequinInteraction : MonoBehaviour
                 return;
             }
         }
-
         _audioSource.PlayOneShot(_accessGrantedSfx);
+        //if (scenePlayer != null)
+        //{
+        //    Debug.Log("transitioning");
+        //    scenePlayer.Interact();
+        //    Debug.Log("done");
+        //}
+        SceneManager.LoadScene(17);
     }
 
     private bool AllMannequinsEquipped()
