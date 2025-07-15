@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpecialMannequin : ItemInteractable, IClickable
+public class SpecialMannequin : Mannequin
 {
     [SerializeField] private int id;
     [SerializeField] private Sprite completeMannequin;
     [SerializeField] private Sprite halfMannequin;
     [SerializeField] private GameObject mannequinBase;
     [SerializeField] private Item requiredItem;
-
+    [SerializeField] private float upDistance = 0.4f;
     [SerializeField] private bool isEquipped = false;
     private bool allEquipped = false;
 
@@ -94,7 +94,7 @@ public class SpecialMannequin : ItemInteractable, IClickable
     private IEnumerator RiseSmoothly()
     {
         Vector3 startPos = transform.position;
-        Vector3 targetPos = startPos + new Vector3(0, 0.8f, 0);
+        Vector3 targetPos = startPos + new Vector3(0, upDistance, 0);
         float duration = 0.8f;  // Time in seconds to complete the rise
         float elapsed = 0f;
 
